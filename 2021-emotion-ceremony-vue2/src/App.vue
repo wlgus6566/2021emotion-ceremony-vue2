@@ -3,44 +3,56 @@
     <Loading :loading="loadingStatus"></Loading>
     <div id="wrap">
       <div class="section1">
-        <img src="@/assets/images/kv.jpg" alt="">
+        <div class="container">
+           <img src="@/assets/images/kv.jpg" alt="">
+        </div>
       </div>
-      <ul class="taplist">
-        <li>
-          <a href="javascript:void(0)" data-section = "section1" v-on:click="MoveScroll">섹션1</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section = "section2" v-on:click="MoveScroll">섹션2</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section = "section3" v-on:click="MoveScroll">섹션3</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section = "section4" v-on:click="MoveScroll">섹션4</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section = "section5" v-on:click="MoveScroll">섹션5</a>
-        </li>
-      </ul>
+      <div style="background: #000;">
+        <ul class="taplist">
+          <li>
+            <a href="javascript:void(0)" data-section = "section1" v-on:click="MoveScroll">섹션1</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section = "section2" v-on:click="MoveScroll">섹션2</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section = "section3" v-on:click="MoveScroll">섹션3</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section = "section4" v-on:click="MoveScroll">섹션4</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section = "section5" v-on:click="MoveScroll">섹션5</a>
+          </li>
+        </ul>
+      </div>
       <div class="section2">
-        <img src="@/assets/images/tit-01.png" alt="">
+        <div class="container">
+          <img src="@/assets/images/tit-01.png" alt="">
+        </div>
       </div>
       <div class="section3">
-        <img src="@/assets/images/tit-02.png" alt="">
-        <div class="flip-wrap" >
-          <MbtiItem :items="mbtilist"/>
+        <div class="container">
+          <img src="@/assets/images/tit-02.png" alt="">
+          <div class="flip-wrap" >
+            <MbtiItem :items="mbtilist"/>
+          </div>
         </div>
       </div>
       <div class="section4">
-        <img src="@/assets/images/tit-03.png" alt="">
-        <div style="font-size: 50px; text-align: center; padding: 100px 0;">
-          스와이퍼 적용
+        <div class="container">
+          <img src="@/assets/images/tit-03.png" alt="">
+          <div style="font-size: 50px; text-align: center; padding: 100px 0;">
+            스와이퍼 적용
+          </div>
         </div>
       </div>
       <div class="section5">
-        <img src="@/assets/images/tit-04.png" alt="">
-        <div style="font-size: 50px; text-align: center; padding: 100px 0;">
-          스와이퍼 적용
+        <div class="container">
+          <img src="@/assets/images/tit-04.png" alt="">
+          <div style="font-size: 50px; text-align: center; padding: 100px 0;">
+            스와이퍼 적용
+          </div>
         </div>
       </div>
     </div>
@@ -387,14 +399,16 @@ export default {
 body.modal-open {
   overflow: hidden;
 }
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 button {
   width: 200px;
   height: 50px;
   border: 1px solid #000;
 }
 #wrap {
-  max-width: 1920px;
-  min-width: 1280px;
   width: 100%;
   margin: 0 auto;
 }
@@ -402,7 +416,7 @@ button {
   text-align: center;
 }
 #wrap .section1 {
-  background: darksalmon;
+  background: #0e0e10;
 }
 #wrap .section2 {
   background: #e3e1e6;
