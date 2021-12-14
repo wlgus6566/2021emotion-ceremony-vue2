@@ -7,8 +7,7 @@
            <img src="@/assets/images/kv.jpg" alt="">
         </div>
       </div>
-      <div style="background: #000;">
-        <ul class="taplist">
+      <ul class="taplist">
           <li>
             <a href="javascript:void(0)" data-section = "section1" v-on:click="MoveScroll">섹션1</a>
           </li>
@@ -25,7 +24,6 @@
             <a href="javascript:void(0)" data-section = "section5" v-on:click="MoveScroll">섹션5</a>
           </li>
         </ul>
-      </div>
       <div class="section2">
         <div class="container">
           <img src="@/assets/images/tit-01.png" alt="">
