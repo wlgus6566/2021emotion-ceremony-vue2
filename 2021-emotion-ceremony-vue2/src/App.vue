@@ -26,7 +26,35 @@
         </ul>
       <div class="section2">
         <div class="container">
+<<<<<<< HEAD
           <img src="@/assets/images/tit-01.png" alt="">
+=======
+          페이지네이션
+          <ul class="wordsTab">
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="a">
+                aaa
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="b">
+                bbb
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="c">
+                ccc
+              </label>
+            </li>
+          </ul>
+          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
+            <li>{{item.body}}</li>
+          </ul>
+          <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
+>>>>>>> 24647265632b0d1164b11fc5bba9cc380f47a6c5
         </div>
       </div>
       <div class="section3">
@@ -65,7 +93,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { fetchUser, fetchWords } from '@/api';
+=======
+import { fetchUser,fetchWords } from '@/api';
+>>>>>>> 24647265632b0d1164b11fc5bba9cc380f47a6c5
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
