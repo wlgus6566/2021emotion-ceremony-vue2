@@ -27,6 +27,7 @@
       <div class="section2">
         <div class="container">
           <!-- <img src="@/assets/images/tit-01.png" alt="">-->
+          페이지네이션
           <ul class="wordsTab">
             <li>
               <label>
