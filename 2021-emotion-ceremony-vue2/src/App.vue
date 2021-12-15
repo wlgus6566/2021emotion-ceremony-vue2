@@ -93,11 +93,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import { fetchUser, fetchWords } from '@/api';
-=======
-import { fetchUser,fetchWords } from '@/api';
->>>>>>> 24647265632b0d1164b11fc5bba9cc380f47a6c5
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
