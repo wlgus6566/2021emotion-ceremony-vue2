@@ -1,5 +1,12 @@
 <template>
   <div>
+    <span v-bind:class="{ active: showFloat }" class="floating">
+      <span class="santa"
+      >
+        싼타사진</span>
+      <span class="message">
+        투표해주세요투표해줘어어어</span>
+    </span>
     <Loading :loading="loadingStatus"></Loading>
     <div id="wrap">
       <div class="section1">
@@ -8,22 +15,22 @@
         </div>
       </div>
       <ul class="taplist">
-        <li>
-          <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
-        </li>
-      </ul>
+          <li>
+            <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
+          </li>
+        </ul>
       <div class="section2">
         <div class="container">
           <!-- <img src="@/assets/images/tit-01.png" alt="">-->
@@ -77,20 +84,7 @@
           </div>
         </div>
       </div>
-      <div class="section6">
-        <div class="container">
-          <section6>
 
-          </section6>
-        </div>
-      </div>
-      <div class="section7">
-        <div class="container">
-          <section7>
-
-          </section7>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -101,18 +95,12 @@ import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
 
-//
-import section6 from "./components/section6";
-import section7 from "./components/section7";
-
 export default {
   name: 'App',
   components: {
     Loading,
     MbtiItem,
-    Pagination,
-    section6,
-    section7
+    Pagination
   },
   data() {
     return {
@@ -408,7 +396,7 @@ export default {
               "핵인싸유형~~~~~~"
         },
       ],
-
+      showFloat: false,
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
@@ -423,6 +411,7 @@ export default {
     };
   },
   created() {
+    window.addEventListener('scroll', this.showFloating);
     this.startSpinner();
     fetchUser()
         .then( (response) => {
@@ -470,8 +459,19 @@ export default {
       const locateSection =  document.querySelector(`.${locate}`);
       const targetBoxOffset = locateSection.offsetTop;
       window.scrollTo({top:targetBoxOffset, left:0, behavior:'smooth'});
-    }
+    },
+    showFloating() {
+      const Section3Offset = document.querySelector('.section3').offsetTop;
+      if ( window.scrollY > Section3Offset) {
+        this.showFloat = true;
+      } else {
+        this.showFloat = false;
+      }
+    },
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.showFloating);
+  }
 }
 </script>
 
@@ -547,4 +547,54 @@ button {
 .pagination li.active {background-color:red}
 .pagination li + li {margin-left:10px;}
 .VuePagination__count {display:none}
+
+.floating {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 0.4s;
+}
+.floating.active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.floating .santa {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: #f40009;
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.floating:hover .santa {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: 0.4s;
+}
+.floating .message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: palevioletred;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 0.4s;
+}
+.floating:hover .message {
+  transform: translateY(0%);
+  opacity: 1;
+  transition: 0.4s;
+}
 </style>
