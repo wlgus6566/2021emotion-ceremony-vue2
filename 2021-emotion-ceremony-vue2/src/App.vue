@@ -15,22 +15,22 @@
         </div>
       </div>
       <ul class="taplist">
-          <li>
-            <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
-          </li>
-        </ul>
+        <li>
+          <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
+        </li>
+      </ul>
       <div class="section2">
         <div class="container">
           <!-- <img src="@/assets/images/tit-01.png" alt="">-->
@@ -85,6 +85,20 @@
         </div>
       </div>
 
+      <div class="section6">
+        <div class="container">
+          <section6>
+
+          </section6>
+        </div>
+      </div>
+      <div class="section7">
+        <div class="container">
+          <section7>
+
+          </section7>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -95,17 +109,24 @@ import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
 
+//
+import section6 from "./components/section6";
+import section7 from "./components/section7";
+
 export default {
   name: 'App',
   components: {
     Loading,
     MbtiItem,
-    Pagination
+    Pagination,
+    section6,
+    section7
   },
   data() {
     return {
       users: [],
       loadingStatus: false,
+      showFloat: false,
       mbtilist: [
         {
           mbti: "intj",
@@ -396,7 +417,6 @@ export default {
               "핵인싸유형~~~~~~"
         },
       ],
-      showFloat: false,
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
