@@ -26,9 +26,7 @@
         </ul>
       <div class="section2">
         <div class="container">
-<<<<<<< HEAD
           <img src="@/assets/images/tit-01.png" alt="">
-=======
           페이지네이션
           <ul class="wordsTab">
             <li>
@@ -54,7 +52,6 @@
             <li>{{item.body}}</li>
           </ul>
           <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
->>>>>>> 24647265632b0d1164b11fc5bba9cc380f47a6c5
         </div>
       </div>
       <div class="section3">
