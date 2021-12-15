@@ -77,6 +77,19 @@
           </div>
         </div>
       </div>
+      <div class="section5">
+        <div class="container">
+          <img src="@/assets/images/tit-04.png" alt="">
+          <div style="font-size: 50px; text-align: center; padding: 100px 0;">
+            스와이퍼 적용
+          </div>
+        </div>
+      </div>
+      <div class="section6">
+        <div class="container">
+          <section6></section6>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -86,13 +99,15 @@ import { fetchUser,fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
+import section6 from '@/components/section6';
 
 export default {
   name: 'App',
   components: {
     Loading,
     MbtiItem,
-    Pagination
+    Pagination,
+    section6
   },
   data() {
     return {
