@@ -126,6 +126,7 @@ export default {
     return {
       users: [],
       loadingStatus: false,
+      showFloat: false,
       mbtilist: [
         {
           mbti: "intj",
@@ -416,7 +417,6 @@ export default {
               "핵인싸유형~~~~~~"
         },
       ],
-
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
