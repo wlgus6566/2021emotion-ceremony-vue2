@@ -8,22 +8,22 @@
         </div>
       </div>
       <ul class="taplist">
-          <li>
-            <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
-          </li>
-          <li>
-            <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
-          </li>
-        </ul>
+        <li>
+          <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
+        </li>
+      </ul>
       <div class="section2">
         <div class="container">
           <!-- <img src="@/assets/images/tit-01.png" alt="">-->
@@ -77,17 +77,11 @@
           </div>
         </div>
       </div>
-      <div class="section5">
-        <div class="container">
-          <img src="@/assets/images/tit-04.png" alt="">
-          <div style="font-size: 50px; text-align: center; padding: 100px 0;">
-            스와이퍼 적용
-          </div>
-        </div>
-      </div>
       <div class="section6">
         <div class="container">
-          <section6></section6>
+          <section6>
+
+          </section6>
         </div>
       </div>
     </div>
@@ -99,15 +93,14 @@ import { fetchUser,fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
-import section6 from '@/components/section6';
+import section6 from "./components/section6";
 
 export default {
   name: 'App',
   components: {
     Loading,
     MbtiItem,
-    Pagination,
-    section6
+    Pagination
   },
   data() {
     return {
