@@ -26,7 +26,6 @@
         </ul>
       <div class="section2">
         <div class="container">
-          <!-- <img src="@/assets/images/tit-01.png" alt="">-->
           페이지네이션
           <ul class="wordsTab">
             <li>
@@ -78,6 +77,13 @@
           </div>
         </div>
       </div>
+      <div class="section6">
+        <div class="container">
+          <section6>
+
+          </section6>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -87,13 +93,15 @@ import { fetchUser,fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
+import section6 from "./components/section6";
 
 export default {
   name: 'App',
   components: {
     Loading,
     MbtiItem,
-    Pagination
+    Pagination,
+    section6
   },
   data() {
     return {
@@ -388,19 +396,7 @@ export default {
           desc:
               "핵인싸유형~~~~~~"
         },
-      ],
-
-      words: {
-        page: 1, // 현재페이지
-        size: 10, // 한페이지에 뿌려줄 갯수
-        sort: 'a', // 유저가 고른 탭의 value
-        list: [], // 백엔드에서 받은 글 목록
-        total: 2000, // 백엔드에서 받은 전체 글의 갯수
-        options: {
-          texts: { count: '' },
-          chunk: 5 // pagination 의 max 페이지 수
-        },
-      },
+      ]
     };
   },
   created() {
