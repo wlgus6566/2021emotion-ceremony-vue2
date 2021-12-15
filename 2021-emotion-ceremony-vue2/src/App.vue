@@ -1,5 +1,12 @@
 <template>
   <div>
+    <span v-bind:class="{ active: showFloat }" class="floating">
+      <span class="santa"
+      >
+        싼타사진</span>
+      <span class="message">
+        투표해주세요투표해줘어어어</span>
+    </span>
     <Loading :loading="loadingStatus"></Loading>
     <div id="wrap">
       <div class="section1">
@@ -77,6 +84,7 @@
           </div>
         </div>
       </div>
+
       <div class="section6">
         <div class="container">
           <section6>
@@ -423,6 +431,7 @@ export default {
     };
   },
   created() {
+    window.addEventListener('scroll', this.showFloating);
     this.startSpinner();
     fetchUser()
         .then( (response) => {
@@ -470,8 +479,19 @@ export default {
       const locateSection =  document.querySelector(`.${locate}`);
       const targetBoxOffset = locateSection.offsetTop;
       window.scrollTo({top:targetBoxOffset, left:0, behavior:'smooth'});
-    }
+    },
+    showFloating() {
+      const Section3Offset = document.querySelector('.section3').offsetTop;
+      if ( window.scrollY > Section3Offset) {
+        this.showFloat = true;
+      } else {
+        this.showFloat = false;
+      }
+    },
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.showFloating);
+  }
 }
 </script>
 
@@ -547,4 +567,54 @@ button {
 .pagination li.active {background-color:red}
 .pagination li + li {margin-left:10px;}
 .VuePagination__count {display:none}
+
+.floating {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 0.4s;
+}
+.floating.active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.floating .santa {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: #f40009;
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.floating:hover .santa {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: 0.4s;
+}
+.floating .message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: palevioletred;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: 0.4s;
+}
+.floating:hover .message {
+  transform: translateY(0%);
+  opacity: 1;
+  transition: 0.4s;
+}
 </style>
