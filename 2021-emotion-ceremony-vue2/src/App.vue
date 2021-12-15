@@ -84,6 +84,13 @@
           </section6>
         </div>
       </div>
+      <div class="section7">
+        <div class="container">
+          <section7>
+
+          </section7>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -93,7 +100,10 @@ import { fetchUser,fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
+
+//
 import section6 from "./components/section6";
+import section7 from "./components/section7";
 
 export default {
   name: 'App',
@@ -101,7 +111,8 @@ export default {
     Loading,
     MbtiItem,
     Pagination,
-    section6
+    section6,
+    section7
   },
   data() {
     return {
