@@ -53,6 +53,13 @@
           </div>
         </div>
       </div>
+      <div class="section6">
+        <div class="container">
+          <section6>
+
+          </section6>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -61,12 +68,14 @@
 import { fetchUser } from './api/index.js';
 import MbtiItem from './components/MbtiItem'
 import Loading from "./components/Loading";
+import section6 from "./components/section6";
 
 export default {
   name: 'App',
   components: {
     Loading,
-    MbtiItem
+    MbtiItem,
+    section6
   },
   data() {
     return {
