@@ -7,8 +7,12 @@ const config = {
 function fetchUser() {
     return axios.get(`${config.baseUrl}users/`);
 }
+function fetchWords() {
+    return axios.get(`${config.baseUrl}posts/`);
+}
 
 export {
-    fetchUser
+    fetchUser,
+    fetchWords
 }
 

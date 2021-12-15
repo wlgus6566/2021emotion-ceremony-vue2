@@ -9,24 +9,48 @@
       </div>
       <ul class="taplist">
           <li>
-            <a href="javascript:void(0)" data-section = "section1" v-on:click="MoveScroll">섹션1</a>
+            <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
           </li>
           <li>
-            <a href="javascript:void(0)" data-section = "section2" v-on:click="MoveScroll">섹션2</a>
+            <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
           </li>
           <li>
-            <a href="javascript:void(0)" data-section = "section3" v-on:click="MoveScroll">섹션3</a>
+            <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
           </li>
           <li>
-            <a href="javascript:void(0)" data-section = "section4" v-on:click="MoveScroll">섹션4</a>
+            <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
           </li>
           <li>
-            <a href="javascript:void(0)" data-section = "section5" v-on:click="MoveScroll">섹션5</a>
+            <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
           </li>
         </ul>
       <div class="section2">
         <div class="container">
-          <img src="@/assets/images/tit-01.png" alt="">
+          <!-- <img src="@/assets/images/tit-01.png" alt="">-->
+          <ul class="wordsTab">
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="a">
+                aaa
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="b">
+                bbb
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="c">
+                ccc
+              </label>
+            </li>
+          </ul>
+          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
+            <li>{{item.body}}</li>
+          </ul>
+          <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
         </div>
       </div>
       <div class="section3">
@@ -58,19 +82,21 @@
 </template>
 
 <script>
-import { fetchUser } from './api/index.js';
-import MbtiItem from './components/MbtiItem'
-import Loading from "./components/Loading";
+import { fetchUser,fetchWords } from '@/api';
+import MbtiItem from '@/components/MbtiItem'
+import Loading from "@/components/Loading";
+import Pagination from 'vue-pagination-2';
 
 export default {
   name: 'App',
   components: {
     Loading,
-    MbtiItem
+    MbtiItem,
+    Pagination
   },
   data() {
     return {
-      users : [],
+      users: [],
       loadingStatus: false,
       mbtilist: [
         {
@@ -361,7 +387,19 @@ export default {
           desc:
               "핵인싸유형~~~~~~"
         },
-      ]
+      ],
+
+      words: {
+        page: 1, // 현재페이지
+        size: 10, // 한페이지에 뿌려줄 갯수
+        sort: 'a', // 유저가 고른 탭의 value
+        list: [], // 백엔드에서 받은 글 목록
+        total: 2000, // 백엔드에서 받은 전체 글의 갯수
+        options: {
+          texts: { count: '' },
+          chunk: 5 // pagination 의 max 페이지 수
+        },
+      },
     };
   },
   created() {
@@ -373,8 +411,33 @@ export default {
           /*         this.$store.commit("MU_EMAIL", response.data);*/
         })
         .catch(error => console.log(error));
+    this.getWords();
+  },
+  watch: {
+    'this.words.page'(){
+      this.getWords()
+    },
+    'this.words.sort'(){
+      this.getWords()
+    },
   },
   methods: {
+    async getWords(){
+      try {
+        this.startSpinner();
+        const {data : response} = await fetchWords({
+          page : this.words.page,
+          size : this.words.size,
+          sort : this.words.sort,
+        })
+        //this.words.list = response.list;
+        //this.words.total = response.total;
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.endSpinner();
+      }
+    },
     startSpinner() {
       console.log('패치');
       this.loadingStatus = true;
@@ -457,4 +520,11 @@ button {
   width: 100%;
   text-align: center;
 }
+
+.wordsTab {display:flex; justify-content:center}
+.pagination {display:flex; justify-content:center}
+.pagination li a {padding:0 10px;}
+.pagination li.active {background-color:red}
+.pagination li + li {margin-left:10px;}
+.VuePagination__count {display:none}
 </style>
