@@ -93,7 +93,8 @@ export default {
   components: {
     Loading,
     MbtiItem,
-    Pagination
+    Pagination,
+    section6
   },
   data() {
     return {
