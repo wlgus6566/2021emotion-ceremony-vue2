@@ -212,18 +212,27 @@ export default {
 <style lang="scss" scoped>
 .swiper-container {
   margin-top: 100px;
+  padding: 0 130px;
 }
 .swiper-slide {
 }
-.swiper-button-next {
+.swiper-button-prev, .swiper-button-next {
+  width: 50px;
+  height: 86px;
+  right: -22px;
 }
 .swiper-button-prev:before, .swiper-button-next:after {
-  width: 86px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   background: url("../assets/images/arrow-r.png") no-repeat center/cover;
   font-size: 0;
 }
-
+.swiper-container .swiper-button-prev:after {
+  width: 100%;
+  height: 100%;
+  background: url("../assets/images/arrow-l.png") no-repeat center/cover;
+  font-size: 0;
+}
 .top-area {
   display: flex;
   width: 100%;

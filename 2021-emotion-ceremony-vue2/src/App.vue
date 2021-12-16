@@ -32,30 +32,45 @@
 
       <div class="section2">
         <div class="container">
-           <img src="@/assets/images/tit-01.png" alt="">
-            <survey-slider/>
+          <img src="@/assets/images/tit-01.png" alt="">
+          <survey-slider/>
           <ul class="wordsTab">
             <li>
               <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="a">
-                aaa
+                <input type="radio" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+                <img src="@/assets/images/txt-tab-nor-01.png" alt="2021년은 나에게">
+                <img class="tab-img" src="@/assets/images/txt-tab-prs-01.png" alt="2021년은 나에게">
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="b">
-                bbb
+                <input type="radio" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
+                <img src="@/assets/images/txt-tab-nor-02.png" alt="코로나가 끝나면">
+                <img class="tab-img" src="@/assets/images/txt-tab-prs-02.png" alt="코로나가 끝나면">
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="c">
-                ccc
+                <input type="radio" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
+                <img src="@/assets/images/txt-tab-nor-03.png" alt="위드코로나 추천 취미">
+                <img class="tab-img" src="@/assets/images/txt-tab-prs-03.png" alt="위드코로나 추천 취미">
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
+                <img src="@/assets/images/txt-tab-nor-04.png" alt="이모션글로벌에게 바란다">
+                <img class="tab-img" src="@/assets/images/txt-tab-prs-04.png" alt="이모션글로벌에게 바란다">
               </label>
             </li>
           </ul>
-          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
+<!--          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
             <li>{{item.body}}</li>
+          </ul>-->
+           <ul class="wordsList">
+            <li>
+
+            </li>
           </ul>
           <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
         </div>
@@ -497,7 +512,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import url('assets/css/reset.css');
 body {
   font-family: 'Noto Sans KR', sans-serif;
@@ -528,7 +543,9 @@ button {
 }
 #wrap .section2 {
   background: #e3e1e6;
-  height: 1200px;
+}
+#wrap .section2 .container {
+  width: 1540px;
 }
 #wrap .section3 {
   background: #d7d7db;
@@ -582,7 +599,41 @@ button {
   text-align: center;
 }
 
-.wordsTab {display:flex; justify-content:center}
+.wordsTab {
+  display:flex;
+  justify-content:center;
+  width: 100%;
+  background:#7e7d80;
+  li {
+    position: relative;
+    width: 25%;
+    padding: 45px 0;
+    input {
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      border:0;
+    }
+  }
+}
+.tab-img {
+  display: none;
+}
+.wordsTab {
+  margin-top: 100px;
+  li:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    left: 0;
+    background: #fff;
+  }
+}
 .pagination {display:flex; justify-content:center}
 .pagination li a {padding:0 10px;}
 .pagination li.active {background-color:red}
