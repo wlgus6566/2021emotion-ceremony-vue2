@@ -99,6 +99,11 @@
           </section7>
         </div>
       </div>
+      <div class="section8">
+        <div class="container">
+          <section8/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -112,10 +117,12 @@ import Pagination from 'vue-pagination-2';
 //
 import section6 from "./components/section6";
 import section7 from "./components/section7";
+import Section8 from "@/components/section8";
 
 export default {
   name: 'App',
   components: {
+    Section8,
     Loading,
     MbtiItem,
     Pagination,
@@ -540,6 +547,11 @@ button {
   background: #d7d7db;
   height: 700px;
 }
+#wrap .section6 {
+  background: coral;
+  height: 700px;
+  padding: 100px 0;
+}
 .taplist {
   position: sticky;
   top: 0;
@@ -578,6 +590,7 @@ button {
   transform: translateY(50%);
   opacity: 0;
   transition: 0.4s;
+  z-index: 999;
 }
 .floating.active {
   opacity: 1;
