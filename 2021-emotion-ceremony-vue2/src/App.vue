@@ -10,9 +10,7 @@
     <Loading :loading="loadingStatus"></Loading>
     <div id="wrap">
       <div class="section1">
-        <div class="container">
-           <img src="@/assets/images/kv.jpg" alt="">
-        </div>
+         <img src="@/assets/images/kv.jpg" alt="">
       </div>
       <ul class="taplist">
         <li>
@@ -31,12 +29,11 @@
           <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
         </li>
       </ul>
+
       <div class="section2">
         <div class="container">
            <img src="@/assets/images/tit-01.png" alt="">
-          <div class="word-swiper-wrap">
             <survey-slider/>
-          </div>
           <ul class="wordsTab">
             <li>
               <label>
@@ -103,6 +100,7 @@
 </template>
 
 <script>
+
 import { fetchUser, fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
@@ -501,17 +499,15 @@ export default {
 
 <style>
 @import url('assets/css/reset.css');
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0 auto;
+}
 body.modal-open {
   overflow: hidden;
 }
-body {
-  margin: 0 auto;
-}
-#wrap {
-
-}
 .container {
-  max-width: 1280px;
+  width: 1280px;
   margin: 0 auto;
   box-sizing: border-box;
 }
