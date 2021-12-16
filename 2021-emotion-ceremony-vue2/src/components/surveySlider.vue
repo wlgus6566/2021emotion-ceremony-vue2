@@ -5,17 +5,150 @@
   >
 
     <swiper-slide>
-      <img src="http://placehold.it/580X580"/>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
     </swiper-slide>
     <swiper-slide>
-      <img src="http://placehold.it/580X580"/>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
     </swiper-slide>
     <swiper-slide>
-      <img src="http://placehold.it/580X580"/>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김모션</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
+          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+        </div>
+      </div>
+
     </swiper-slide>
 
-    <!-- pagination -->
-    <div class="swiper-pagination" slot="pagination"></div>
 
     <!-- navigation -->
     <div class="swiper-button-prev swiper-btn-prev" slot="button-prev"></div>
@@ -46,6 +179,8 @@ export default {
         // autoplay:{
         //   delay:1000
         // },
+        slidesPerView: 2,
+        spaceBetween: 120,
         pagination: {
           el: '.swiper-pagination'
         },
@@ -75,11 +210,105 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.swiper-container {
+  margin-top: 100px;
+}
 .swiper-slide {
+}
+.swiper-button-next {
+}
+.swiper-button-prev:before, .swiper-button-next:after {
+  width: 86px;
+  height: 50px;
+  background: url("../assets/images/arrow-r.png") no-repeat center/cover;
+  font-size: 0;
+}
+
+.top-area {
   display: flex;
-  justify-content: center;
+  width: 100%;
   align-items: center;
-  text-align: center;
-  font-weight: bold;
+  padding-left: 10px;
+  .top-area-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    overflow: hidden;
+  }
+  .top-area-desc {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-left: 35px;
+    .department {
+      color: #999999;
+      font-size: 40px;
+      line-height: 50px;
+      font-weight: bold;
+    }
+    .name {
+      margin-top: 10px;
+      color: #000;
+      font-size: 70px;
+      line-height: 1;
+      font-weight: 900;
+    }
+  }
+}
+.bottom-area {
+  position: relative;
+  height: 330px;
+  padding: 70px 92px 62px;
+  margin-top: 30px;
+  background: #fff;
+  box-sizing: border-box;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -19px;
+    left: 275px;
+    border-top: 0 solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #fff;
+  }
+  .question {
+    color: #666;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    font-weight: 500;
+  }
+  .answer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #e51f2f;
+    font-size: 56px;
+    line-height: 70px;
+    font-weight: bold;
+    &::before {
+      content: "“";
+      position: absolute;
+      top: 18px;
+      left: -47px;
+      font-size: 120px;
+      color: #aaa;
+      opacity: .3;
+      font-weight: bold;
+    }
+    &::after {
+      content: "”";
+      position: absolute;
+      top: 33px;
+      right: -47px;
+      font-size: 120px;
+      color: #aaa;
+      opacity: .3;
+      font-weight: bold;
+    }
+  }
 }
 </style>
