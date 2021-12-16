@@ -35,7 +35,7 @@
         <div class="container">
            <img src="@/assets/images/tit-01.png" alt="">
           <div class="word-swiper-wrap">
-
+            <survey-slider/>
           </div>
           <ul class="wordsTab">
             <li>
@@ -112,10 +112,12 @@ import Pagination from 'vue-pagination-2';
 import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
+import SurveySlider from "@/components/surveySlider";
 
 export default {
   name: 'App',
   components: {
+    SurveySlider,
     Loading,
     MbtiItem,
     Pagination,
