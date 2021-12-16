@@ -33,7 +33,10 @@
       </ul>
       <div class="section2">
         <div class="container">
-          <!-- <img src="@/assets/images/tit-01.png" alt="">-->
+           <img src="@/assets/images/tit-01.png" alt="">
+          <div class="word-swiper-wrap">
+
+          </div>
           <ul class="wordsTab">
             <li>
               <label>
@@ -68,66 +71,58 @@
           </div>
         </div>
       </div>
+
       <div class="section4">
-        <div class="container">
-          <img src="@/assets/images/tit-03.png" alt="">
-          <div style="font-size: 50px; text-align: center; padding: 100px 0;">
-            스와이퍼 적용
-          </div>
-        </div>
+        <img src="@/assets/images/tit-03.png" alt="" />
+        <Section4/>
       </div>
+
       <div class="section5">
-        <div class="container">
-          <img src="@/assets/images/tit-04.png" alt="">
-          <div style="font-size: 50px; text-align: center; padding: 100px 0;">
-            스와이퍼 적용
-          </div>
-        </div>
+        <img src="@/assets/images/tit-04.png" alt="" />
+        <Section5/>
       </div>
 
-      <div class="section6">
-        <div class="container">
-          <section6>
 
-          </section6>
-        </div>
-      </div>
       <div class="section7">
         <div class="container">
-          <section7>
-
-          </section7>
+          <Section7>
+          </Section7>
         </div>
       </div>
+
       <div class="section8">
-        <div class="container">
-          <section8/>
-        </div>
+          <img src="@/assets/images/img-luckydraw.png" alt="" />
+      </div>
+
+      <div class="section9">
+        <img src="@/assets/images/bg-respect.png" alt="" />
+        <img src="@/assets/images/img-respect-end.png" alt="" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { fetchUser,fetchWords } from '@/api';
+import { fetchUser, fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
 
 //
-import section6 from "./components/section6";
-import section7 from "./components/section7";
-import Section8 from "@/components/section8";
+import Section4 from "./components/section4";
+import Section5 from "@/components/section5";
+import Section7 from "./components/section7";
 
 export default {
   name: 'App',
   components: {
-    Section8,
     Loading,
     MbtiItem,
     Pagination,
-    section6,
-    section7
+    Section4,
+    Section5,
+    Section7,
+
   },
   data() {
     return {
@@ -507,9 +502,16 @@ export default {
 body.modal-open {
   overflow: hidden;
 }
+body {
+  margin: 0 auto;
+}
+#wrap {
+
+}
 .container {
   max-width: 1280px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 button {
   width: 200px;
@@ -540,17 +542,26 @@ button {
   margin-top: 100px;
 }
 #wrap .section4 {
+  padding-bottom: 100px;
   background: #e3e1e6;
-  height: 700px;
 }
 #wrap .section5 {
+  padding-bottom: 200px;
   background: #d7d7db;
-  height: 700px;
 }
 #wrap .section6 {
+  margin: 0 auto;
   background: coral;
   height: 700px;
   padding: 100px 0;
+}
+#wrap .section8 {
+  background: #212024;
+  margin: 0 auto;
+}
+#wrap .section9 {
+  background: #0e0d0f;
+  margin: 0 auto;
 }
 .taplist {
   position: sticky;

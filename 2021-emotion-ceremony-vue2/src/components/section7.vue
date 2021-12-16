@@ -1,6 +1,6 @@
 <template>
   <!-- https://github.com/philipjkim/vue2-flip-countdown -->
-  <div>
+  <div class="count-wrap">
     <div>
       나의 파이트 넘버 :
       <span style="color: #ff0000;">85</span>
@@ -25,5 +25,11 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss">
+.count-wrap {
+  .flip-card {
+    font-size: 150px;
+  }
+}
+
 </style>
