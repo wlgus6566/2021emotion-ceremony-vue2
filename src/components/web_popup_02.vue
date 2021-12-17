@@ -2,7 +2,7 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <span class="close-btn">
+        <span class="close-btn" @click="$emit('closeModalFc')">
           <img src="@/assets/images/btn-x.png" alt="">
         </span>
 
@@ -25,7 +25,7 @@
               <div class="modal-content">
                 <div class="content-left">
                   <div class="swiper-area">
-                    <popSwiper></popSwiper>
+                    <popSwiper :items = items ></popSwiper>
                   </div>
                   <p class="user-title">
                     일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼
@@ -42,7 +42,7 @@
                 </div>
                 <div class="content-right">
                   <div v-for="item in items" :key="item">
-                      <img :src="item.src" @click="item.likeActive = !item.likeActive" :class=" { active: item.likeActive }" alt="">
+                      <img :src="item.imgUrl" @click="item.likeActive = !item.likeActive" :class=" { active: item.likeActive }" alt="">
                   </div>
                 </div>
               </div>
@@ -64,56 +64,55 @@ export default {
   },
   data () {
     return {
-      showModal: true,
       btnLike: false,
       items: [
         {
           likeActive: false,
-          src: "https://via.placeholder.com/360x360.png/888/fff"
+          imgUrl: "https://via.placeholder.com/360x360.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         }
       ]
     }

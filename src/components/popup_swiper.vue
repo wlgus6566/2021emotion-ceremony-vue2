@@ -2,19 +2,10 @@
 <!--  <swiper class="swiper" ref="mySwiper">-->
   <swiper class="swiper" ref="mySwiper" :options="swiperOptions" @slideChange="slideChangeTransitionStart">
 
-    <swiper-slide>
-      <img src="https://via.placeholder.com/1200x1200.png/888/fff" alt="">
+    <swiper-slide v-for="item in items" >
+      <img :src="item.imgUrl">
     </swiper-slide>
 
-    <swiper-slide>
-      <img src="https://via.placeholder.com/560x560.png/888/fff" alt="">
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://via.placeholder.com/1020x1020.png/888/fff" alt="">
-    </swiper-slide>
-
-    <!-- navigation -->
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
@@ -29,13 +20,16 @@ export default {
     Swiper,
     SwiperSlide
   },
+  props: {
+    items: Array,
+  },
   data() {
     return {
       swiperOptions: {
         loop: true,
-        autoplay:{
+/*        autoplay:{
           delay:3000
-        },
+        },*/
         slidesPerView: 1,
         navigation: {
           nextEl: '.swiper-button-next',
@@ -49,6 +43,12 @@ export default {
 
 <style lang="scss" scoped>
 .swiper-container {
+  width: 100%;
+  height: 560px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .swiper-slide {

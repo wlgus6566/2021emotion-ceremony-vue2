@@ -170,8 +170,8 @@
       </div>
 
       <div>
-        <a href="javascript:void(0)" @click="showModal = !showModal">클릭</a>
-        <modal2 v-if="showModal"></modal2>
+        <a href="javascript:void(0)" @click="showModalFc">클릭</a>
+        <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
       </div>
     </div>
   </div>
@@ -560,6 +560,14 @@ export default {
     },
     endSpinner() {
       this.loadingStatus = false;
+    },
+    showModalFc() {
+      this.showModal = true;
+      document.querySelector('body').classList.add('modal-open');
+    },
+    closeModalFc() {
+      this.showModal = false;
+      document.querySelector('body').classList.remove('modal-open');
     },
     MoveScroll(e) {
       const locate = e.target.dataset.section;
