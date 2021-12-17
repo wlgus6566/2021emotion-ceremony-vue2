@@ -38,19 +38,19 @@
         <div class="container survey-container">
           <ul class="wordsTab">
             <li>
-              <input type="radio" id="first" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <input checked type="radio" id="first" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
               <label for="first"></label>
             </li>
             <li>
-              <input type="radio" id="second" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <input type="radio" id="second" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
               <label for="second"></label>
             </li>
             <li>
-              <input type="radio" id="third" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <input type="radio" id="third" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
               <label for="third"></label>
             </li>
             <li>
-              <input type="radio" id="fourth" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <input type="radio" id="fourth" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
               <label for="fourth"></label>
             </li>
 
@@ -80,7 +80,7 @@
                   코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
                 </p>
                 <span class="desc">
-                  <span class="depoartment">CD본부</span>
+                  <span class="department">CD본부</span>
                   <span class="name">김모션</span>
                 </span>
               </li>
@@ -89,34 +89,34 @@
                   코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
                 </p>
                 <span class="desc">
-                  <span class="depoartment">CD본부</span>
+                  <span class="department">CD본부</span>
                   <span class="name">김모션</span>
                 </span>
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">유유럽해외여행유럽해외여행유럽해외여행해외여행</span> 하고 싶다.
                 </p>
                 <span class="desc">
-                  <span class="depoartment">CD본부</span>
+                  <span class="department">CD본부</span>
                   <span class="name">김모션</span>
                 </span>
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">유럽해외여행유럽해외여행유럽해외여행유럽해외여행</span> 하고 싶다.
                 </p>
                 <span class="desc">
-                  <span class="depoartment">CD본부</span>
+                  <span class="department">CD본부</span>
                   <span class="name">김모션</span>
                 </span>
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">유럽유럽해외여행유럽해외여행</span> 하고 싶다.
                 </p>
                 <span class="desc">
-                  <span class="depoartment">CD본부</span>
+                  <span class="department">CD본부</span>
                   <span class="name">김모션</span>
                 </span>
               </li>
@@ -145,7 +145,10 @@
       </div>
 
       <div class="section6">
-        <img src="@/assets/images/tit-05.png" alt="" />
+        <div class="container">
+          <img src="@/assets/images/tit-05.png" alt="" />
+          <gallary-slider/>
+        </div>
       </div>
 
       <div class="section7">
@@ -153,8 +156,7 @@
           <img src="@/assets/images/tit-06.png" alt="" />
           <img style="margin-top: 120px;" src="@/assets/images/img-ready.png" alt="" />
           <Section7 />
-          <img src="@/assets/images/img-number.png" alt="" />
-
+          <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />
         </div>
       </div>
 
@@ -182,6 +184,8 @@
 
 <script>
 
+
+
 import { fetchUser, fetchWords } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
@@ -193,10 +197,12 @@ import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
 import modal from "@/components/web_popup_01";
+import GallarySlider from "@/components/gallarySlider";
 
 export default {
   name: 'App',
   components: {
+    GallarySlider,
     SurveySlider,
     Loading,
     MbtiItem,
@@ -612,13 +618,13 @@ button {
 }
 #wrap .section2 {
   background: #e3e1e6;
+  padding-bottom: 200px;
 }
 #wrap .section2 .top-container {
   width: 1540px;
   margin: 0 auto;
 }
 #wrap .section2 .survey-container {
-  height: 700px;
   background: #fff;
   margin: 0 auto;
 }
@@ -641,9 +647,11 @@ button {
 }
 #wrap .section6 {
   margin: 0 auto;
-  background: coral;
-  height: 700px;
-  padding: 100px 0;
+  padding-bottom: 214px;
+  background: #e3e1e6;
+  .container {
+    width: 1580px;
+  }
 }
 #wrap .section7 {
   background: #212024;
@@ -685,6 +693,9 @@ button {
   padding: 0 59px;
   box-sizing: border-box;
   li {
+    input:checked + label {
+      background: url("../src/assets/images/txt-tab-prs-01.png") no-repeat center center;
+    }
     position: relative;
     padding: 0 44px;
     label {
@@ -704,9 +715,6 @@ button {
       clip:rect(0,0,0,0);
       border:0;
       text-indent: -9999em;
-    }
-    input:checked + label {
-      background: url("../src/assets/images/txt-tab-prs-01.png") no-repeat center center;
     }
     &:nth-child(2) {
       label {
@@ -743,8 +751,31 @@ button {
   box-sizing: border-box;
   .wordsList {
     li {
+      display: flex;
+      justify-content: space-between;
+      line-height: 79px;
+      padding: 0 20px 0 30px;
+      font-size: 26px;
+      border-bottom: 1px solid #ccc;
       p {
-
+        color: #333;
+        .answer {
+          color: #e51f2f;
+          font-weight: bold;
+          flex: 1;
+        }
+      }
+      .desc {
+        .department {
+          display: inline-block;
+          margin-left: 50px;
+          color: #666;
+        }
+        .name {
+          display: inline-block;
+          margin-left: 50px;
+          color: #666;
+        }
       }
     }
   }
@@ -764,9 +795,24 @@ button {
     background: #fff;
   }
 }
-.pagination {display:flex; justify-content:center}
-.pagination li a {padding:0 10px;}
-.pagination li.active {background-color:red}
+.pagination {
+  display:flex;
+  justify-content:center;
+  margin-top: 22px;
+}
+.pagination li a {
+  padding:0 10px;
+  font-size: 28px;
+  color: #999;
+  font-weight: normal;
+}
+.pagination li.active a{
+  color: #000;
+  font-weight: bold;
+}
+.VuePagination__pagination-item-prev-chunk , .VuePagination__pagination-item-next-chunk {
+  display: none;
+}
 .pagination li + li {margin-left:10px;}
 .VuePagination__count {display:none}
 

@@ -4,6 +4,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 // Vue marquee
 import VueMarquee from 'vue-marquee-component'
 
+import VueHtml2Canvas from 'vue-html2canvas';
+Vue.use(VueHtml2Canvas);
+
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueMarquee)
 import 'swiper/css/swiper.css'

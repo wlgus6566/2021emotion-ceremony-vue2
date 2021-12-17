@@ -30,6 +30,9 @@ export default {
     font-family: "HelveticaNeue-Medium";
     letter-spacing: 0;
   }
+  .flip-clock__slot {
+    display: none !important;
+  }
 }
 
 </style>
