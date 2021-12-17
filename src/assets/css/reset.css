@@ -303,11 +303,6 @@ input[type='text']::-ms-clear {
     display: none;
 }
 
-button {
-    box-sizing: border-box;
-    color: #555;
-    border-radius: 3px;
-}
 .underline {
     text-decoration: underline;
 }

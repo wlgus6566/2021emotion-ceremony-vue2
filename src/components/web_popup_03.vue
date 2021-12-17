@@ -1,48 +1,34 @@
 <template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <span class="close-btn">
+  <div class="modal">
+    <div class="overlay" @click="$emit('closeModalFc')"></div>
+    <span class="close-btn" @click="$emit('closeModalFc')">
           <img src="@/assets/images/btn-x.png" alt="">
-        </span>
-
-        <div class="modal-header">
-          <slot name="header">
-            <div class="header-content">
-              <div class="header-left">
-                <p><span>3장</span>을 투표해주세요</p>
-              </div>
-              <div class="header-right">
-                <p>투표하기 <span>(<em>0</em>/3)</span></p>
-              </div>
-            </div>
-          </slot>
-        </div>
-
-        <div class="modal-container">
-          <div class="modal-body">
-            <slot name="body">
-              <div class="modal-content">
-                <div class="pop3-content">
-                  <ul>
-                    <li v-for="user in pop3" :key="user">
-                      <div class="img-area">
-                        <img :src="user.src" @click="user.likeActive = !user.likeActive" :class=" { active: user.likeActive } " alt="">
-                      </div>
-                      <div class="info-area">
-                        <h2 class="user-group"> {{ user.userGroup }} </h2>
-                        <p class="user-name">{{ user.userName }} <span class="user-positiob">{{ user.userPosition }}</span></p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </slot>
-          </div>
-        </div>
+    </span>
+    <div class="modal-card">
+      <div class="modal-header">
+          <p><strong>3장</strong>을 투표해주세요</p>
+          <button disabled class="vote-btn">
+            투표하기<span>(<em>0</em>/<em>3</em>)</span>
+          </button>
       </div>
+      <div class="pop3-content">
+        <ul>
+          <li v-for="(user, i) in pop3" :key="i"
+              @click="user.likeActive = !user.likeActive"
+              :class=" { active: user.likeActive } ">
+            <div class="img-area">
+              <img :src="user.src" alt="">
+            </div>
+            <div class="info-area">
+              <span class="department"> {{ user.userGroup }} </span>
+              <p class="name">{{ user.userName }} <span class="position">{{ user.userPosition }}</span></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -52,6 +38,7 @@ export default {
   data () {
     return {
       showModal: true,
+      voteList: [],
       pop3: [
         {
           likeActive: false,
@@ -195,139 +182,114 @@ export default {
         }
       ]
     }
-  }
+  },
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal,
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1001;
+}
+.overlay {
+  opacity: 0.5;
+  background-color: black;
+  z-index: 1001;
+}
+.modal-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  font-size: 40px;
+  z-index: 10000;
+  .vote-btn {
+    padding: 0 27px;
+    height: 64px;
+    font-size: 30px;
+    background: #999;
+    span {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 24px;
+      color: #fff;
+      opacity: .5;
+    }
+    .active {
+      background: #d33839;
+    }
+  }
+}
 .close-btn {
   position: absolute;
   right: 30px;
   top: 30px;
+  z-index: 100000;
+  cursor: pointer;
 }
-
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .8);
-  display: table;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-header {
-  max-width: 1280px;
-  margin: 0 auto 20px;
-  color: #ffffff;
-}
-
-.modal-header .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-header .header-left {
-  font-size: 40px;
-  line-height: 40px;
-  letter-spacing: -2px;
-  color: #ffffff;
-}
-
-.modal-header .header-left span {
-  font-weight: bold;
-}
-
-.modal-header .header-right {
-  padding: 17px 27px;
-  font-size: 30px;
-  line-height: 30px;
-  letter-spacing: -2px;
-  background-color: #999999;
-  color: #ffffff;
-}
-
-.modal-header .header-right.active {
-  background-color: #d33839;
-}
-
-.modal-header .header-right span {
-  opacity: 0.5;
-}
-
-.modal-container {
-  max-width: 1280px;
-  height: 840px;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-}
-
-.close-btn {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-}
-
-.modal-content {
-  height: 720px;
-  padding: 60px 50px;
-  overflow-y: scroll;
-}
-
 .pop3-content {
-
+  position: relative;
+  overflow-y: scroll;
+  width: calc(100vw - 40px);
+  max-width: 1280px;
+  max-height: 840px;
+  height: calc(100% - 100px);
+  margin-top: 20px;
+  padding: 0 40px 60px;
+  box-sizing: border-box;
+  z-index: 1002;
+  opacity: 1;
+  background: #fff;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: 20%;
+      padding: 0 13px;
+      margin-top: 63px;
+      box-sizing: border-box;
+      &.active {
+        .img-area {
+          border: 10px solid #d33839;
+          box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2);
+        }
+      }
+      .img-area {
+        width: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #eee;
+        box-sizing: border-box;
+        img {
+          width: 100%;
+        }
+      }
+      .info-area {
+        margin-top: 33px;
+        .department {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 1;
+        }
+        .name {
+          margin-top: 10px;
+          font-size: 30px;
+          line-height: 1;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
-
-.pop3-content ul {
-  display: grid;
-  grid-template-columns: repeat(5, 220px);
-  column-gap: 15px;
-  row-gap: 60px;
-}
-
-.modal-content .img-area {
-
-}
-
-.modal-content .img-area img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-}
-
-.modal-content .img-area img.active {
-  outline: 10px solid #d33839;
-  outline-offset: -10px;
-  box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2);
-}
-
-.info-area {
-
-}
-
-.info-area .user-group {
-  margin-top: 30px;
-  font-size: 24px;
-  line-height: 24px;
-  letter-spacing: -2px;
-  color: #999999;
-}
-
-.info-area .user-name {
-  margin-top: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 30px;
-  letter-spacing: -2px;
-  color: #333333;
-}
-
 </style>

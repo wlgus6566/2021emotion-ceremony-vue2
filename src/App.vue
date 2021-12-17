@@ -177,7 +177,7 @@
 
       <div>
         <a href="javascript:void(0)" @click="showModalFc">클릭</a>
-        <modal3 @closeModalFc="closeModalFc" v-if="showModal"></modal3>
+        <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
       </div>
     </div>
   </div>
@@ -198,7 +198,7 @@ import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
 // import modal from "@/components/web_popup_01";
-import modal3 from "@/components/web_popup_03";
+import modal2 from "@/components/web_popup_02";
 import GallarySlider from "@/components/gallarySlider";
 
 export default {
@@ -212,7 +212,7 @@ export default {
     Section4,
     Section5,
     Section7,
-    modal3
+    modal2
   },
   data() {
     return {
@@ -611,11 +611,6 @@ body.modal-open {
   min-width: 1280px;
   margin: 0 auto;
   box-sizing: border-box;
-}
-button {
-  width: 200px;
-  height: 50px;
-  border: 1px solid #000;
 }
 #wrap {
   width: 100%;
