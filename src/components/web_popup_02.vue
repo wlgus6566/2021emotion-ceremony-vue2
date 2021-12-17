@@ -1,57 +1,50 @@
 <template>
-  <transition name="modal">
-    <div class="modal-mask">
-      <div class="modal-wrapper">
-        <span class="close-btn" @click="$emit('closeModalFc')">
+  <div class="modal">
+    <div class="overlay" @click="$emit('closeModalFc')"></div>
+    <span class="close-btn" @click="$emit('closeModalFc')">
           <img src="@/assets/images/btn-x.png" alt="">
-        </span>
-
-        <div class="modal-header">
-          <slot name="header">
-            <div class="header-content">
-              <div class="header-left">
-                <p><span>5장</span>을 투표해주세요</p>
-              </div>
-              <div class="header-right">
-                <p>투표하기 <span>(<em>0</em>/5)</span></p>
-              </div>
-            </div>
-          </slot>
-        </div>
-
-        <div class="modal-container">
-          <div class="modal-body">
-            <slot name="body">
-              <div class="modal-content">
-                <div class="content-left">
-                  <div class="swiper-area">
-                    <popSwiper :items = items ></popSwiper>
-                  </div>
-                  <p class="user-title">
-                    일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼
-                    사오육칠팔구십일이삼사오육칠팔구십일이삼사오육
-                  </p>
-                  <div class="user-info">
-                    <div>
-                      <span class="user-group">경영전략본부</span> <span class="user-name">최모션</span> <span class="user-potition">책임리더</span>
-                    </div>
-                    <a class="btn-like" @click="btnLike">
-                      <img src="@/assets/images/pop_like_off.png" alt="">
-                    </a>
-                  </div>
-                </div>
-                <div class="content-right">
-                  <div v-for="(item,i) in items" :key="i">
-                      <img :src="item.imgUrl" @click="item.likeActive = !item.likeActive" :class=" { active: item.likeActive }" alt="">
-                  </div>
-                </div>
-              </div>
-            </slot>
+    </span>
+    <div class="modal-card">
+      <div class="modal-header">
+        <p><strong>5장</strong>을 투표해주세요</p>
+        <button disabled class="vote-btn">
+          투표하기<span>(<em>0</em>/<em>5</em>)</span>
+        </button>
+      </div>
+      <div class="pop3-content">
+        <div class="content-left">
+          <div class="swiper-area">
+            <popSwiper :items = items ></popSwiper>
           </div>
+          <p class="user-title">
+            일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼
+            사오육칠팔구십일이삼사오육칠팔구십일이삼사오육
+          </p>
+          <div class="user-info">
+            <div>
+              <span class="department">경영전략본부</span>
+              <span class="name">최모션</span>
+              <span class="position">책임리더</span>
+            </div>
+            <button class="btn-like">
+              투표하기
+            </button>
+          </div>
+        </div>
+        <div class="content-right">
+          <ul class="thumb-list">
+            <li v-for="(item,i) in items" :key="i"
+                @click="item.likeActive = !item.likeActive"
+                :class=" { active: item.likeActive }" >
+              <span class="img-wrap">
+                <img :src="item.imgUrl" alt="">
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -113,145 +106,193 @@ export default {
         {
           likeActive: false,
           imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
+        },
+        {
+          likeActive: false,
+          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
         }
       ]
     }
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal,
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1001;
+}
+.overlay {
+  opacity: 0.5;
+  background-color: black;
+  z-index: 1001;
+}
+.modal-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  font-size: 40px;
+  z-index: 10000;
+  .vote-btn {
+    padding: 0 27px;
+    height: 64px;
+    font-size: 30px;
+    background: #999;
+    span {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 24px;
+      color: #fff;
+      opacity: .5;
+    }
+    .active {
+      background: #d33839;
+    }
+  }
+}
 .close-btn {
   position: absolute;
   right: 30px;
   top: 30px;
+  z-index: 100000;
+  cursor: pointer;
 }
-
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .8);
-  display: table;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-header {
-  max-width: 1280px;
-  margin: 0 auto 20px;
-  color: #ffffff;
-}
-
-.modal-header .header-content {
+.pop3-content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.modal-header .header-left {
-  font-size: 40px;
-  line-height: 40px;
-  letter-spacing: -2px;
-  color: #ffffff;
-}
-
-.modal-header .header-left span {
-  font-weight: bold;
-}
-
-.modal-header .header-right {
-  padding: 17px 27px;
-  font-size: 30px;
-  line-height: 30px;
-  letter-spacing: -2px;
-  background-color: #999999;
-  color: #ffffff;
-}
-
-.modal-header .header-right.active {
-  background-color: #d33839;
-}
-
-.modal-header .header-right span {
-  opacity: 0.5;
-}
-
-.modal-container {
+  position: relative;
+  overflow-y: scroll;
+  width: calc(100vw - 40px);
   max-width: 1280px;
-  height: 840px;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  max-height: 840px;
+  height: calc(100% - 100px);
+  margin-top: 20px;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  z-index: 1002;
+  opacity: 1;
+  background: #fff;
 }
-
-.close-btn {
-  position: absolute;
-  top: 40px;
-  right: 40px;
+.content-left {
+  width: calc(50% - 20px);
+  .user-title {
+    margin-top: 28px;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -2px;
+    color: #333333;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    height: 72px; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+  }
+  .btn-like {
+    font-size: 0;
+    text-indent: -9999em;
+    width: 150px;
+    height: 48px;
+    background: url("../assets/images/pop_like_off.png") no-repeat center/cover;
+    &.active {
+      background: url("../assets/images/pop_like_on.png") no-repeat center/cover;
+    }
+  }
 }
-
-.modal-content {
-  display: grid;
-  height: 720px;
-  padding: 60px 50px;
-  grid-template-columns: 560px 580px;
-  justify-content: space-between;
+.content-right {
+  width: calc(50% - 20px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  .thumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: calc((100% - 40px) / 3);
+      .img-wrap {
+        overflow: hidden;
+      }
+    }
+    li:not(:nth-child(3n)) {
+      margin-right: 20px;
+    }
+    li:nth-child(n+ 4) {
+      margin-top: 20px;
+    }
+  }
 }
-
-.content-left .swiper-area {
-  width: 560px;
-  height: 560px;
-}
-
-.content-left .user-title {
-  margin-top: 28px;
-  font-size: 28px;
-  line-height: 36px;
-  letter-spacing: -2px;
-  color: #333333;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 라인수 */
-  -webkit-box-orient: vertical;
-  word-wrap:break-word;
-  height: 72px; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
-}
-
-.content-left .btn-like {
-  width: 150px;
-  height: 48px;
-}
-
 .user-info {
   margin-top: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.user-info span {
-  font-size: 24px;
-  line-height: 24px;
-  letter-spacing: -2px;
-  color: #999999;
-}
-
-.content-right {
-  display: grid;
-  grid-template-columns: repeat(3, 180px);
-  grid-template-rows: repeat(auto-fit, 180px);
-  gap: 20px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  span {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -2px;
+    color: #999999;
+  }
 }
 
 .content-right .active {

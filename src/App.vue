@@ -138,7 +138,7 @@
         <img src="@/assets/images/tit-03.png" alt="" />
         <Section4/>
         <div class="btn-wrap">
-          <button>투표하고 선물 100% 받기</button>
+          <button @click="showModalFc">투표하고 선물 100% 받기</button>
         </div>
       </div>
 
@@ -176,8 +176,7 @@
       </div>
 
       <div>
-        <a href="javascript:void(0)" @click="showModalFc">클릭</a>
-        <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
+      <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
       </div>
     </div>
   </div>
@@ -199,6 +198,7 @@ import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
 // import modal from "@/components/web_popup_01";
 import modal2 from "@/components/web_popup_02";
+//import modal3 from "@/components/web_popup_03";
 import GallarySlider from "@/components/gallarySlider";
 
 export default {
