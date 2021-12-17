@@ -166,6 +166,15 @@
         <img src="@/assets/images/bg-respect.png" alt="" />
         <img src="@/assets/images/img-respect-end.png" alt="" />
       </div>
+
+      <div>
+        <a href="javascript:void(0)" @click="showModal = !showModal">
+          클릭
+          <modal v-if="showModal" @close="showModal = false">
+            <h3 slot="">custom header</h3>
+          </modal>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -182,6 +191,7 @@ import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
+import modal from "@/components/web_popup_01";
 
 export default {
   name: 'App',
@@ -193,11 +203,12 @@ export default {
     Section4,
     Section5,
     Section7,
-
+    modal
   },
   data() {
     return {
       users: [],
+      showModal: false,
       loadingStatus: false,
       showFloat: false,
       mbtilist: [
