@@ -31,48 +31,98 @@
       </ul>
 
       <div class="section2">
-        <div class="container">
+        <div class="top-container">
           <img src="@/assets/images/tit-01.png" alt="">
           <survey-slider/>
+        </div>
+        <div class="container survey-container">
           <ul class="wordsTab">
             <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
-                <img src="@/assets/images/txt-tab-nor-01.png" alt="2021년은 나에게">
-                <img class="tab-img" src="@/assets/images/txt-tab-prs-01.png" alt="2021년은 나에게">
-              </label>
+              <input type="radio" id="first" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <label for="first"></label>
             </li>
             <li>
+              <input type="radio" id="second" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <label for="second"></label>
+            </li>
+            <li>
+              <input type="radio" id="third" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <label for="third"></label>
+            </li>
+            <li>
+              <input type="radio" id="fourth" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
+              <label for="fourth"></label>
+            </li>
+
+<!--            <li>
               <label>
                 <input type="radio" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
-                <img src="@/assets/images/txt-tab-nor-02.png" alt="코로나가 끝나면">
-                <img class="tab-img" src="@/assets/images/txt-tab-prs-02.png" alt="코로나가 끝나면">
               </label>
             </li>
             <li>
               <label>
                 <input type="radio" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
-                <img src="@/assets/images/txt-tab-nor-03.png" alt="위드코로나 추천 취미">
-                <img class="tab-img" src="@/assets/images/txt-tab-prs-03.png" alt="위드코로나 추천 취미">
               </label>
             </li>
             <li>
               <label>
                 <input type="radio" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
-                <img src="@/assets/images/txt-tab-nor-04.png" alt="이모션글로벌에게 바란다">
-                <img class="tab-img" src="@/assets/images/txt-tab-prs-04.png" alt="이모션글로벌에게 바란다">
               </label>
-            </li>
+            </li>-->
           </ul>
-<!--          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
-            <li>{{item.body}}</li>
-          </ul>-->
-           <ul class="wordsList">
-            <li>
-
-            </li>
-          </ul>
-          <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
+          <!--          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
+                      <li>{{item.body}}</li>
+                    </ul>-->
+          <div class="wordsContainer">
+            <ul class="wordsList">
+              <li>
+                <p>
+                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                </p>
+                <span class="desc">
+                  <span class="depoartment">CD본부</span>
+                  <span class="name">김모션</span>
+                </span>
+              </li>
+              <li>
+                <p>
+                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                </p>
+                <span class="desc">
+                  <span class="depoartment">CD본부</span>
+                  <span class="name">김모션</span>
+                </span>
+              </li>
+              <li>
+                <p>
+                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                </p>
+                <span class="desc">
+                  <span class="depoartment">CD본부</span>
+                  <span class="name">김모션</span>
+                </span>
+              </li>
+              <li>
+                <p>
+                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                </p>
+                <span class="desc">
+                  <span class="depoartment">CD본부</span>
+                  <span class="name">김모션</span>
+                </span>
+              </li>
+              <li>
+                <p>
+                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                </p>
+                <span class="desc">
+                  <span class="depoartment">CD본부</span>
+                  <span class="name">김모션</span>
+                </span>
+              </li>
+            </ul>
+            <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
+          </div>
         </div>
       </div>
       <div class="section3">
@@ -94,11 +144,17 @@
         <Section5/>
       </div>
 
+      <div class="section6">
+        <img src="@/assets/images/tit-05.png" alt="" />
+      </div>
 
       <div class="section7">
         <div class="container">
-          <Section7>
-          </Section7>
+          <img src="@/assets/images/tit-06.png" alt="" />
+          <img style="margin-top: 120px;" src="@/assets/images/img-ready.png" alt="" />
+          <Section7 />
+          <img src="@/assets/images/img-number.png" alt="" />
+
         </div>
       </div>
 
@@ -544,8 +600,14 @@ button {
 #wrap .section2 {
   background: #e3e1e6;
 }
-#wrap .section2 .container {
+#wrap .section2 .top-container {
   width: 1540px;
+  margin: 0 auto;
+}
+#wrap .section2 .survey-container {
+  height: 700px;
+  background: #fff;
+  margin: 0 auto;
 }
 #wrap .section3 {
   background: #d7d7db;
@@ -569,6 +631,9 @@ button {
   background: coral;
   height: 700px;
   padding: 100px 0;
+}
+#wrap .section7 {
+  background: #212024;
 }
 #wrap .section8 {
   background: #212024;
@@ -604,10 +669,18 @@ button {
   justify-content:center;
   width: 100%;
   background:#7e7d80;
+  padding: 0 59px;
+  box-sizing: border-box;
   li {
     position: relative;
-    width: 25%;
-    padding: 45px 0;
+    padding: 0 44px;
+    label {
+      display: block;
+      width: 185px;
+      height: 28px;
+      padding: 46px 0;
+      background: url("../src/assets/images/txt-tab-nor-01.png") no-repeat center center;
+    }
     input {
       position:absolute;
       width:1px;
@@ -617,12 +690,54 @@ button {
       overflow:hidden;
       clip:rect(0,0,0,0);
       border:0;
+      text-indent: -9999em;
+    }
+    input:checked + label {
+      background: url("../src/assets/images/txt-tab-prs-01.png") no-repeat center center;
+    }
+    &:nth-child(2) {
+      label {
+        width: 183px;
+        background: url("../src/assets/images/txt-tab-nor-02.png") no-repeat center center;
+      }
+      input:checked + label {
+        background: url("../src/assets/images/txt-tab-prs-02.png") no-repeat center center;
+      }
+    }
+    &:nth-child(3) {
+      label {
+        width: 240px;
+        background: url("../src/assets/images/txt-tab-nor-03.png") no-repeat center center;
+      }
+      input:checked + label {
+        background: url("../src/assets/images/txt-tab-prs-03.png") no-repeat center center;
+      }
+    }
+    &:nth-child(4) {
+      label {
+        width: 284px;
+        background: url("../src/assets/images/txt-tab-nor-04.png") no-repeat center center;
+      }
+      input:checked + label {
+        background: url("../src/assets/images/txt-tab-prs-04.png") no-repeat center center;
+      }
+    }
+  }
+
+}
+.wordsContainer {
+  padding: 51px 40px 61px;
+  box-sizing: border-box;
+  .wordsList {
+    li {
+      p {
+
+      }
     }
   }
 }
-.tab-img {
-  display: none;
-}
+
+
 .wordsTab {
   margin-top: 100px;
   li:not(:first-child)::before {
@@ -631,6 +746,8 @@ button {
     width: 2px;
     height: 24px;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     background: #fff;
   }
 }

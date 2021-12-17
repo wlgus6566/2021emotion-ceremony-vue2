@@ -17,7 +17,7 @@
         </div>
         <div class="bottom-area">
           <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <p class="answer">최대16자까지</p>
         </div>
       </div>
 
@@ -219,7 +219,30 @@ export default {
 .swiper-button-prev, .swiper-button-next {
   width: 50px;
   height: 86px;
-  right: -22px;
+  right: 0;
+}
+.swiper-button-next.swiper-btn-next::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 334px;
+  top: 2px;
+  left: 40px;
+  background: #e3e1e6;
+  z-index: -1;
+}
+.swiper-button-prev.swiper-btn-prev::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 334px;
+  top: 2px;
+  left: -9px;
+  background: #e3e1e6;
+  z-index: -1;
+}
+.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+  opacity: 1;
 }
 .swiper-button-prev:before, .swiper-button-next:after {
   width: 100%;
@@ -292,6 +315,7 @@ export default {
   .answer {
     position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100%;
     color: #e51f2f;
