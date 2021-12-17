@@ -608,6 +608,7 @@ body.modal-open {
 }
 .container {
   width: 1280px;
+  min-width: 1280px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -618,9 +619,12 @@ button {
 }
 #wrap {
   width: 100%;
+  min-width: 1540px;
   margin: 0 auto;
 }
 #wrap > div {
+  min-width: 1280px;
+  overflow: hidden;
   text-align: center;
 }
 #wrap .section1 {
@@ -660,7 +664,7 @@ button {
   padding-bottom: 214px;
   background: #e3e1e6;
   .container {
-    width: 1580px;
+    //width: 1580px;
   }
 }
 #wrap .section7 {
@@ -679,6 +683,7 @@ button {
   top: 0;
   display: flex;
   width: 100%;
+  min-width: 1280px;
   margin: 0 auto;
   padding: 10px 0;
   background: #000;

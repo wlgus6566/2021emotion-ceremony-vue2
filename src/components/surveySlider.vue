@@ -210,16 +210,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.swiper-wrapper {
+  max-width: 1280px;
+}
 .swiper-container {
   margin-top: 100px;
   padding: 0 130px;
 }
 .swiper-slide {
 }
+
 .swiper-button-prev, .swiper-button-next {
   width: 50px;
   height: 86px;
+}
+.swiper-button-prev, .swiper-button-next {
   right: 0;
+}
+.swiper-button-prev {
+  left: 0;
 }
 .swiper-button-next.swiper-btn-next::before {
   content: '';
