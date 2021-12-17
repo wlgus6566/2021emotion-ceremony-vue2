@@ -10,7 +10,7 @@
     <Loading :loading="loadingStatus"></Loading>
     <div id="wrap">
       <div class="section1">
-         <img src="@/assets/images/kv.jpg" alt="">
+        <img src="@/assets/images/kv.jpg" alt="">
       </div>
       <ul class="taplist">
         <li>
@@ -54,21 +54,21 @@
               <label for="fourth"></label>
             </li>
 
-<!--            <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
-              </label>
-            </li>-->
+            <!--            <li>
+                          <label>
+                            <input type="radio" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
+                          </label>
+                        </li>
+                        <li>
+                          <label>
+                            <input type="radio" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
+                          </label>
+                        </li>
+                        <li>
+                          <label>
+                            <input type="radio" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
+                          </label>
+                        </li>-->
           </ul>
           <!--          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
                       <li>{{item.body}}</li>
@@ -159,7 +159,7 @@
       </div>
 
       <div class="section8">
-          <img src="@/assets/images/img-luckydraw.png" alt="" />
+        <img src="@/assets/images/img-luckydraw.png" alt="" />
       </div>
 
       <div class="section9">
