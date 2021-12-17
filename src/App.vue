@@ -198,7 +198,7 @@ import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
 // import modal from "@/components/web_popup_01";
-import modal2 from "@/components/web_popup_02";
+import modal3 from "@/components/web_popup_03";
 import GallarySlider from "@/components/gallarySlider";
 
 export default {
@@ -212,7 +212,7 @@ export default {
     Section4,
     Section5,
     Section7,
-    modal2
+    modal3
   },
   data() {
     return {
