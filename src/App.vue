@@ -137,11 +137,17 @@
       <div class="section4">
         <img src="@/assets/images/tit-03.png" alt="" />
         <Section4/>
+        <div class="btn-wrap">
+          <button>투표하고 선물 100% 받기</button>
+        </div>
       </div>
 
       <div class="section5">
         <img src="@/assets/images/tit-04.png" alt="" />
         <Section5/>
+        <div class="btn-wrap">
+          <button>최강자 뽑으러 가기</button>
+        </div>
       </div>
 
       <div class="section6">
@@ -869,5 +875,28 @@ button {
   transform: translateY(0%);
   opacity: 1;
   transition: 0.4s;
+}
+.btn-wrap {
+  margin-top: 100px;
+  button {
+    width: 640px;
+    height: 120px;
+    background-color: #e51f2f;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./assets/images/txt-btn-03.png");
+    border: none;
+    font-size: 0;
+    text-indent: -9999em;
+  }
+  button.after {
+    background-image: url("./assets/images/txt-btn-01.png");
+    background-color: #666666;
+  }
+}
+.section4 {
+  button {
+    background-image: url("./assets/images/txt-btn-02.png");
+  }
 }
 </style>

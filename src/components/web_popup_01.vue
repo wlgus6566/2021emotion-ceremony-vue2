@@ -1,45 +1,49 @@
 <template>
-    <transition name="modal">
-      <div class="modal-mask">
-        <div class="modal-wrapper">
-          <div class="modal-container">
+  <transition name="modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <span class="close-btn" @click="$emit('closeModalFc')">
+          <img src="@/assets/images/btn-x.png" alt="">
+        </span>
 
-            <div class="modal-header">
-              <!-- header 라는 이름을 가지는 slot 정의 -->
-              <slot name="header">
-                default header
-              </slot>
+        <div class="modal-header">
+          <slot name="header">
+            <div class="header-content">
+              sdfsdfsdfsd
             </div>
+          </slot>
+        </div>
 
-            <div class="modal-body">
-              <!-- body 라는 이름을 가지는 slot 정의 -->
-              <slot name="body">
-                default body
-              </slot>
-            </div>
-
-            <div class="modal-footer">
-              <!-- footer 라는 이름을 가지는 slot 정의 -->
-              <slot name="footer">
-                default footer
-                <!-- 상위 컴포넌트의 이벤트 호출 -->
-                <button class="modal-default-button" @click="$emit('close')">
-                  OK
-                </button>
-              </slot>
-            </div>
+        <div class="modal-container">
+          <div class="modal-body">
+            <slot name="body">
+            </slot>
           </div>
         </div>
       </div>
-    </transition>
+    </div>
+  </transition>
 </template>
 
 <script>
+
 export default {
-  name: "modal"
+  name: "modal1",
+  components: {
+  },
+  data () {
+    return {
+    }
+  }
 }
 </script>
 <style scoped>
+.close-btn {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -47,9 +51,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .8);
   display: table;
-  transition: opacity .3s ease;
 }
 
 .modal-wrapper {
@@ -57,50 +60,35 @@ export default {
   vertical-align: middle;
 }
 
+.modal-header {
+  max-width: 1280px;
+  margin: 0 auto 20px;
+  color: #ffffff;
+}
+
+
 .modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
+  max-width: 1280px;
+  height: 840px;
+  margin: 0 auto;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
+.close-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
 }
 
-.modal-body {
-  margin: 20px 0;
+.modal-content {
+  display: grid;
+  height: 720px;
+  padding: 60px 50px;
+  grid-template-columns: 560px 580px;
+  justify-content: space-between;
 }
 
-.modal-default-button {
-  float: right;
-}
 
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 </style>

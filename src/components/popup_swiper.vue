@@ -1,8 +1,8 @@
 <template>
 <!--  <swiper class="swiper" ref="mySwiper">-->
-  <swiper class="swiper" ref="mySwiper" :options="swiperOptions" @slideChange="slideChangeTransitionStart">
+  <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
 
-    <swiper-slide v-for="item in items" >
+    <swiper-slide v-for="(item, i) in items" :key="i" >
       <img :src="item.imgUrl">
     </swiper-slide>
 
@@ -27,9 +27,6 @@ export default {
     return {
       swiperOptions: {
         loop: true,
-/*        autoplay:{
-          delay:3000
-        },*/
         slidesPerView: 1,
         navigation: {
           nextEl: '.swiper-button-next',

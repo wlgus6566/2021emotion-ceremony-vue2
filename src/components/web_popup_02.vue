@@ -41,7 +41,7 @@
                   </div>
                 </div>
                 <div class="content-right">
-                  <div v-for="item in items" :key="item">
+                  <div v-for="(item,i) in items" :key="i">
                       <img :src="item.imgUrl" @click="item.likeActive = !item.likeActive" :class=" { active: item.likeActive }" alt="">
                   </div>
                 </div>

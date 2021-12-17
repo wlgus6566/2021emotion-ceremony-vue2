@@ -26,15 +26,12 @@
         </vue-marquee-slide>
       </vue-marquee>
     </div>
-    <btnComponent/>
   </div>
 </template>
 
 <script>
-import btnComponent from "@/components/btn-component";
 export default {
   name: "section5",
-  components: { btnComponent },
 }
 </script>
 
