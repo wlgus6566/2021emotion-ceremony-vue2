@@ -171,6 +171,7 @@
         <a href="javascript:void(0)" @click="showModal = !showModal">
           클릭
           <modal v-if="showModal" @close="showModal = false">
+
             <h3 slot="">custom header</h3>
           </modal>
         </a>
@@ -581,6 +582,7 @@ export default {
 
 <style lang="scss">
 @import url('assets/css/reset.css');
+
 body {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0 auto;
