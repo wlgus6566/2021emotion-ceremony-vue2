@@ -168,13 +168,8 @@
       </div>
 
       <div>
-        <a href="javascript:void(0)" @click="showModal = !showModal">
-          클릭
-          <modal v-if="showModal" @close="showModal = false">
-
-            <h3 slot="">custom header</h3>
-          </modal>
-        </a>
+        <a href="javascript:void(0)" @click="showModal = !showModal">클릭</a>
+        <modal2 v-if="showModal"></modal2>
       </div>
     </div>
   </div>
@@ -192,7 +187,8 @@ import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
-import modal from "@/components/web_popup_01";
+// import modal from "@/components/web_popup_01";
+import modal2 from "@/components/web_popup_02";
 
 export default {
   name: 'App',
@@ -204,7 +200,8 @@ export default {
     Section4,
     Section5,
     Section7,
-    modal
+    // modal,
+    modal2
   },
   data() {
     return {
