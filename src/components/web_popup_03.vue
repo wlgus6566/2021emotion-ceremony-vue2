@@ -1,70 +1,91 @@
 <template>
-  <div class="modal">
-    <div class="overlay" @click="$emit('closeMbtiModal')"></div>
-    <div class="modal-card">
-      <span class="close-btn" @click="$emit('closeMbtiModal')">X</span>
-      <ul>
-        <li v-for="data in matchData" :key="data.name">
-          <img :src="data.thumbnail" :alt="data.name">
-          <span>{{data.name}}</span>
-          <span>{{data.position}}</span>
-        </li>
-      </ul>
-      <p>mbti팩폭: {{ fact }}</p>
+  <transition name="modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+          <span class="close-btn">
+            <img src="@/assets/images/btn-x.png" alt="">
+          </span>
+          <div class="modal-header">
+            <slot name="header">default header</slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">default body</slot>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 export default {
-  props: {
-    matchData: Array,
-    fact: String,
-  },
-  methods: {
-
-  }
+  name: "modal"
 }
 </script>
 <style scoped>
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.close-btn {
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
-.modal,
-.overlay {
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1001;
+  background-color: rgba(0, 0, 0, .8);
+  display: table;
+  /*  transition: opacity .3s ease;*/
 }
-.overlay {
-  opacity: 0.5;
-  background-color: black;
-  z-index: 1001;
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
 }
-.modal-card {
-  position: relative;
-  max-width: 80%;
-  width: 300px;
-  height: 300px;
-  padding: 20px;
-  background-color: white;
-  z-index: 1002;
-  opacity: 1;
+
+.modal-container {
+  max-width: 1280px;
+  width: 1280px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
 }
 .close-btn {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #42b883;
   position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-  text-align: center;
+  top: 40px;
+  right: 40px;
+}
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 </style>
