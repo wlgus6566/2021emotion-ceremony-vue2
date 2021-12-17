@@ -23,6 +23,19 @@
           <div class="modal-body">
             <slot name="body">
               <div class="modal-content">
+                <div class="pop3-content">
+                  <ul>
+                    <li v-for="user in pop3" :key="user">
+                      <div class="img-area">
+                        <img :src="user.src" @click="user.likeActive = !user.likeActive" :class=" { active: user.likeActive } " alt="">
+                      </div>
+                      <div class="info-area">
+                        <h2 class="user-group"> {{ user.userGroup }} </h2>
+                        <p class="user-name">{{ user.userName }} <span class="user-positiob">{{ user.userPosition }}</span></p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </slot>
           </div>
@@ -39,55 +52,146 @@ export default {
   data () {
     return {
       showModal: true,
-      btnLike: false,
-      items: [
+      pop3: [
         {
           likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
           src: "https://via.placeholder.com/360x360.png/888/fff"
         },
         {
           likeActive: false,
+          userGroup: 'CT본부',
+          userName: '김지현',
+          userPosition: '팀원',
+          src: "https://via.placeholder.com/400x400.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '김모션',
+          userPosition: '리더',
+          src: "https://via.placeholder.com/720x720.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
           src: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
+          src: "https://via.placeholder.com/360x360.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: 'CT본부',
+          userName: '김지현',
+          userPosition: '팀원',
+          src: "https://via.placeholder.com/400x400.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '김모션',
+          userPosition: '리더',
+          src: "https://via.placeholder.com/720x720.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
           src: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
+          src: "https://via.placeholder.com/360x360.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: 'CT본부',
+          userName: '김지현',
+          userPosition: '팀원',
+          src: "https://via.placeholder.com/400x400.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
+          src: "https://via.placeholder.com/360x360.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: 'CT본부',
+          userName: '김지현',
+          userPosition: '팀원',
+          src: "https://via.placeholder.com/400x400.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '김모션',
+          userPosition: '리더',
+          src: "https://via.placeholder.com/720x720.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
           src: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
+          src: "https://via.placeholder.com/360x360.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: 'CT본부',
+          userName: '김지현',
+          userPosition: '팀원',
+          src: "https://via.placeholder.com/400x400.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '김모션',
+          userPosition: '리더',
+          src: "https://via.placeholder.com/720x720.png/888/fff"
+        },
+        {
+          likeActive: false,
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
           src: "https://via.placeholder.com/180x180.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          userGroup: '경영전략본부',
+          userName: '최모션',
+          userPosition: '책임리더',
+          src: "https://via.placeholder.com/360x360.png/888/fff"
         },
         {
           likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          src: "https://via.placeholder.com/180x180.png/888/fff"
+          userGroup: 'CT본부',
+          userName: '김지현',
+          userPosition: '팀원',
+          src: "https://via.placeholder.com/400x400.png/888/fff"
         }
       ]
     }
@@ -173,11 +277,57 @@ export default {
 }
 
 .modal-content {
-  display: grid;
   height: 720px;
   padding: 60px 50px;
-  grid-template-columns: 560px 580px;
-  justify-content: space-between;
+  overflow-y: scroll;
+}
+
+.pop3-content {
+
+}
+
+.pop3-content ul {
+  display: grid;
+  grid-template-columns: repeat(5, 220px);
+  column-gap: 15px;
+  row-gap: 60px;
+}
+
+.modal-content .img-area {
+
+}
+
+.modal-content .img-area img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+}
+
+.modal-content .img-area img.active {
+  outline: 10px solid #d33839;
+  outline-offset: -10px;
+  box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+.info-area {
+
+}
+
+.info-area .user-group {
+  margin-top: 30px;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -2px;
+  color: #999999;
+}
+
+.info-area .user-name {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: -2px;
+  color: #333333;
 }
 
 </style>
