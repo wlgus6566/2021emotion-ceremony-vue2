@@ -27,7 +27,7 @@ export default {
   }
   .flip-clock__card.flip-card {
     font-size: 200px;
-    font-family: "HelveticaNeue-Medium";
+    font-family: "HelveticaNeue-Medium", sans-serif;
     letter-spacing: 0;
   }
   .flip-clock__slot {
