@@ -77,7 +77,7 @@
             <ul class="wordsList">
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 하고 싶다.
                 </p>
                 <span class="desc">
                   <span class="department">CD본부</span>
@@ -86,7 +86,7 @@
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠오쩌구쩌구우우</span> 바란다.
                 </p>
                 <span class="desc">
                   <span class="department">CD본부</span>
@@ -95,7 +95,7 @@
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유유럽해외여행유럽해외여행유럽해외여행해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 하고 싶다.
                 </p>
                 <span class="desc">
                   <span class="department">CD본부</span>
@@ -104,7 +104,7 @@
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽해외여행유럽해외여행유럽해외여행유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 였다.
                 </p>
                 <span class="desc">
                   <span class="department">CD본부</span>
@@ -113,7 +113,7 @@
               </li>
               <li>
                 <p>
-                  코로나가 끝나면 <span class="answer">유럽유럽해외여행유럽해외여행</span> 하고 싶다.
+                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 추천한다.
                 </p>
                 <span class="desc">
                   <span class="department">CD본부</span>
@@ -177,7 +177,7 @@
 
       <div>
         <a href="javascript:void(0)" @click="showModalFc">클릭</a>
-        <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
+        <modal3 @closeModalFc="closeModalFc" v-if="showModal"></modal3>
       </div>
     </div>
   </div>
@@ -212,7 +212,7 @@ export default {
     Section4,
     Section5,
     Section7,
-    //modal3
+    modal3
   },
   data() {
     return {
@@ -636,6 +636,7 @@ button {
 }
 #wrap .section2 .top-container {
   width: 1540px;
+  overflow: hidden;
   margin: 0 auto;
 }
 #wrap .section2 .survey-container {
@@ -773,7 +774,12 @@ button {
       font-size: 26px;
       border-bottom: 1px solid #ccc;
       p {
+        flex: 1;
+        text-align: left;
         color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         .answer {
           color: #e51f2f;
           font-weight: bold;

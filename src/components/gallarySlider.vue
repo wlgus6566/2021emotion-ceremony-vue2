@@ -55,6 +55,7 @@ export default {
         //   delay:1000
         // },
         slidesPerView: 1,
+        spaceBetween: 120,
         pagination: {
           el: '.swiper-pagination'
         },
@@ -84,6 +85,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.swiper-wrapper {
+}
 .swiper-container {
   margin-top: 100px;
 }
@@ -93,13 +96,12 @@ export default {
 .swiper-button-prev, .swiper-button-next {
   width: 50px;
   height: 86px;
-  right: 0;
 }
 .swiper-button-prev {
-  left: 35px;
+  left: 0;
 }
 .swiper-button-next {
-  right: 35px;
+  right: 0;
 }
 .swiper-button-prev:before, .swiper-button-next:after {
   width: 100%;

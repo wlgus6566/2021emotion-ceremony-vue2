@@ -243,10 +243,10 @@ export default {
 .swiper-button-prev.swiper-btn-prev::before {
   content: '';
   position: absolute;
-  width: 10px;
+  width: 12px;
   height: 334px;
   top: 2px;
-  left: -9px;
+  left: -1px;
   background: #e3e1e6;
   z-index: -1;
 }

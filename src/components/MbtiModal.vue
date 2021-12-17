@@ -152,11 +152,11 @@ export default {
 }
 .modal-card {
   position: relative;
-  width: 1280px;
-  height: 840px;
   overflow-y: scroll;
-  max-width: calc(100vw - 40px);
-  max-height: calc(100vh - 200px);
+  width: calc(100vw - 40px);
+  max-width: 1280px;
+  max-height: 840px;
+  height: calc(100% - 100px);
   padding: 60px 40px;
   background-color: white;
   box-sizing: border-box;
@@ -186,7 +186,9 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: calc(100% - 40px);
   max-width: 1280px;
+
 
   li {
     width: 20%;
