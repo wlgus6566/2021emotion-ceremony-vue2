@@ -85,7 +85,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .modal {
   display: flex;
   align-items: center;
@@ -120,5 +120,18 @@ export default {
   z-index: 100000;
   cursor: pointer;
 }
-
+.mbti-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 1280px;
+  li {
+    width: 20%;
+    padding: 10px;
+    margin-top: 63px;
+    box-sizing: border-box;
+    img {
+      width: 100%;
+    }
+  }
+}
 </style>

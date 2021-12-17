@@ -212,7 +212,7 @@ export default {
     Section4,
     Section5,
     Section7,
-    modal3
+    //modal3
   },
   data() {
     return {
