@@ -162,7 +162,7 @@ import 'swiper/css/swiper.css'
 import {Swiper,SwiperSlide} from 'vue-awesome-swiper'
 
 export default {
-  name: 'surveySlider.vue',
+  name: 'surveySlider',
   components: {
     Swiper,
     SwiperSlide

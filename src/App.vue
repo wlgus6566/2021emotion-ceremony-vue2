@@ -146,7 +146,7 @@
         <img src="@/assets/images/tit-04.png" alt="" />
         <Section5/>
         <div class="btn-wrap">
-          <button>최강자 뽑으러 가기</button>
+          <button @click="showThirdModalFc">최강자 뽑으러 가기</button>
         </div>
       </div>
 
@@ -186,6 +186,7 @@
 
       <div>
       <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
+      <modal3 @closeModalFc="closeThirdModalFc" v-if="showModal3"></modal3>
       </div>
     </div>
   </div>
@@ -205,9 +206,8 @@ import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
 import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
-// import modal from "@/components/web_popup_01";
 import modal2 from "@/components/web_popup_02";
-//import modal3 from "@/components/web_popup_03";
+import modal3 from "@/components/web_popup_03";
 import GallarySlider from "@/components/gallarySlider";
 
 export default {
@@ -221,12 +221,14 @@ export default {
     Section4,
     Section5,
     Section7,
-    modal2
+    modal2,
+    modal3,
   },
   data() {
     return {
       users: [],
       showModal: false,
+      showModal3: false,
       loadingStatus: false,
       showFloat: false,
       mbtilist: [
@@ -582,6 +584,14 @@ export default {
     },
     closeModalFc() {
       this.showModal = false;
+      document.querySelector('body').classList.remove('modal-open');
+    },
+    showThirdModalFc() {
+      this.showModal3 = true;
+      document.querySelector('body').classList.add('modal-open');
+    },
+    closeThirdModalFc() {
+      this.showModal3 = false;
       document.querySelector('body').classList.remove('modal-open');
     },
     MoveScroll(e) {

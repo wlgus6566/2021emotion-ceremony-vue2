@@ -37,7 +37,7 @@ import 'swiper/css/swiper.css'
 import {Swiper,SwiperSlide} from 'vue-awesome-swiper'
 
 export default {
-  name: 'gallarySlider.vue',
+  name: 'gallarySlider',
   components: {
     Swiper,
     SwiperSlide
