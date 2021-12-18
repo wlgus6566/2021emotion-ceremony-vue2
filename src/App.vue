@@ -171,8 +171,17 @@
       </div>
 
       <div class="section9">
-        <img src="@/assets/images/bg-respect.png" alt="" />
-        <img src="@/assets/images/img-respect-end.png" alt="" />
+        <div class="container">
+          <div class="top-img-wrap">
+            <img src="@/assets/images/bg-respect.png" alt="" />
+            <img class="respect-sticker" src="@/assets/images/img-respect.png" alt="" />
+            <span class="award-photo">
+              <img src="http://placehold.it/150X150"/>
+            </span>
+            <button class="save-btn" disabled>저장하기</button>
+          </div>
+          <img src="@/assets/images/img-respect-end.png" alt="" />
+        </div>
       </div>
 
       <div>
@@ -660,7 +669,8 @@ body.modal-open {
   padding-bottom: 214px;
   background: #e3e1e6;
   .container {
-    //width: 1580px;
+    width: 1540px;
+    min-width: 1540px;
   }
 }
 #wrap .section7 {
@@ -673,6 +683,57 @@ body.modal-open {
 #wrap .section9 {
   background: #0e0d0f;
   margin: 0 auto;
+  .container {
+    .top-img-wrap {
+      position: relative;
+      .respect-sticker {
+        position: absolute;
+        left: 25.5%;
+        top: 36%;
+        width: 19%;
+        z-index: 1;
+      }
+      .save-btn {
+        position: absolute;
+        left: 39%;
+        top: 92%;
+        background: red;
+        width: 22%;
+        height: 6%;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .award-photo {
+        position: absolute;
+        width: 35%;
+        top: 23.5%;
+        left: 32.5%;
+        opacity: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        box-sizing: border-box;
+        background: url("../src/assets/images/frame.jpg") no-repeat center center;
+        &:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: calc(100% - 40px);
+          height: calc(100% - 40px);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+    }
+    img {
+      width: 100%;
+    }
+  }
 }
 .taplist {
   position: sticky;
@@ -702,6 +763,7 @@ body.modal-open {
   width: 100%;
   background:#7e7d80;
   padding: 0 59px;
+  margin-top: 100px;
   box-sizing: border-box;
   li {
     input:checked + label {
@@ -797,20 +859,17 @@ body.modal-open {
   }
 }
 
-
-.wordsTab {
-  margin-top: 100px;
-  li:not(:first-child)::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 24px;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #fff;
-  }
+.wordsTab li:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
 }
+
 .pagination {
   display:flex;
   justify-content:center;

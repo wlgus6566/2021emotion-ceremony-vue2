@@ -292,6 +292,9 @@ export default {
     line-height: 24px;
     letter-spacing: -2px;
     color: #999999;
+    + span {
+      margin-left: 4px;
+    }
   }
 }
 
