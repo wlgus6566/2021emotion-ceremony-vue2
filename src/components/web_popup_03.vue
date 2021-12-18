@@ -16,7 +16,7 @@
       <div class="pop3-content">
         <ul>
           <li v-for="(user, i) in allMemList" :key="i"
-              @click="voteMember(user)"
+              @click="[voteMember($event,user)]"
               v-bind:class="{ active: user.likeActive }"
               >
             <div class="img-area">
@@ -193,17 +193,19 @@ export default {
     }
   },
   methods: {
-    voteMember(user) {
+    voteMember(event,user) {
       const Index = this.voteList.indexOf(user);
       if(Index != -1){
         this.voteList.splice(Index, 1); //다시 체크하면 인덱스 찾아서 제거
       } else {
         this.voteList.push(user);
       }
-
-      const voteLength = this.voteList.length; //체크된 아이들의 배열의 수
       this.voteList.splice(this.limit, 999); //더이상 체크되면 자르기.
-      this.completeVote = voteLength === this.limit;
+
+
+      event.target.offsetParent.classList.toggle('active');
+
+      this.completeVote = this.voteList.length === this.limit;
 
       //const Index = this.voteList.findIndex((user) => user);
 
@@ -219,7 +221,7 @@ export default {
       this.voteList.splice(3, 999);
       this.completeVote = voteLength === this.limit - 1;
     }*/
-    }
+    },
   }
 }
 </script>
@@ -297,8 +299,8 @@ export default {
       padding: 0 13px;
       margin-top: 63px;
       box-sizing: border-box;
-      &.active {
-        .img-area {
+      .img-area {
+        &.active {
           box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2);
           &::before {
             content: '';

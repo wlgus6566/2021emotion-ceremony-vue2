@@ -62,7 +62,10 @@ export default {
 .flip-3d:nth-child(n+5) {
   margin-top: 2%;
 }
-
+.flip-3d:last-child {
+  margin: 0 auto;
+  margin-top: 2%;
+}
 .flip-3d figure {
   position: relative;
   transform-style: preserve-3d;

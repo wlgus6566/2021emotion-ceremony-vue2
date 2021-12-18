@@ -161,8 +161,12 @@
         <div class="container">
           <img src="@/assets/images/tit-06.png" alt="" />
           <img style="margin-top: 120px;" src="@/assets/images/img-ready.png" alt="" />
-          <Section7 />
-          <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />
+          <count-down />
+
+          <div style="position: relative; margin-bottom: 200px">
+            <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />
+            <span class="fight-number">85</span>
+          </div>
         </div>
       </div>
 
@@ -204,15 +208,16 @@ import Pagination from 'vue-pagination-2';
 //
 import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
-import Section7 from "./components/section7";
 import SurveySlider from "@/components/surveySlider";
 import modal2 from "@/components/web_popup_02";
 import modal3 from "@/components/web_popup_03";
 import GallarySlider from "@/components/gallarySlider";
+import CountDown from "@/components/countDown";
 
 export default {
   name: 'App',
   components: {
+    CountDown,
     GallarySlider,
     SurveySlider,
     Loading,
@@ -220,7 +225,6 @@ export default {
     Pagination,
     Section4,
     Section5,
-    Section7,
     modal2,
     modal3,
   },
@@ -520,6 +524,24 @@ export default {
           desc:
               "핵인싸유형~~~~~~"
         },
+        {
+          mbti: "other",
+          match:[
+            {
+              name: "라푸",
+              position: "리더",
+              thumbnail: 'http://placehold.it/50X50'
+            },
+            {
+              name: "라스",
+              position: "디벨로퍼",
+              thumbnail: 'http://placehold.it/50X50'
+            },
+          ],
+          fact: "모든이와 찰떡궁합",
+          desc:
+              "핵인싸유형~~~~~~"
+        },
       ],
       words: {
         page: 1, // 현재페이지
@@ -713,7 +735,7 @@ body.modal-open {
         opacity: 0;
         cursor: pointer;
       }
-      .award-photo {
+      .photo-img {
         position: absolute;
         width: 35%;
         top: 23.5%;
@@ -973,5 +995,15 @@ body.modal-open {
   button {
     background-image: url("./assets/images/txt-btn-02.png");
   }
+}
+.fight-number  {
+  position: absolute;
+  font-size: 160px;
+  font-weight: 900;
+  left: 50%;
+  top: 59%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.02em;
 }
 </style>
