@@ -7,37 +7,29 @@
     <div class="modal-card">
       <div class="modal-header">
         <p><strong>5장</strong>을 투표해주세요</p>
-        <button disabled class="vote-btn">
-          투표하기<span>(<em>0</em>/<em>5</em>)</span>
+        <button :disabled="!voteDisabled" :class="{'vote-btn':true, active : voteDisabled}" @click="vote">
+          투표하기<span>(<em>{{checked.length}}</em>/<em>5</em>)</span>
         </button>
       </div>
       <div class="pop3-content">
         <div class="content-left">
           <div class="swiper-area">
-            <popSwiper :items = items ></popSwiper>
-          </div>
-          <p class="user-title">
-            일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼
-            사오육칠팔구십일이삼사오육칠팔구십일이삼사오육
-          </p>
-          <div class="user-info">
-            <div>
-              <span class="department">경영전략본부</span>
-              <span class="name">최모션</span>
-              <span class="position">책임리더</span>
-            </div>
-            <button class="btn-like">
-              투표하기
-            </button>
+            <popSwiper :items="mbtiPhoto" :checked="checked" @voteCheck="voteCheck" />
           </div>
         </div>
         <div class="content-right">
           <ul class="thumb-list">
-            <li v-for="(item,i) in items" :key="i"
-                @click="item.likeActive = !item.likeActive"
-                :class=" { active: item.likeActive }" >
+            <li v-for="(item,i) in mbtiPhoto" :key="i"
+                :class=" {
+                  active: item.id === swiperIdx,
+                  checked: checked.some(el=>el===item.id)
+                 }"
+              @click="clickEvt(item.id)"
+            >
+              {{item.id}}
               <span class="img-wrap">
-                <img :src="item.imgUrl" alt="">
+                {{item.physicalFileName}}
+                <img :src="item.physicalFileName" alt="">
               </span>
             </li>
           </ul>
@@ -49,119 +41,59 @@
 
 <script>
 import popSwiper from "@/components/popup_swiper";
-
+import {mapMutations, mapState} from "vuex";
+import {
+  postVotes,
+} from '@/api';
 export default {
   name: "modal2",
   components: {
     popSwiper
   },
+  props: {
+    mbtiPhoto: Array
+  },
   data () {
     return {
       btnLike: false,
-      items: [
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          imgUrl: "https://via.placeholder.com/180x180.png/888/fff"
-        }
-      ]
+      checked : [],
     }
-  }
+  },
+  created() {
+    console.log('swiper create')
+  },
+  computed: {
+    ...mapState( ['swiperIdx']),
+    voteDisabled(){
+      return this.checked.length === 5
+    },
+  },
+  methods : {
+    ...mapMutations( ['SWIPER_IDX']),
+    clickEvt(id){
+      this.SWIPER_IDX(id)
+    },
+    voteCheck(id){
+      console.log(id)
+      const idx = this.checked.findIndex(el=>el===id)
+      if (idx !== -1) {
+        this.checked.splice(idx, 1);
+      } else {
+        this.checked.push(id);
+      }
+    },
+    async vote(){
+      try {
+        const response = await postVotes()
+        console.log('postVotes', response)
+      } catch (e) {
+        console.log('postVotes', e)
+      } finally {
+        console.log('postVotes finally')
+      }
+    },
+
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -205,7 +137,7 @@ export default {
       color: #fff;
       opacity: .5;
     }
-    .active {
+    &.active {
       background: #d33839;
     }
   }
@@ -281,6 +213,14 @@ export default {
       margin-top: 20px;
     }
   }
+  .active {
+    background:blue;
+  }
+  .checked {
+    outline: 10px solid #d33839;
+    outline-offset: -10px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+  }
 }
 .user-info {
   margin-top: 12px;
@@ -298,10 +238,5 @@ export default {
   }
 }
 
-.content-right .active {
-  outline: 10px solid #d33839;
-  outline-offset: -10px;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
-}
 
 </style>

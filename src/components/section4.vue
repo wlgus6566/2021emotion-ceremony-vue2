@@ -8,19 +8,8 @@
           direction="left"
           :showProgress="false">
         <vue-marquee-slide v-for="i in 4" :key="i">
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
+          <div v-for="item in photoList1" :key="item.id" @click="clickEvt(item.id)">
+            {{item.physicalFileName}}
             <img class="marquee-img" src="http://placehold.it/400X400"/>
           </div>
         </vue-marquee-slide>
@@ -30,19 +19,8 @@
           direction="right"
           :showProgress="false">
         <vue-marquee-slide v-for="i in 4" :key="i">
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
-          </div>
-          <div>
+          <div v-for="item in photoList2" :key="item.id" @click="clickEvt(item.id)">
+            {{item.physicalFileName}}
             <img class="marquee-img" src="http://placehold.it/400X400"/>
           </div>
         </vue-marquee-slide>
@@ -52,17 +30,29 @@
 </template>
 
 <script>
+import {mapMutations} from "vuex";
 
 export default {
   name: "section4",
-  data() {
-    return {
-
-    }
+  props: {
+    randomPhoto : Array,
   },
-  methods: {
-
-  }
+  computed : {
+    photoList1(){
+      return this.randomPhoto.slice(0,5)
+    },
+    photoList2(){
+      return this.randomPhoto.slice(5,10)
+    },
+  },
+  methods : {
+    ...mapMutations( ['SWIPER_IDX']),
+    clickEvt(id){
+      console.log(id)
+      this.SWIPER_IDX(id)
+      this.$emit('showModalFc')
+    },
+  },
 }
 </script>
 

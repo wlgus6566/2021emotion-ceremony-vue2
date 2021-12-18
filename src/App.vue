@@ -98,7 +98,7 @@
 
       <div class="section4">
         <img src="@/assets/images/tit-03.png" alt="" />
-        <Section4/>
+        <Section4 @showModalFc="showModalFc" :randomPhoto="randomPhoto"/>
         <div class="btn-wrap">
           <button @click="showModalFc">투표하고 선물 100% 받기</button>
         </div>
@@ -106,7 +106,7 @@
 
       <div class="section5">
         <img src="@/assets/images/tit-04.png" alt="" />
-        <Section5/>
+        <Section5 :randomMember="randomMember" />
         <div class="btn-wrap">
           <button @click="showThirdModalFc">최강자 뽑으러 가기</button>
         </div>
@@ -151,7 +151,7 @@
       </div>
 
       <div>
-      <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
+      <modal2 @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
       <modal3 @closeModalFc="closeThirdModalFc" v-if="showModal3"></modal3>
       </div>
     </div>
@@ -165,12 +165,10 @@ import {
   getMemberCardImage,
   getAllMemberCardImage,
   getSurvey,
-  getAllPhoto,
-  getRanPhoto,
   getRandomMemberTen,
   getMbti,
   postVotes,
-  getLuckMember
+  getAllPhoto
 } from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
@@ -184,6 +182,7 @@ import modal2 from "@/components/web_popup_02";
 import modal3 from "@/components/web_popup_03";
 import GallarySlider from "@/components/gallarySlider";
 import CountDown from "@/components/countDown";
+import {mapMutations} from "vuex";
 
 export default {
   name: 'App',
@@ -514,6 +513,10 @@ export default {
               "핵인싸유형~~~~~~"
         },
       ],
+      mbtiPhoto : [],
+      randomPhoto : [],
+      randomMember : [],
+      allMember : [],
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
@@ -528,18 +531,17 @@ export default {
     };
   },
   created() {
+    const mail = new URL(window.location).searchParams.get('mail');
+    console.log(mail)
     window.addEventListener('scroll', this.showFloating);
     this.startSpinner();
-
     this.getMemberContents();
     this.getMemberCardImage();
     this.getAllMemberCardImage();
     this.getSurvey();
-    this.getAllPhoto();
-    this.getRanPhoto();
     this.getRandomMemberTen();
     this.getMbti();
-    this.getLuckMember();
+    this.getAllPhoto();
   },
   watch: {
     'words.page'(){
@@ -551,6 +553,19 @@ export default {
     },
   },
   methods: {
+    ...mapMutations( ['SWIPER_IDX']),
+    async getAllPhoto(){
+      try {
+        const response = await getAllPhoto()
+        this.mbtiPhoto = response.filter(el=>el.physicalFileName);
+        this.SWIPER_IDX(this.mbtiPhoto[0].id)
+        this.randomPhoto = this.mbtiPhoto.filter((el, i)=>i<10);
+      } catch (e) {
+        console.log('getAllPhoto', e)
+      } finally {
+        console.log('getAllPhoto finally')
+      }
+    },
     async getMemberContents(){
       try {
         const response = await getMemberContents()
@@ -598,26 +613,7 @@ export default {
         this.endSpinner();
       }
     },
-    async getAllPhoto(){
-      try {
-        const response = await getAllPhoto()
-        console.log('getAllPhoto', response)
-      } catch (e) {
-        console.log('getAllPhoto', e)
-      } finally {
-        console.log('getAllPhoto finally')
-      }
-    },
-    async getRanPhoto(){
-      try {
-        const response = await getRanPhoto()
-        console.log('getRanPhoto', response)
-      } catch (e) {
-        console.log('getRanPhoto', e)
-      } finally {
-        console.log('getRanPhoto finally')
-      }
-    },
+
     async getRandomMemberTen(){
       try {
         const response = await getRandomMemberTen()
@@ -636,16 +632,6 @@ export default {
         console.log('getMbti', e)
       } finally {
         console.log('getMbti finally')
-      }
-    },
-    async getLuckMember(){
-      try {
-        const response = await getLuckMember()
-        console.log('getLuckMember', response)
-      } catch (e) {
-        console.log('getLuckMember', e)
-      } finally {
-        console.log('getLuckMember finally')
       }
     },
     async postVotes(){

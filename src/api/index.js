@@ -47,9 +47,6 @@ function getMbti(params) {
 function postVotes(params) {
   return instance.get(`postVotes`, );
 }
-function getLuckMember(params) {
-  return instance.get(`getLuckMember`, );
-}
 
 export {
   getMemberContents,
@@ -61,6 +58,5 @@ export {
   getRandomMemberTen,
   getMbti,
   postVotes,
-  getLuckMember
 }
 
