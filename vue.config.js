@@ -10,10 +10,34 @@ module.exports = {
     overlay: false,
     disableHostCheck: true,
     proxy: {
-      '/b2c/api': {
+      '/getMemberContents': {
         target: process.env.VUE_APP_API_URL,
         changeOrigin: true,
       },
+      '/getSurvey': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      },
+      '/getRanPhoto': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      },
+      '/getMbti': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      },
+      '/postVotes': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      },
+      '/getAllPhoto': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      },
+      '/getRandomMemberTen': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      }
     },
   },
 };
