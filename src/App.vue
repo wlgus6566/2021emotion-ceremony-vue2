@@ -4,7 +4,7 @@
       <span class="santa"
       >
         싼타사진</span>
-      <span class="message">
+      <span class="message" v-bind:click = "goToVote" >
         투표해주세요투표해줘어어어</span>
     </span>
     <Loading :loading="loadingStatus"></Loading>
@@ -179,7 +179,7 @@
           <div class="top-img-wrap">
             <img src="@/assets/images/bg-respect.png" alt="" />
             <img class="respect-sticker" src="@/assets/images/img-respect.png" alt="" />
-            <span class="award-photo">
+            <span class="photo-img">
               <img src="http://placehold.it/150X150"/>
             </span>
             <button class="save-btn" disabled>저장하기</button>
@@ -621,6 +621,10 @@ export default {
       const locateSection =  document.querySelector(`.${locate}`);
       const targetBoxOffset = locateSection.offsetTop;
       window.scrollTo({top:targetBoxOffset, left:0, behavior:'smooth'});
+    },
+    goToVote() {
+      const voteLocation =  document.querySelector('.section3');
+      window.scrollTo({top:voteLocation.offsetTop, left:0, behavior:'smooth'});
     },
     showFloating() {
       const Section3Offset = document.querySelector('.section3').offsetTop;

@@ -271,11 +271,26 @@ export default {
   align-items: center;
   padding-left: 10px;
   .top-area-img {
+    position: relative;
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    border: 3px solid #fff;
+    background: url("../assets/images/frame.jpg") no-repeat center center;
     overflow: hidden;
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
   .top-area-desc {
       display: flex;
