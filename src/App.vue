@@ -38,88 +38,50 @@
         <div class="container survey-container">
           <ul class="wordsTab">
             <li>
-              <input checked type="radio" id="first" name="wordsKey" v-model="words.sort" value="2021년은 나에게">
-              <label for="first"></label>
+              <input type="radio" id="first" name="wordsKey" v-model="words.sort" value="what">
+              <label for="first">2021년은 나에게</label>
             </li>
             <li>
-              <input type="radio" id="second" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
-              <label for="second"></label>
+              <input type="radio" id="second" name="wordsKey" v-model="words.sort" value="after">
+              <label for="second">코로나가 끝나면</label>
             </li>
             <li>
-              <input type="radio" id="third" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
-              <label for="third"></label>
+              <input type="radio" id="third" name="wordsKey" v-model="words.sort" value="hobby">
+              <label for="third">위드코로나 추천 취미</label>
             </li>
             <li>
-              <input type="radio" id="fourth" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
-              <label for="fourth"></label>
+              <input type="radio" id="fourth" name="wordsKey" v-model="words.sort" value="want">
+              <label for="fourth">이모션글로벌에게 바란다</label>
             </li>
 
-            <!--            <li>
-                          <label>
-                            <input type="radio" name="wordsKey" v-model="words.sort" value="코로나가 끝나면">
-                          </label>
-                        </li>
-                        <li>
-                          <label>
-                            <input type="radio" name="wordsKey" v-model="words.sort" value="위드코로나 추천 취미">
-                          </label>
-                        </li>
-                        <li>
-                          <label>
-                            <input type="radio" name="wordsKey" v-model="words.sort" value="이모션글로벌에게 바란다">
-                          </label>
-                        </li>-->
+<!--            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="">
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="">
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="wordsKey" v-model="words.sort" value="">
+              </label>
+            </li>-->
           </ul>
-          <!--          <ul class="wordsList" v-for="(item, index) in words.list" :key="index">
-                      <li>{{item.body}}</li>
-                    </ul>-->
           <div class="wordsContainer">
             <ul class="wordsList">
-              <li>
+              <li v-for="(item, index) in words.list" :key="index">
                 <p>
-                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 하고 싶다.
+                  {{item[words.sort]}}
                 </p>
                 <span class="desc">
-                  <span class="department">CD본부</span>
-                  <span class="name">김모션</span>
+                  <span class="depoartment">{{item.department}}</span>
+                  <span class="name">{{item.name}}</span>
                 </span>
               </li>
-              <li>
-                <p>
-                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠오쩌구쩌구우우</span> 바란다.
-                </p>
-                <span class="desc">
-                  <span class="department">CD본부</span>
-                  <span class="name">김모션</span>
-                </span>
-              </li>
-              <li>
-                <p>
-                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 하고 싶다.
-                </p>
-                <span class="desc">
-                  <span class="department">CD본부</span>
-                  <span class="name">김모션</span>
-                </span>
-              </li>
-              <li>
-                <p>
-                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 였다.
-                </p>
-                <span class="desc">
-                  <span class="department">CD본부</span>
-                  <span class="name">김모션</span>
-                </span>
-              </li>
-              <li>
-                <p>
-                  코로나가 끝나면 <span class="answer">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠</span> 추천한다.
-                </p>
-                <span class="desc">
-                  <span class="department">CD본부</span>
-                  <span class="name">김모션</span>
-                </span>
-              </li>
+
             </ul>
             <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
           </div>
@@ -198,9 +160,18 @@
 
 <script>
 
-
-
-import { fetchUser, fetchWords } from '@/api';
+import {
+  getMemberContents,
+  getMemberCardImage,
+  getAllMemberCardImage,
+  getSurvey,
+  getAllPhoto,
+  getRanPhoto,
+  getRandomMemberTen,
+  getMbti,
+  postVotes,
+  getLuckMember
+} from '@/api';
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
@@ -546,7 +517,7 @@ export default {
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
-        sort: 'a', // 유저가 고른 탭의 value
+        sort: 'what', // 유저가 고른 탭의 value
         list: [], // 백엔드에서 받은 글 목록
         total: 2000, // 백엔드에서 받은 전체 글의 갯수
         options: {
@@ -559,40 +530,135 @@ export default {
   created() {
     window.addEventListener('scroll', this.showFloating);
     this.startSpinner();
-    fetchUser()
-        .then( (response) => {
-          this.users = response.data;
-          this.endSpinner();
-          /*         this.$store.commit("MU_EMAIL", response.data);*/
-        })
-        .catch(error => console.log(error));
-    this.getWords();
+
+    this.getMemberContents();
+    this.getMemberCardImage();
+    this.getAllMemberCardImage();
+    this.getSurvey();
+    this.getAllPhoto();
+    this.getRanPhoto();
+    this.getRandomMemberTen();
+    this.getMbti();
+    this.getLuckMember();
   },
   watch: {
-    'this.words.page'(){
-      this.getWords()
+    'words.page'(){
+      this.getSurvey()
     },
-    'this.words.sort'(){
-      this.getWords()
+    'words.sort'(){
+      this.words.page = 1;
+      this.getSurvey()
     },
   },
   methods: {
-    async getWords(){
+    async getMemberContents(){
+      try {
+        const response = await getMemberContents()
+        console.log('getMemberContents', response)
+      } catch (e) {
+        console.log('getMemberContents', e)
+      } finally {
+        console.log('getMemberContents finally')
+      }
+    },
+    async getMemberCardImage(){
+      try {
+        const response = await getMemberCardImage()
+        console.log('getMemberCardImage', response)
+      } catch (e) {
+        console.log('getMemberCardImage', e)
+      } finally {
+        console.log('getMemberCardImage finally')
+      }
+    },
+    async getAllMemberCardImage(){
+      try {
+        const response = await getAllMemberCardImage()
+        console.log('getAllMemberCardImage', response)
+      } catch (e) {
+        console.log('getAllMemberCardImage', e)
+      } finally {
+        console.log('getAllMemberCardImage finally')
+      }
+    },
+    async getSurvey(){
       try {
         this.startSpinner();
-        const {data : response} = await fetchWords({
+        const response = await getSurvey({
           page : this.words.page,
-          size : this.words.size,
           sort : this.words.sort,
         })
-        //this.words.list = response.list;
-        //this.words.total = response.total;
+        console.log('getSurvey', response);
+        this.words.list = response.surveyResponseList;
+        this.words.total = response.paging.totalCount;
       } catch (e) {
-        console.log(e)
+        console.log('getSurvey', e)
       } finally {
+        console.log('getSurvey finally')
         this.endSpinner();
       }
     },
+    async getAllPhoto(){
+      try {
+        const response = await getAllPhoto()
+        console.log('getAllPhoto', response)
+      } catch (e) {
+        console.log('getAllPhoto', e)
+      } finally {
+        console.log('getAllPhoto finally')
+      }
+    },
+    async getRanPhoto(){
+      try {
+        const response = await getRanPhoto()
+        console.log('getRanPhoto', response)
+      } catch (e) {
+        console.log('getRanPhoto', e)
+      } finally {
+        console.log('getRanPhoto finally')
+      }
+    },
+    async getRandomMemberTen(){
+      try {
+        const response = await getRandomMemberTen()
+        console.log('getRandomMemberTen', response)
+      } catch (e) {
+        console.log('getRandomMemberTen', e)
+      } finally {
+        console.log('getRandomMemberTen finally')
+      }
+    },
+    async getMbti(){
+      try {
+        const response = await getMbti()
+        console.log('getMbti', response)
+      } catch (e) {
+        console.log('getMbti', e)
+      } finally {
+        console.log('getMbti finally')
+      }
+    },
+    async getLuckMember(){
+      try {
+        const response = await getLuckMember()
+        console.log('getLuckMember', response)
+      } catch (e) {
+        console.log('getLuckMember', e)
+      } finally {
+        console.log('getLuckMember finally')
+      }
+    },
+    async postVotes(){
+      try {
+        const response = await postVotes()
+        console.log('postVotes', response)
+      } catch (e) {
+        console.log('postVotes', e)
+      } finally {
+        console.log('postVotes finally')
+      }
+    },
+
     startSpinner() {
       console.log('패치');
       this.loadingStatus = true;
@@ -812,6 +878,7 @@ body.modal-open {
       width: 185px;
       height: 28px;
       padding: 46px 0;
+      text-indent:-9999px;
       background: url("../src/assets/images/txt-tab-nor-01.png") no-repeat center center;
     }
     input {
