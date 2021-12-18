@@ -6,10 +6,21 @@
     </span>
     <div class="modal-card">
       <h4 class="title">
-        이글리안에 있는 <strong>ENTP</strong>
+        이글리안에 있는 <strong :class = this.mbti >{{ mbti.toLocaleUpperCase() }}</strong>
       </h4>
       <ul class="mbti-wrap">
-        <li>
+        <li v-for="(data ,i) in matchData" :key="i" >
+          <div class="user-thumb">
+            <img src="http://placehold.it/150X150"/>
+          </div>
+          <div class="user-info">
+            <span class="department">{{ data.name }}</span>
+            <span class="name">
+              {{data.name}} {{data.position}}
+            </span>
+          </div>
+        </li>
+<!--        <li>
           <div class="user-thumb">
             <img src="http://placehold.it/150X150"/>
           </div>
@@ -86,34 +97,15 @@
             </span>
           </div>
         </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-<!--        <li v-for="(data,i) in matchData" :key="i">
+        <li v-for="(data,i) in matchData" :key="i">
           <img src="http://placehold.it/150X150"/>
           <span>{{data.name}}</span>
           <span>{{data.position}}</span>
         </li>-->
       </ul>
-      <div class="fact-wrap">
+      <div class="fact-wrap" v-if="!this.mbti === other">
         <h4>잘봐, 팩폭 들어간다</h4>
-        <p>
-          개썅마웨, 이상주의자<br/>
-          혼자서 돌아다니는게 제일 편함, 독립심 강함<br/>
-          겉으론 인싸 속모습은 아싸<br/>
-          나한테 잘해주는 사람은 두 배로 잘해주는데 나한테 못해주면 걍 1도 없음<br/>
-          내 의견이랑 상대 의견 다르면 설득하려는 스타일<br/>
-          직설적이고 솔직하게 내 맘을 표현하는 것에 거리낌이 없음<br/>
-          좋아하는 사람 싫어하는 사람 명확히 구분됨
-        </p>
+        <p v-html="handleNewLine( this.fact )"></p>
       </div>
     </div>
   </div>
@@ -122,12 +114,18 @@
 <script>
 export default {
   props: {
+    mbti: String,
     matchData: Array,
     fact: String,
   },
   methods: {
+    handleNewLine(str) {
+      return str ? str.toString().replace(/(\n|\r\n)/g, "<br>") : "";
+    },
+  },
+  computed: {
 
-  }
+  },
 }
 </script>
 <style scoped lang="scss">
@@ -180,6 +178,24 @@ export default {
     margin-top: 24px;
     color: #764195;
     font-family: "Gotham", 'Noto Sans KR', sans-serif;
+    &.intj {color: #8e4065;}
+    &.intp {color: #a76082;}
+    &.entj {color: #a076b7;}
+    &.entp {color: #764195;}
+    &.infj {color: #b9c544;}
+    &.infp {color: #8e4065;}
+    &.enfj {color: #6e9d36;}
+    &.enfp {color: #477a0a;}
+    &.istj {color: #72c9cb;}
+    &.istp {color: #229b9e;}
+    &.enfp {color: #477a0a;}
+    &.estj {color: #24abcd;}
+    &.estp {color: #0996ba;}
+    &.isfj {color: #f4c020;}
+    &.isfp {color: #c79701;}
+    &.esfj {color: #e6ca05;}
+    &.esfp {color: #cc8b1f;}
+    &.other {color: #e51f2f;}
   }
 }
 .mbti-wrap {
@@ -188,8 +204,6 @@ export default {
   flex-wrap: wrap;
   width: calc(100% - 40px);
   max-width: 1280px;
-
-
   li {
     width: 20%;
     padding: 10px;

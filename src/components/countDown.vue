@@ -23,6 +23,20 @@ export default {
 .count-wrap {
   .flip-clock__piece {
       width: 30%;
+      position: relative;
+    + .flip-clock__piece {
+      +  .flip-clock__piece {
+        &:after {
+          content: ":";
+          position: absolute;
+          top: 6%;
+          left: -13%;
+          font-size: 150px;
+          color: #999;
+          z-index: 1000;
+        }
+      }
+    }
   }
   .flip-clock__card.flip-card {
     color: #fff !important;
@@ -81,6 +95,7 @@ export default {
   .flip-card__back-bottom,
   .flip-card__back::before,
   .flip-card__back::after {
+    width: 380px !important;
     color: #fff !important;
     background: #1b1a1d !important;
     font-weight: normal;

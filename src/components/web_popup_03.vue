@@ -15,7 +15,7 @@
       </div>
       <div class="pop3-content">
         <ul>
-          <li v-for="(user, i) in allMemList" :key="i"
+          <li v-for="(user, i) in allMemberList" :key="i"
               @click="[voteMember($event,user)]"
               v-bind:class="{ active: user.likeActive }"
               >
@@ -38,6 +38,9 @@
 
 export default {
   name: "modal3",
+  props: {
+    allMemberList: []
+  },
   data() {
     return {
       showModal: true,

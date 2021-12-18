@@ -152,7 +152,10 @@
 
       <div>
       <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
-      <modal3 @closeModalFc="closeThirdModalFc" v-if="showModal3"></modal3>
+      <modal3 :allMemberList = allMemberList
+              @closeModalFc="closeThirdModalFc"
+              v-if="showModal3">
+      </modal3>
       </div>
     </div>
   </div>
@@ -209,311 +212,57 @@ export default {
       mbtilist: [
         {
           mbti: "intj",
-          match:[
-            {
-              name: "김지현",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김재훈",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "개썅마웨~ 이상주의자",
-          desc:
-              "자유로운 연예인유형~~~~~~"
         },
         {
           mbti: "intp",
-          match:[
-            {
-              name: "정소현",
-              position: "책임리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "이보경",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "좋아하는 사람 싫어하는 사람 명확",
-          desc:
-              "통솔자형~~~~~"
         },
         {
           mbti: "enfj",
-          match:[
-            {
-              name: "김빠빠",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김삐삐",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "나한테 못해주면 걍 1도 없음",
-          desc:
-              "사랑스런유형~~~~~~"
         },
         {
           mbti: "entp",
-          match:[
-            {
-              name: "라푸",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "라스",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "모든이와 찰떡궁합",
-          desc:
-              "핵인싸유형~~~~~~"
         },
         {
           mbti: "infj",
-          match:[
-            {
-              name: "김지현",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김재훈",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "개썅마웨~ 이상주의자",
-          desc:
-              "자유로운 연예인유형~~~~~~"
         },
         {
           mbti: "infp",
-          match:[
-            {
-              name: "정소현",
-              position: "책임리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "이보경",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "좋아하는 사람 싫어하는 사람 명확",
-          desc:
-              "통솔자형~~~~~"
         },
         {
           mbti: "entj",
-          match:[
-            {
-              name: "김빠빠",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김삐삐",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "나한테 못해주면 걍 1도 없음",
-          desc:
-              "사랑스런유형~~~~~~"
         },
         {
           mbti: "enfp",
-          match:[
-            {
-              name: "라푸",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "라스",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "모든이와 찰떡궁합",
-          desc:
-              "핵인싸유형~~~~~~"
         },
         {
           mbti: "istj",
-          match:[
-            {
-              name: "김지현",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김재훈",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "개썅마웨~ 이상주의자",
-          desc:
-              "자유로운 연예인유형~~~~~~"
         },
         {
           mbti: "istp",
-          match:[
-            {
-              name: "정소현",
-              position: "책임리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "이보경",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "좋아하는 사람 싫어하는 사람 명확",
-          desc:
-              "통솔자형~~~~~"
         },
         {
           mbti: "estj",
-          match:[
-            {
-              name: "김빠빠",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김삐삐",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "나한테 못해주면 걍 1도 없음",
-          desc:
-              "사랑스런유형~~~~~~"
         },
         {
           mbti: "estp",
-          match:[
-            {
-              name: "라푸",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "라스",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "모든이와 찰떡궁합",
-          desc:
-              "핵인싸유형~~~~~~"
         },
         {
           mbti: "isfj",
-          match:[
-            {
-              name: "김지현",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김재훈",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "개썅마웨~ 이상주의자",
-          desc:
-              "자유로운 연예인유형~~~~~~"
         },
         {
           mbti: "isfp",
-          match:[
-            {
-              name: "정소현",
-              position: "책임리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "이보경",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "좋아하는 사람 싫어하는 사람 명확",
-          desc:
-              "통솔자형~~~~~"
         },
         {
           mbti: "esfj",
-          match:[
-            {
-              name: "김빠빠",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "김삐삐",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "나한테 못해주면 걍 1도 없음",
-          desc:
-              "사랑스런유형~~~~~~"
         },
         {
           mbti: "esfp",
-          match:[
-            {
-              name: "라푸",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "라스",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "모든이와 찰떡궁합",
-          desc:
-              "핵인싸유형~~~~~~"
         },
         {
           mbti: "other",
-          match:[
-            {
-              name: "라푸",
-              position: "리더",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-            {
-              name: "라스",
-              position: "디벨로퍼",
-              thumbnail: 'http://placehold.it/50X50'
-            },
-          ],
-          fact: "모든이와 찰떡궁합",
-          desc:
-              "핵인싸유형~~~~~~"
-        },
+        }
       ],
+      allMemberList: [],
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
@@ -533,7 +282,7 @@ export default {
 
     this.getMemberContents();
     this.getMemberCardImage();
-    this.getAllMemberCardImage();
+
     this.getSurvey();
     this.getAllPhoto();
     this.getRanPhoto();
@@ -571,10 +320,11 @@ export default {
         console.log('getMemberCardImage finally')
       }
     },
-    async getAllMemberCardImage(){
+    async getAllMemberCardImage(){ //이글리안 3명투표
       try {
         const response = await getAllMemberCardImage()
-        console.log('getAllMemberCardImage', response)
+        console.log('getAllMemberCardImage', response);
+        this.allMemberList = response;
       } catch (e) {
         console.log('getAllMemberCardImage', e)
       } finally {
@@ -630,7 +380,10 @@ export default {
     },
     async getMbti(){
       try {
-        const response = await getMbti()
+        const response = await getMbti({
+               mbti : this.mbti
+            }
+        )
         console.log('getMbti', response)
       } catch (e) {
         console.log('getMbti', e)
@@ -675,6 +428,7 @@ export default {
       document.querySelector('body').classList.remove('modal-open');
     },
     showThirdModalFc() {
+      this.getAllMemberCardImage();
       this.showModal3 = true;
       document.querySelector('body').classList.add('modal-open');
     },

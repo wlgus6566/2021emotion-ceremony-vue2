@@ -13,6 +13,7 @@
     </ul>
     <MbtiModal :matchData ="matchData"
                :fact ="fact"
+               :mbti = "mbti"
                v-if="isModalViewed"
                @closeMbtiModal="closeMbtiModal"
     />
@@ -21,10 +22,13 @@
 
 <script>
 import MbtiModal from "./MbtiModal";
+import { getMbti } from '@/api';
+
 export default {
   data() {
     return {
       isModalViewed: false,
+      mbti: '',
       matchData: [],
       fact: '',
     }
@@ -34,7 +38,30 @@ export default {
     items: Array,
   },
   methods: {
+    async getMbti() {
+      try {
+        const response = await getMbti({
+              mbti : this.mbti
+          }
+        )
+        this.matchData = response.surveyResponseList;
+        this.fact = response.fact;
+
+        console.log('getMbti', response)
+
+      } catch (e) {
+        console.log('getMbti', e)
+      } finally {
+        console.log('getMbti finally')
+      }
+    },
     openMbtiModal(item) {
+      this.mbti = item.mbti;
+      this.getMbti({
+        mbti : this.mbti
+      });
+
+
       this.isModalViewed = true;
       this.matchData = item.match;
       this.fact = item.fact;

@@ -42,7 +42,7 @@ function getRandomMemberTen(params) {
   return instance.get(`getRandomMemberTen`, );
 }
 function getMbti(params) {
-  return instance.get(`getMbti`, );
+  return instance.get(`getMbti`,{params:params} );
 }
 function postVotes(params) {
   return instance.get(`postVotes`, );
