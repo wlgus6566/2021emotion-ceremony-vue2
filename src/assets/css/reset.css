@@ -66,8 +66,7 @@ textarea,
 select,
 button,
 table {
-    font-family: 'Roboto', 'Noto Sans KR', 'Arial', 'Apple SD Gothic Neo',
-    sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: inherit;
     font-weight: normal;
     line-height: 1.6;

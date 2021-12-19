@@ -26,10 +26,9 @@
                  }"
               @click="clickEvt(item.id)"
             >
-              {{item.id}}
+<!--              {{item.id}}-->
               <span class="img-wrap">
-                {{item.physicalFileName}}
-                <img :src="item.physicalFileName" alt="">
+                <img :src="item.physicalFileName" :alt="item.name">
               </span>
             </li>
           </ul>
@@ -126,6 +125,8 @@ export default {
   font-size: 40px;
   z-index: 10000;
   .vote-btn {
+    display: flex;
+    align-items: center;
     padding: 0 27px;
     height: 64px;
     font-size: 30px;
@@ -159,14 +160,17 @@ export default {
   max-height: 840px;
   height: calc(100% - 100px);
   margin-top: 20px;
-  padding: 40px 60px;
+  padding: 60px 50px;
   box-sizing: border-box;
   z-index: 1002;
   opacity: 1;
   background: #fff;
+  -ms-overflow-style: none;
 }
+.pop3-content::-webkit-scrollbar {display: none;}
 .content-left {
-  width: calc(50% - 20px);
+  overflow: hidden;
+  width: calc(50% - 18px);
   .user-title {
     margin-top: 28px;
     font-size: 28px;
@@ -180,21 +184,23 @@ export default {
     -webkit-line-clamp: 2; /* 라인수 */
     -webkit-box-orient: vertical;
     word-wrap: break-word;
-    height: 72px; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
   }
   .btn-like {
     font-size: 0;
     text-indent: -9999em;
     width: 150px;
     height: 48px;
+    margin-right: -1px;
     background: url("../assets/images/pop_like_off.png") no-repeat center/cover;
     &.active {
       background: url("../assets/images/pop_like_on.png") no-repeat center/cover;
     }
   }
 }
+.content-right::-webkit-scrollbar {display: none;}
 .content-right {
-  width: calc(50% - 20px);
+  -ms-overflow-style: none;
+  width: calc(50% - 19px);
   overflow-y: scroll;
   overflow-x: hidden;
   .thumb-list {
@@ -203,7 +209,23 @@ export default {
     li {
       width: calc((100% - 40px) / 3);
       .img-wrap {
+        position: relative;
+        display: block;
         overflow: hidden;
+        border: 3px solid #eee;
+        box-sizing: border-box;
+        &::after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
       }
     }
     li:not(:nth-child(3n)) {
@@ -217,9 +239,9 @@ export default {
     background:blue;
   }
   .checked {
-    outline: 10px solid #d33839;
-    outline-offset: -10px;
+    border: 10px solid #d33839;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
   }
 }
 .user-info {

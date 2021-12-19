@@ -14,9 +14,9 @@
         </p>
         <div class="user-info">
           <div>
-            <span class="department">{{ item.department }}</span>
-            <span class="name">{{item.name}}</span>
-            <span class="position">{{ item.position }}</span>
+            <span class="department">{{ item.department }} </span>
+            <span class="name">{{item.name}} </span>
+            <span class="position">{{ item.level }}</span>
           </div>
           <button
               :class="{
@@ -70,6 +70,7 @@ export default {
     return {
       swiperOptions: {
         loop: true,
+        allowTouchMove: false,
         slidesPerView: 1,
         navigation: {
           nextEl: '.swiper-button-next',
@@ -99,27 +100,14 @@ export default {
 .swiper-container {
   width: 100%;
   height: 560px;
+  overflow: inherit;
+  z-index: 1;
   img {
     width: 100%;
     height: 100%;
   }
 }
 
-.user-title {
-  margin-top: 28px;
-  font-size: 28px;
-  line-height: 36px;
-  letter-spacing: -2px;
-  color: #333333;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 라인수 */
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-  height: 72px; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
-}
 .btn-like {
   font-size: 0;
   text-indent: -9999em;
@@ -130,8 +118,38 @@ export default {
     background: url("../assets/images/pop_like_on.png") no-repeat center/cover;
   }
 }
+.user-title {
+  margin-top: 28px;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -2px;
+  color: #333333;
+  font-weight: bold;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  height: 72px; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 12px;
+  line-height: 1;
+  color: #999;
+}
 
 .swiper-slide {
+  .img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .swiper-button-prev, .swiper-button-next {

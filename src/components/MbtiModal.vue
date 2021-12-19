@@ -28,15 +28,16 @@
                            data.mbti === 'ENTJ' ||
                            data.mbti === 'ENFP' ||
                            data.mbti === 'ISTJ' ||
-                           data.mbti === 'ESTJ' ||
+                           data.mbti === 'ENFJ' ||
                            data.mbti === 'ESTP' ||
                            data.mbti === 'ISFJ' ||
                            data.mbti === 'ISTP' ||
                            data.mbti === 'ESTJ' ||
                            data.mbti === 'ESTP' ||
-                           data.mbti === 'ISFJ' ||
+                           data.mbti === 'INFJ' ||
                            data.mbti === 'ISFP' ||
                            data.mbti === 'ESFJ' ||
+                           data.mbti === 'ENTP' ||
                            data.mbti === 'ESFP'
                          )">
               {{ data.mbti }}
@@ -178,7 +179,7 @@ export default {
       position: relative;
       border-radius: 50%;
       overflow: hidden;
-      border: 1px solid #eee;
+      border: 3px solid #eee;
       &:after {
         content: '';
         padding-bottom: 100%;
