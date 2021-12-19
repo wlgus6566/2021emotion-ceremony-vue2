@@ -151,14 +151,7 @@
 
       <div class="section9">
         <div class="container">
-          <div class="top-img-wrap">
-            <img src="@/assets/images/bg-respect.png" alt="" />
-            <img class="respect-sticker" src="@/assets/images/img-respect.png" alt="" />
-            <span class="photo-img">
-              <img src="http://placehold.it/150X150"/>
-            </span>
-            <button class="save-btn" disabled>저장하기</button>
-          </div>
+          <Section9></Section9>
           <img src="@/assets/images/img-respect-end.png" alt="" />
         </div>
       </div>
@@ -196,6 +189,7 @@ import Pagination from 'vue-pagination-2';
 //
 import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
+import Section9 from "@/components/section9";
 import SurveySlider from "@/components/surveySlider";
 import modal2 from "@/components/web_popup_02";
 import modal3 from "@/components/web_popup_03";
@@ -214,6 +208,7 @@ export default {
     Pagination,
     Section4,
     Section5,
+    Section9,
     modal2,
     modal3,
   },
@@ -821,7 +816,7 @@ body.modal-open {
       position: relative;
       .respect-sticker {
         position: absolute;
-        left: 25.5%;
+        left: 40.5%;
         top: 36%;
         width: 19%;
         z-index: 1;
