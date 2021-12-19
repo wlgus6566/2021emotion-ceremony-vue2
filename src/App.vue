@@ -131,9 +131,13 @@
       <div class="section7">
         <div class="container">
           <img src="@/assets/images/tit-06.png" alt="" />
-          <img style="margin-top: 120px;" src="@/assets/images/img-ready.png" alt="" />
-          <count-down />
-
+          <img style="margin: 120px 0 40px;" src="@/assets/images/img-ready.png" alt="" />
+          <div v-if="!timeOut">
+            <count-down />
+          </div>
+          <div v-else>
+            <img src="@/assets/images/img-onair.png" alt="" />
+          </div>
           <div style="position: relative; margin-bottom: 200px">
             <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />
             <span class="fight-number">85</span>
@@ -184,6 +188,7 @@ import {
   postVotes,
   getAllPhoto
 } from '@/api';
+import {commonMethods} from "@/utils/common-methods";
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
 import Pagination from 'vue-pagination-2';
@@ -212,11 +217,13 @@ export default {
     modal2,
     modal3,
   },
+  mixins: [commonMethods],
   data() {
     return {
       users: [],
       showModal: false,
       showModal3: false,
+      timeOut: false,
       loadingStatus: false,
       showFloat: false,
       mbtilist: [
@@ -276,7 +283,278 @@ export default {
       randomPhoto : [],
       randomMember : [],
       allMember : [],
-      allMemberList: [],
+      allMemberList: [
+        {
+          id: 13,
+          email: "minjun.jeon@emotion.co.kr",
+          name: "전민준",
+          department: "CX본부",
+          level: "리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "minjun-jeon",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 56,
+          email: "hyunsu.kim@emotion.co.kr",
+          name: "김현수",
+          department: "CM본부",
+          level: "본부장",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "hyunsu-kim",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 114,
+          email: "joohee.jeong@emotion.co.kr",
+          name: "정주희",
+          department: "CT본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "joohee-jeong",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 28,
+          email: "yunbin.kim@emotion.co.kr",
+          name: "김윤빈",
+          department: "CP1본부",
+          level: "선임리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "yunbin-kim",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 19,
+          email: "sehei.chung@emotion.co.kr",
+          name: "정세희",
+          department: "CX본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "sehei-chung",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 122,
+          email: "eunjung.lee@emotion.co.kr",
+          name: "이은정",
+          department: "재무팀",
+          level: "선임리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "eunjung-lee",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 110,
+          email: "jiyun.lim@emotion.co.kr",
+          name: "임지연",
+          department: "CT본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "jiyun-lim",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 51,
+          email: "sangui.yu@emotion.co.kr",
+          name: "유상의",
+          department: "CP2본부",
+          level: "리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "sangui-yu",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 15,
+          email: "hyemi.kim@emotion.co.kr",
+          name: "김혜미",
+          department: "CX본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "hyemi-kim",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 66,
+          email: "Jeongnyeon.Seong@emotion.co.kr",
+          name: "성정년",
+          department: "CM본부",
+          level: "리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "Jeongnyeon-Seong",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 70,
+          email: "okseok.lee@emotion.co.kr",
+          name: "이옥석",
+          department: "CM본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "okseok-lee",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 5,
+          email: "youngsun.kim@emotion.co.kr",
+          name: "김영선",
+          department: "인사총무팀",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "youngsun-kim",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 6,
+          email: "heejin.han@emotion.co.kr",
+          name: "한희진",
+          department: "인사총무팀",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "heejin-han",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 49,
+          email: "jaeeun.jung@emotion.co.kr",
+          name: "정재은",
+          department: "CP2본부",
+          level: "선임리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "jaeeun-jung",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 98,
+          email: "sunghwan.kwon@emotion.co.kr",
+          name: "권성환",
+          department: "CT본부",
+          level: "책임리더",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "sunghwan-kwon",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 82,
+          email: "daun.jeong@emotion.co.kr",
+          name: "정다운",
+          department: "CM본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "daun-jeong",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 71,
+          email: "seulki.kim@emotion.co.kr",
+          name: "김슬기",
+          department: "CM본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "seulki-kim",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+        {
+          id: 55,
+          email: "junyeol.park@emotion.co.kr",
+          name: "박준열",
+          department: "CP2본부",
+          level: "팀원",
+          what: null,
+          after: null,
+          hobby: null,
+          want: null,
+          mbti: null,
+          idImage: "junyeol-park",
+          memberId: null,
+          imagePath: "/img/211216/"
+        },
+      ],
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
@@ -408,7 +686,9 @@ export default {
         console.log('postVotes finally')
       }
     },
-
+    timeElapsedHandler() {
+      this.timeOut = true;
+    },
     startSpinner() {
       console.log('패치');
       this.loadingStatus = true;
@@ -548,10 +828,10 @@ body.modal-open {
       }
       .save-btn {
         position: absolute;
-        left: 39%;
+        left: 35%;
         top: 92%;
         background: red;
-        width: 22%;
+        width: 30%;
         height: 6%;
         opacity: 0;
         cursor: pointer;
@@ -565,7 +845,7 @@ body.modal-open {
         border-radius: 50%;
         overflow: hidden;
         box-sizing: border-box;
-        background: url("../src/assets/images/frame.jpg") no-repeat center center;
+        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;
         &:after {
           content: "";
           display: block;

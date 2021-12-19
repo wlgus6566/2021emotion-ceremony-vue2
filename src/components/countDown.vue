@@ -3,7 +3,10 @@
   <div class="count-wrap">
     <div>
       <!-- parameters :showDays="false" -->
-      <flip-countdown deadline="2021-12-23 00:00:00" :showDays="false"></flip-countdown>
+      <flip-countdown
+          deadline="2021-12-19 18:28:20"
+          :showDays="false"
+          @timeElapsed="timeElapsedHandler"></flip-countdown>
     </div>
   </div>
 </template>
@@ -12,8 +15,15 @@
 import FlipCountdown from 'vue2-flip-countdown'
 export default {
   name: "countDown",
+  props: {
+  },
   components: {
     FlipCountdown
+  },
+  methods : {
+    timeElapsedHandler() {
+      console.log('끝!');
+    }
   }
 }
 
@@ -21,6 +31,9 @@ export default {
 
 <style lang="scss">
 .count-wrap {
+  .flip-clock {
+    height: 260px;
+  }
   .flip-clock__piece {
       width: 30%;
       position: relative;
@@ -101,7 +114,9 @@ export default {
   .flip-card__back::after{
     color: rgba(255, 255, 255, .75) !important;
   }
-
+  .flip-card {
+    line-height: 1;
+  }
 }
 
 [class^=flip-clock__piece] + [class^=flip-clock__piece]:before {

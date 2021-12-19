@@ -18,8 +18,12 @@
             <span class="name">
               {{ data.name }}
             </span>
+            <span class="name">
+              {{ data.level }}
+            </span>
             <span class="other-mbti"
-                  v-if="! (data.mbti === 'INFJ' ||
+                  v-if="! (data.mbti === 'INTJ' ||
+                           data.mbti === 'INTP' ||
                            data.mbti === 'INFP' ||
                            data.mbti === 'ENTJ' ||
                            data.mbti === 'ENFP' ||
@@ -49,16 +53,16 @@
 </template>
 
 <script>
+import {commonMethods} from "@/utils/common-methods.js";
+
 export default {
   props: {
     mbti: String,
     matchData: Array,
     fact: String,
   },
+  mixins: [commonMethods],
   methods: {
-    handleNewLine(str) {
-      return str ? str.toString().replace(/(\n|\r\n)/g, "<br>") : "";
-    },
   },
   computed: {
 

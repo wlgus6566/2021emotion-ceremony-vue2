@@ -20,11 +20,11 @@
               v-bind:class="{ active: user.likeActive }"
               >
             <div class="img-area">
-              <img :src="user.src" alt="">
+              <img :src="imgUrl(user.imagePath + user.idImage + '.jpg')" :alt="user.idImage">
             </div>
             <div class="info-area">
-              <span class="department"> {{ user.userGroup }} </span>
-              <p class="name">{{ user.userName }} <span class="position">{{ user.userPosition }}</span></p>
+              <span class="department"> {{ user.department }} </span>
+              <p class="name">{{ user.name }} <span class="position">{{ user.position }}</span></p>
             </div>
           </li>
         </ul>
@@ -225,6 +225,9 @@ export default {
       this.completeVote = voteLength === this.limit - 1;
     }*/
     },
+    imgUrl(url) {
+      return 'http://party.emotion.co.kr' + url;
+    },
   }
 }
 </script>
@@ -315,6 +318,7 @@ export default {
             top: 0;
             box-sizing: border-box;
             border-radius: 50%;
+            z-index: 1;
           }
         }
       }
@@ -325,8 +329,17 @@ export default {
         overflow: hidden;
         border: 1px solid #eee;
         box-sizing: border-box;
+        &::after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
         img {
+          position: absolute;
           width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
         }
       }
       .info-area {

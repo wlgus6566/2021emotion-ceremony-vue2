@@ -227,22 +227,22 @@ export default {
   left: 0;
 }
 .swiper-button-next.swiper-btn-next::before {
-  content: '';
+  content: "";
   position: absolute;
-  width: 10px;
-  height: 334px;
-  top: 2px;
-  left: 40px;
+  width: 200px;
+  height: 620px;
+  top: -286px;
+  left: -73px;
   background: #e3e1e6;
   z-index: -1;
 }
 .swiper-button-prev.swiper-btn-prev::before {
-  content: '';
+  content: "";
   position: absolute;
-  width: 12px;
-  height: 334px;
-  top: 2px;
-  left: -1px;
+  width: 200px;
+  height: 620px;
+  top: -286px;
+  left: -73px;
   background: #e3e1e6;
   z-index: -1;
 }
@@ -271,7 +271,7 @@ export default {
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    background: url("../assets/images/frame.jpg") no-repeat center center;
+    background: url("../assets/images/frame.jpg") no-repeat center/cover;
     overflow: hidden;
     &:after {
       content: "";
