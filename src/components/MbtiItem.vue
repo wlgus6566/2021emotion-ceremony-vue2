@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="flip-3d-wrap">
-      <li class="flip-3d" v-for="item in items" :key="item.name">
+      <li class="flip-3d" v-for="(item, i) in items" :key="i">
         <figure>
           <img :src="require(`@/assets/images/img-card-${item.mbti}-01.png`)" />
           <figcaption>
@@ -47,7 +47,7 @@ export default {
         this.matchData = response.surveyResponseList;
         this.fact = response.fact;
 
-        console.log('getMbti', response)
+        console.log('getMbti', response.fact)
 
       } catch (e) {
         console.log('getMbti', e)
@@ -60,7 +60,6 @@ export default {
       this.getMbti({
         mbti : this.mbti
       });
-
 
       this.isModalViewed = true;
       this.matchData = item.match;

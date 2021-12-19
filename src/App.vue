@@ -121,9 +121,15 @@
 
       <div class="section7">
         <div class="container">
-          <img src="@/assets/images/tit-06.png" alt="" />
-          <img style="margin-top: 120px;" src="@/assets/images/img-ready.png" alt="" />
-          <count-down />
+          <div>
+            <img src="@/assets/images/tit-06.png" alt="" />
+            <img style="margin: 120px 0 40px;" src="@/assets/images/img-ready.png" alt="" />
+            <count-down />
+            <div>
+
+            </div>
+          </div>
+
 
           <div style="position: relative; margin-bottom: 200px">
             <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />

@@ -14,98 +14,35 @@
             <img src="http://placehold.it/150X150"/>
           </div>
           <div class="user-info">
-            <span class="department">{{ data.name }}</span>
+            <span class="department">{{ data.department }}</span>
             <span class="name">
-              {{data.name}} {{data.position}}
+              {{ data.name }}
+            </span>
+            <span class="other-mbti"
+                  v-if="! (data.mbti === 'INFJ' ||
+                           data.mbti === 'INFP' ||
+                           data.mbti === 'ENTJ' ||
+                           data.mbti === 'ENFP' ||
+                           data.mbti === 'ISTJ' ||
+                           data.mbti === 'ESTJ' ||
+                           data.mbti === 'ESTP' ||
+                           data.mbti === 'ISFJ' ||
+                           data.mbti === 'ISTP' ||
+                           data.mbti === 'ESTJ' ||
+                           data.mbti === 'ESTP' ||
+                           data.mbti === 'ISFJ' ||
+                           data.mbti === 'ISFP' ||
+                           data.mbti === 'ESFJ' ||
+                           data.mbti === 'ESFP'
+                         )">
+              {{ data.mbti }}
             </span>
           </div>
         </li>
-<!--        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
-          </div>
-          <div class="user-info">
-            <span class="department">경영전략본부</span>
-            <span class="name">
-              최모션 책임리더
-            </span>
-          </div>
-        </li>
-        <li v-for="(data,i) in matchData" :key="i">
-          <img src="http://placehold.it/150X150"/>
-          <span>{{data.name}}</span>
-          <span>{{data.position}}</span>
-        </li>-->
       </ul>
-      <div class="fact-wrap" v-if="!this.mbti === other">
+      <div class="fact-wrap" v-if="!(this.mbti === 'other')">
         <h4>잘봐, 팩폭 들어간다</h4>
-        <p v-html="handleNewLine( this.fact )"></p>
+        <p v-html = "handleNewLine( this.fact )"></p>
       </div>
     </div>
   </div>
@@ -205,6 +142,9 @@ export default {
   width: calc(100% - 40px);
   max-width: 1280px;
   li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 20%;
     padding: 10px;
     margin-top: 63px;
@@ -212,14 +152,22 @@ export default {
     .user-info {
       margin-top: 33px;
       .department {
-        display: block;
         font-size: 24px;
         color: #999;
       }
       .name {
+        display: block;
         font-size: 30px;
+        margin-top: 10px;
         font-weight: bold;
         line-height: 1;
+      }
+      .other-mbti {
+        display: block;
+        margin-top: 7px;
+        font-weight: bold;
+        font-size: 25px;
+        color: #e51f2f;
       }
     }
     .user-thumb {
