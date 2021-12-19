@@ -134,7 +134,7 @@
               <img src="@/assets/images/bg-respect.png" alt=""/>
               <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
               <span class="photo-img">
-<!--                {{ this.mbtiPhoto[0].department }}-->
+                {{ this.dfdf }}
 <!--                <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>-->
               </span>
               <a :href="outputImage" class="save-btn" download></a>
@@ -216,6 +216,7 @@ export default {
         eventRank: null,
         imagePath: null
       },
+      dfdf:[],
       outputImage: null,
       showModal: false,
       showModal3: false,
@@ -669,12 +670,15 @@ export default {
     async getMbti(){
       try {
         const response = await getMbti({
-               mbti : this.mbti
+               mbti : "esfp"
             }
         )
-        console.log('getMbti', response)
+        console.log('getMbti', response);
+        this.dfdf = response;
+        this.saveImage();
       } catch (e) {
         console.log('getMbti', e)
+
       } finally {
         console.log('getMbti finally')
       }
