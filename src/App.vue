@@ -146,8 +146,6 @@
 
       <div>
       <modal2 @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
-      <modal3 @closeModalFc="closeThirdModalFc" v-if="showModal3"></modal3>
-      <modal2 @closeModalFc="closeModalFc" v-if="showModal"></modal2>
       <modal3 :allMemberList = allMemberList
               @closeModalFc="closeThirdModalFc"
               v-if="showModal3">
@@ -571,7 +569,7 @@ export default {
     this.startSpinner();
     this.getMemberContents();
     this.getMemberCardImage();
-    this.getAllMemberCardImage();
+    //this.getAllMemberCardImage();
     this.getSurvey();
     this.getRandomMemberTen();
     this.getMbti();

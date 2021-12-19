@@ -14,22 +14,26 @@
           </button>
       </div>
       <div class="pop3-content">
-        <ul>
-          <li v-for="(user, i) in allMemberList" :key="i"
-              @click="[voteMember($event,user)]"
-              v-bind:class="{ active: user.likeActive }"
-              >
-            <div class="img-area">
+        <div class="egle-list">
+          <label v-for="(user, i) in allMemberList" :key="i"
+                 @click="voteMember(user.id)"
+                 :class="{
+                'btn-like':true,
+                 active: voteList.some(el=>el===user.id)
+              }"
+          >
+            <input type="checkbox" name="egle" :value="user.name"
+                   :disabled="!voteList.some(el=>el===user.id) && voteList.length >= 3">
+            <span class="img-area">
               <img :src="imgUrl(user.imagePath + user.idImage + '.jpg')" :alt="user.idImage">
-            </div>
-            <div class="info-area">
+            </span>
+            <span class="info-area">
               <span class="department"> {{ user.department }} </span>
-              <p class="name">{{ user.name }} <span class="position">{{ user.position }}</span></p>
-            </div>
-          </li>
-        </ul>
+            <strong class="name">{{ user.name }} <span class="position">{{ user.position }}</span></strong>
+          </span>
+          </label>
+        </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -43,187 +47,23 @@ export default {
   },
   data() {
     return {
+      checkabled: true,
       showModal: true,
       voteList: [],
       limit: 3,
-      allMemList: [
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: 'CT본부',
-          userName: '김지현',
-          userPosition: '팀원',
-          src: "https://via.placeholder.com/400x400.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '김모션',
-          userPosition: '리더',
-          src: "https://via.placeholder.com/720x720.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: 'CT본부',
-          userName: '김지현',
-          userPosition: '팀원',
-          src: "https://via.placeholder.com/400x400.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '김모션',
-          userPosition: '리더',
-          src: "https://via.placeholder.com/720x720.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: 'CT본부',
-          userName: '김지현',
-          userPosition: '팀원',
-          src: "https://via.placeholder.com/400x400.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: 'CT본부',
-          userName: '김지현',
-          userPosition: '팀원',
-          src: "https://via.placeholder.com/400x400.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '김모션',
-          userPosition: '리더',
-          src: "https://via.placeholder.com/720x720.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: 'CT본부',
-          userName: '김지현',
-          userPosition: '팀원',
-          src: "https://via.placeholder.com/400x400.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '김모션',
-          userPosition: '리더',
-          src: "https://via.placeholder.com/720x720.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/180x180.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: '경영전략본부',
-          userName: '최모션',
-          userPosition: '책임리더',
-          src: "https://via.placeholder.com/360x360.png/888/fff"
-        },
-        {
-          likeActive: false,
-          userGroup: 'CT본부',
-          userName: '김지현',
-          userPosition: '팀원',
-          src: "https://via.placeholder.com/400x400.png/888/fff"
-        }
-      ],
       completeVote: false,
     }
   },
-  watch: {
-    voteList() {
-    }
-  },
   methods: {
-    voteMember(event,user) {
-      const Index = this.voteList.indexOf(user);
-      if(Index != -1){
-        this.voteList.splice(Index, 1); //다시 체크하면 인덱스 찾아서 제거
+    voteMember(id) {
+      console.log(id)
+    /*  const idx = this.voteList.findIndex(el=>el===id)
+      console.log(idx)
+      if (idx !== -1) {
+        this.voteList.splice(idx, 1);
       } else {
-        this.voteList.push(user);
-      }
-      this.voteList.splice(this.limit, 999); //더이상 체크되면 자르기.
-
-
-      event.target.offsetParent.classList.toggle('active');
-
-      this.completeVote = this.voteList.length === this.limit;
-
-      //const Index = this.voteList.findIndex((user) => user);
-
-      /*      if(user.likeActive){
-        this.voteList.push(user);
-      } else {
-
-      }
-      if(activeLength <= 3) {
-        user.likeActive = !user.likeActive;
-      }
-      const voteLength = this.voteList.length; //체크된 아이들의 배열의 수
-      this.voteList.splice(3, 999);
-      this.completeVote = voteLength === this.limit - 1;
-    }*/
+        this.voteList.push(id);
+      }*/
     },
     imgUrl(url) {
       return 'http://party.emotion.co.kr' + url;
@@ -297,14 +137,40 @@ export default {
   z-index: 1002;
   opacity: 1;
   background: #fff;
-  ul {
+  .egle-list {
     display: flex;
     flex-wrap: wrap;
-    li {
+    label {
+      display: inline-block;
       width: 20%;
       padding: 0 13px;
       margin-top: 63px;
       box-sizing: border-box;
+      input {
+        position:absolute;
+        width:1px;
+        height:1px;
+        padding:0;
+        margin:-1px;
+        overflow:hidden;
+        clip:rect(0,0,0,0);
+        border:0;
+        text-indent: -9999em;
+      }
+      input:checked {
+        .img-area::before {
+          content: '';
+          position: absolute;
+          border: 10px solid #d33839;
+          width: 100%;
+          height: 100%;
+          left:0;
+          top: 0;
+          box-sizing: border-box;
+          border-radius: 50%;
+          z-index: 1;
+        }
+      }
       .img-area {
         &.active {
           box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2);
@@ -324,7 +190,7 @@ export default {
       }
       .img-area {
         position: relative;
-        width: 100%;
+        display: block;
         border-radius: 50%;
         overflow: hidden;
         border: 1px solid #eee;
@@ -343,6 +209,7 @@ export default {
         }
       }
       .info-area {
+        display: block;
         margin-top: 33px;
         .department {
           font-size: 24px;
@@ -350,6 +217,7 @@ export default {
           line-height: 1;
         }
         .name {
+          display: block;
           margin-top: 10px;
           font-size: 30px;
           line-height: 1;
