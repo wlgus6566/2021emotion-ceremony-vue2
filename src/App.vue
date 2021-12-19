@@ -74,10 +74,18 @@
             <ul class="wordsList">
               <li v-for="(item, index) in words.list" :key="index">
                 <p>
-                  {{item[words.sort]}}
+                  <span v-if="item['what']">2021년은 나에게 </span>
+                  <span v-else-if="item['after']">코로나가 끝나면 </span>
+                  <span v-else-if="item['hobby']">위드코로나 추천 취미로 </span>
+                  <span v-else-if="item['want']">이모션글로벌에게 </span>
+                  <strong class="answer">{{item[words.sort]}}</strong>
+                  <span v-if="item['what']"> 였다</span>
+                  <span v-else-if="item['after']"> 하고 싶다</span>
+                  <span v-else-if="item['hobby']"> 추천한다</span>
+                  <span v-else-if="item['want']"> 바란다</span>
                 </p>
                 <span class="desc">
-                  <span class="depoartment">{{item.department}}</span>
+                  <span class="department">{{item.department}}</span>
                   <span class="name">{{item.name}}</span>
                 </span>
               </li>
@@ -612,10 +620,22 @@ body.modal-open {
   li {
     input:checked + label {
       background: url("../src/assets/images/txt-tab-prs-01.png") no-repeat center center;
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        border-top: 0 solid transparent;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid #fff;
+        transform: translateX(-50%);
+      }
     }
     position: relative;
     padding: 0 44px;
     label {
+      position: relative;
       display: block;
       width: 185px;
       height: 28px;
@@ -676,16 +696,26 @@ body.modal-open {
       font-size: 26px;
       border-bottom: 1px solid #ccc;
       p {
+        display: flex;
+        justify-content: flex-start;
         flex: 1;
         text-align: left;
-        color: #333;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         .answer {
+          max-width: 642px;
+          text-align: left;
           color: #e51f2f;
           font-weight: bold;
-          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          + span {
+            margin-left: 5px;
+          }
+        }
+        span {
+          margin-right: 5px;
+          text-align: left;
+          color: #333;
         }
       }
       .desc {
