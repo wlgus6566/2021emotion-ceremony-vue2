@@ -1,11 +1,6 @@
 <template>
-  <div class="lds-facebook" v-if="loading">
-    <div>
-    </div>
-    <div>
-    </div>
-    <div>
-    </div>
+  <div class="box" v-if="loading">
+    <div class="loader6"></div>
   </div>
 </template>
 
@@ -21,42 +16,69 @@ export default {
 </script>
 
 <style>
-.lds-facebook {
-  display: inline-block;
+
+.box:nth-child(2n-1){
+/*  background-color: rgba(0,0,0,0.05);*/
+}
+
+.box{
   position: absolute;
-  width: 64px;
-  height: 64px;
-  top: 47%;
-  left: 47%;
+  margin: 0 -4px -5px -2px;
+  transition: all .2s ease;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
-.lds-facebook div {
-  display: inline-block;
+.loader6{
+  position: relative;
+  width: 12px;
+  height: 12px;
+  top: 42%;
+  left: calc(50% - 6px);
+  border-radius: 12px;
+  background-color: #e51f2f;
+  -webkit-transform-origin:  50% 50%;
+  transform-origin:  50% 50% ;
+  -webkit-animation: loader6 1s ease-in-out infinite;
+  animation: loader6 1s ease-in-out infinite;
+}
+
+.loader6:before{
+  content: "";
   position: absolute;
-  left: 6px;
-  width: 13px;
-  background: #42b883;
-  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  background-color: #e51f2f;
+  opacity: .5;
+  top: 0;
+  left: -25px;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
 }
-.lds-facebook div:nth-child(1) {
-  left: 6px;
-  animation-delay: -0.24s;
+
+.loader6:after{
+  content: "";
+  position: absolute;
+  background-color: #e51f2f;
+  opacity: .5;
+  top: 0;
+  left: 25px;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
 }
-.lds-facebook div:nth-child(2) {
-  left: 26px;
-  animation-delay: -0.12s;
+
+
+@-webkit-keyframes loader6{
+  0%{-webkit-transform:rotate(0deg);}
+  50%{-webkit-transform:rotate(180deg);}
+  100%{-webkit-transform:rotate(180deg);}
 }
-.lds-facebook div:nth-child(3) {
-  left: 45px;
-  animation-delay: 0;
+
+@keyframes loader6{
+  0%{transform:rotate(0deg);}
+  50%{transform:rotate(180deg);}
+  100%{transform:rotate(180deg);}
 }
-@keyframes lds-facebook {
-  0% {
-    top: 6px;
-    height: 51px;
-  }
-  50%, 100% {
-    top: 19px;
-    height: 26px;
-  }
-}
+
 </style>

@@ -7,7 +7,7 @@
       <span class="message" v-bind:click = "goToVote" >
         투표해주세요투표해줘어어어</span>
     </span>
-    <Loading :loading="loadingStatus"></Loading>
+
     <div id="wrap">
       <div class="section1">
         <img src="@/assets/images/kv.jpg" alt="">
@@ -71,6 +71,7 @@
             </li>-->
           </ul>
           <div class="wordsContainer">
+            <Loading :loading="loadingStatus"></Loading>
             <ul class="wordsList">
               <li v-for="(item, index) in words.list" :key="index">
                 <p>
@@ -685,6 +686,7 @@ body.modal-open {
 
 }
 .wordsContainer {
+  position: relative;
   padding: 51px 40px 61px;
   box-sizing: border-box;
   .wordsList {

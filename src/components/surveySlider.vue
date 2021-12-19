@@ -1,7 +1,6 @@
 <template>
   <swiper class="swiper" ref="mySwiper"
           :options="swiperOptions"
-          @slideChange="slideChangeTransitionStart"
   >
 
     <swiper-slide>
@@ -168,17 +167,14 @@ export default {
     SwiperSlide
   },
   methods: {
-    slideChangeTransitionStart() {
-      console.log(this.swiper.activeIndex); //현재 index값 얻기
-    }
   },
   data() {
     return {
       swiperOptions: {
-        //loop: true,
-        // autoplay:{
-        //   delay:1000
-        // },
+        loop: true,
+        autoplay:{
+           delay: 2500
+         },
         slidesPerView: 2,
         spaceBetween: 120,
         pagination: {
