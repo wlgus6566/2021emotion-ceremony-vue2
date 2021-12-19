@@ -855,7 +855,7 @@ body.modal-open {
         border-radius: 50%;
         overflow: hidden;
         box-sizing: border-box;
-        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;
+   /*     background: url("../src/assets/images/frame.jpg") no-repeat center/cover;*/
         &:after {
           content: "";
           display: block;
