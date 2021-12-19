@@ -115,13 +115,7 @@
       <div class="section7">
         <div class="container">
           <img src="@/assets/images/tit-06.png" alt="" />
-          <img style="margin: 120px 0 40px;" src="@/assets/images/img-ready.png" alt="" />
-          <div v-if="!timeOut">
-            <count-down />
-          </div>
-          <div v-else>
-            <img src="@/assets/images/img-onair.png" alt="" />
-          </div>
+          <count-down />
           <div style="position: relative; margin-bottom: 200px">
             <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />
             <span class="fight-number">85</span>
@@ -140,7 +134,8 @@
               <img src="@/assets/images/bg-respect.png" alt=""/>
               <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
               <span class="photo-img">
-                <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>
+<!--                {{ this.mbtiPhoto[0].department }}-->
+<!--                <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>-->
               </span>
               <a :href="outputImage" class="save-btn" download></a>
             </div>
@@ -182,7 +177,6 @@ import Pagination from 'vue-pagination-2';
 //
 import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
-//import Section9 from "@/components/section9";
 import SurveySlider from "@/components/surveySlider";
 import modal2 from "@/components/web_popup_02";
 import modal3 from "@/components/web_popup_03";
@@ -201,7 +195,6 @@ export default {
     Pagination,
     Section4,
     Section5,
-    //Section9,
     modal2,
     modal3,
   },
@@ -226,7 +219,6 @@ export default {
       outputImage: null,
       showModal: false,
       showModal3: false,
-      timeOut: false,
       loadingStatus: false,
       showFloat: false,
       mbtilist: [
@@ -606,6 +598,7 @@ export default {
       try {
         const response = await getAllPhoto()
         this.mbtiPhoto = response.filter(el=>el.physicalFileName);
+        console.log(this.mbtiPhoto);
         this.SWIPER_IDX(this.mbtiPhoto[0].id)
         this.randomPhoto = this.mbtiPhoto.filter((el, i)=>i<10);
       } catch (e) {

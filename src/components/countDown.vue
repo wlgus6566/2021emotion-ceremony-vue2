@@ -1,12 +1,15 @@
 <template>
   <!-- https://github.com/philipjkim/vue2-flip-countdown -->
   <div class="count-wrap">
-    <div>
-      <!-- parameters :showDays="false" -->
+    <div v-if="!this.countEnd">
+      <img class="img-ready" src="@/assets/images/img-ready.png" alt="" />
       <flip-countdown
-          deadline="2021-12-19 18:28:20"
+          deadline="2021-12-23 17:00:00"
           :showDays="false"
           @timeElapsed="timeElapsedHandler"></flip-countdown>
+    </div>
+    <div v-else>
+      <img src="@/assets/images/img-onair.png" alt="카운트 다운 끝" />
     </div>
   </div>
 </template>
@@ -15,7 +18,10 @@
 import FlipCountdown from 'vue2-flip-countdown'
 export default {
   name: "countDown",
-  props: {
+  data() {
+    return {
+      countEnd: false,
+    }
   },
   components: {
     FlipCountdown
@@ -23,10 +29,10 @@ export default {
   methods : {
     timeElapsedHandler() {
       console.log('끝!');
+      this.countEnd = true;
     }
   }
 }
-
 </script>
 
 <style lang="scss">
@@ -79,20 +85,7 @@ export default {
     z-index: 1;
     opacity: .3;
   }
-  /*.flip-card__back {
-    color: #fff !important;
-    background: #1b1a1d !important;
-    font-weight: normal;
-  }*/
-  /*.flip-card__top-4digits,
-  .flip-card__bottom-4digits,
-  .flip-card__back-bottom-4digits,
-  .flip-card__back-4digits::before,
-  .flip-card__back-4digits::after {
-    color: #fff !important;
-    background: #1b1a1d !important;
-    font-weight: normal;
-  }*/
+
   .flip-card__bottom, .flip-card__back-bottom,
   .flip-card__bottom-4digits, .flip-card__back-bottom-4digits {
     color: #fff !important;
@@ -125,5 +118,7 @@ export default {
   height: 10px;
   background-color: #ffffff;
 }
-
+.img-ready {
+ margin: 120px 0 40px;
+}
 </style>

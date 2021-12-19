@@ -11,7 +11,7 @@
       <ul class="mbti-wrap">
         <li v-for="(data ,i) in matchData" :key="i" >
           <div class="user-thumb">
-            <img :src="imgUrl('img/211216/' + data.idImage + '.jpg')"/>
+            <img :src="imgUrl('img/211216/' + data.idImage + '.jpg')" :alt = data.name />
           </div>
           <div class="user-info">
             <span class="department">{{ data.department }}</span>
@@ -175,11 +175,21 @@ export default {
       }
     }
     .user-thumb {
+      position: relative;
       border-radius: 50%;
       overflow: hidden;
       border: 1px solid #eee;
+      &:after {
+        content: '';
+        padding-bottom: 100%;
+        display: block;
+      }
       img {
+        position: absolute;
         width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
       }
     }
   }
