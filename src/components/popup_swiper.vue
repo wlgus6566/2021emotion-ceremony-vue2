@@ -1,19 +1,45 @@
 <template>
-<!--  <swiper class="swiper" ref="mySwiper">-->
-  <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
 
-    <swiper-slide v-for="(item, i) in items" :key="i" >
-      <img :src="item.imgUrl">
-    </swiper-slide>
+  <div>
+    <swiper class="swiper" ref="mySwiper" :options="swiperOptions"
+    @slideChangeTransitionStart="slideChangeTransitionStart">
 
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-  </swiper>
+      <swiper-slide v-for="(item, i) in items" :key="i" >
+        <div class="img">
+          <img :src="item.physicalFileName">
+        </div>
+        <p class="user-title">
+          {{item.id}}
+          {{item.description}}
+        </p>
+        <div class="user-info">
+          <div>
+            <span class="department">{{ item.department }}</span>
+            <span class="name">{{item.name}}</span>
+            <span class="position">{{ item.position }}</span>
+          </div>
+          <button
+              :class="{
+                'btn-like':true,
+                 active: checked.some(el=>el===item.id)
+              }"
+              :disabled="!checked.some(el=>el===item.id) && checked.length >= 5"
+              @click="$emit('voteCheck', item.id)"
+          >
+            투표하기
+          </button>
+        </div>
+      </swiper-slide>
+
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
+  </div>
 </template>
 
 <script>
-import { Swiper,SwiperSlide } from 'vue-awesome-swiper'
-
+import { Swiper,SwiperSlide } from 'vue-awesome-swiper';
+import { mapState, mapMutations } from 'vuex';
 export default {
   name: "popSwiper",
   components: {
@@ -21,7 +47,24 @@ export default {
     SwiperSlide
   },
   props: {
+    checked: Array,
     items: Array,
+  },
+  computed : {
+    ...mapState( ['swiperIdx']),
+    swiper() {
+      return this.$refs.mySwiper.$swiper
+    }
+  },
+  watch: {
+    swiperIdx(){
+      this.slideTo();
+    },
+  },
+  mounted() {
+    this.$nextTick(()=>{
+      this.slideTo();
+    })
   },
   data() {
     return {
@@ -34,7 +77,21 @@ export default {
         },
       },
     }
-  }
+  },
+  methods: {
+    ...mapMutations( ['SWIPER_IDX']),
+    slideChangeTransitionStart(){
+      const idx = this.items[this.swiper.realIndex]?.id
+      this.SWIPER_IDX(idx)
+      console.log(idx)
+    },
+    slideTo(){
+      const idx = this.items.findIndex(el=>el.id === this.swiperIdx)
+      if (idx !== -1){
+        this.swiper.slideTo(idx + 1, 0, false)
+      }
+    },
+  },
 }
 </script>
 
@@ -45,6 +102,32 @@ export default {
   img {
     width: 100%;
     height: 100%;
+  }
+}
+
+.user-title {
+  margin-top: 28px;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -2px;
+  color: #333333;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 라인수 */
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  height: 72px; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+}
+.btn-like {
+  font-size: 0;
+  text-indent: -9999em;
+  width: 150px;
+  height: 48px;
+  background: url("../assets/images/pop_like_off.png") no-repeat center/cover;
+  &.active {
+    background: url("../assets/images/pop_like_on.png") no-repeat center/cover;
   }
 }
 

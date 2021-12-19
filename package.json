@@ -16,7 +16,8 @@
     "vue-html2canvas": "^0.0.4",
     "vue-marquee-component": "^1.0.0",
     "vue-pagination-2": "^3.0.91",
-    "vue2-flip-countdown": "^0.12.1"
+    "vue2-flip-countdown": "^0.12.1",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

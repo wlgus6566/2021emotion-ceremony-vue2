@@ -47,10 +47,6 @@ export default {
   .flip-clock__slot {
     display: none !important;
   }
-  .flip-clock__card {
-
-  }
-
   .flip-clock__card.flip-card {
     position: relative;
   }
@@ -65,17 +61,17 @@ export default {
     left: 0;
     width: 100%;
     height: 50%;
-    background: #1b1a1d;
+    //background: #1b1a1d;
     position: absolute;
     z-index: 1;
     opacity: .3;
   }
-  .flip-card__back {
- /*   color: #fff !important;
+  /*.flip-card__back {
+    color: #fff !important;
     background: #1b1a1d !important;
-    font-weight: normal;*/
-  }
-  .flip-card__top-4digits,
+    font-weight: normal;
+  }*/
+  /*.flip-card__top-4digits,
   .flip-card__bottom-4digits,
   .flip-card__back-bottom-4digits,
   .flip-card__back-4digits::before,
@@ -83,7 +79,7 @@ export default {
     color: #fff !important;
     background: #1b1a1d !important;
     font-weight: normal;
-  }
+  }*/
   .flip-card__bottom, .flip-card__back-bottom,
   .flip-card__bottom-4digits, .flip-card__back-bottom-4digits {
     color: #fff !important;
@@ -96,10 +92,23 @@ export default {
   .flip-card__back::before,
   .flip-card__back::after {
     width: 380px !important;
-    color: #fff !important;
+    color: rgba(255, 255, 255, 1) !important;
     background: #1b1a1d !important;
     font-weight: normal;
   }
+  .flip-card__top,
+  .flip-card__back::before,
+  .flip-card__back::after{
+    color: rgba(255, 255, 255, .75) !important;
+  }
+
+}
+
+[class^=flip-clock__piece] + [class^=flip-clock__piece]:before {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
 }
 
 </style>
