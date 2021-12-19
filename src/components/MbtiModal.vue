@@ -11,7 +11,7 @@
       <ul class="mbti-wrap">
         <li v-for="(data ,i) in matchData" :key="i" >
           <div class="user-thumb">
-            <img src="http://placehold.it/150X150"/>
+            <img :src="imgUrl('img/211216/' + data.idImage + '.jpg')"/>
           </div>
           <div class="user-info">
             <span class="department">{{ data.department }}</span>

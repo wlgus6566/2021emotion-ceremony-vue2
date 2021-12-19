@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <div ref="printMe">
-      <div class="top-img-wrap">
-        <img src="@/assets/images/bg-respect.png" alt=""/>
-        <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
-        <span class="photo-img">
-          <img src="http://placehold.it/150X150" alt="dummy-img"/>
-        </span>
-        <a :href="output" class="save-btn" download></a>
-      </div>
+  <div ref="printMe">
+    <div class="top-img-wrap">
+      <img src="@/assets/images/bg-respect.png" alt=""/>
+      <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
+      <span class="photo-img">
+        <img :src="imgUrl('img/211216/' + data.idImage + '.jpg')" alt="dummy-img"/>
+        <div></div>
+      </span>
+      <a :href="output" class="save-btn" download></a>
     </div>
   </div>
 </template>
@@ -16,9 +15,13 @@
 <script>
 export default {
   name: 'Section9',
+  props: {
+    users: Array,
+  },
   data() {
     return {
-      output: null
+      output: null,
+      name: '김지현',
     }
   },
   methods: {

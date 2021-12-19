@@ -53,22 +53,6 @@
               <input type="radio" id="fourth" name="wordsKey" v-model="words.sort" value="want">
               <label for="fourth">이모션글로벌에게 바란다</label>
             </li>
-
-<!--            <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="">
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="wordsKey" v-model="words.sort" value="">
-              </label>
-            </li>-->
           </ul>
           <div class="wordsContainer">
             <Loading :loading="loadingStatus"></Loading>
@@ -151,7 +135,16 @@
 
       <div class="section9">
         <div class="container">
-          <Section9></Section9>
+          <div ref="printMe">
+            <div class="top-img-wrap">
+              <img src="@/assets/images/bg-respect.png" alt=""/>
+              <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
+              <span class="photo-img">
+                <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>
+              </span>
+              <a :href="outputImage" class="save-btn" download></a>
+            </div>
+          </div>
           <img src="@/assets/images/img-respect-end.png" alt="" />
         </div>
       </div>
@@ -189,7 +182,7 @@ import Pagination from 'vue-pagination-2';
 //
 import Section4 from "./components/section4";
 import Section5 from "@/components/section5";
-import Section9 from "@/components/section9";
+//import Section9 from "@/components/section9";
 import SurveySlider from "@/components/surveySlider";
 import modal2 from "@/components/web_popup_02";
 import modal3 from "@/components/web_popup_03";
@@ -208,14 +201,29 @@ export default {
     Pagination,
     Section4,
     Section5,
-    Section9,
+    //Section9,
     modal2,
     modal3,
   },
   mixins: [commonMethods],
   data() {
     return {
-      users: [],
+      users: {
+        id: 119,
+        email: "jihyeon.kim@emotion.co.kr",
+        name: "김지현",
+        department: "CT본부",
+        level: "팀원",
+        what: "인생길잡이",
+        after: "우동먹으러 일본가기",
+        hobby: "빵 냄시 폴폴 베이킹 하기",
+        want: "유럽행 비행기 티켓",
+        mbti: "ESFP",
+        idImage: "jihyeon-kim",
+        eventRank: null,
+        imagePath: null
+      },
+      outputImage: null,
       showModal: false,
       showModal3: false,
       timeOut: false,
@@ -587,6 +595,13 @@ export default {
   },
   methods: {
     ...mapMutations( ['SWIPER_IDX']),
+    async saveImage() {// 상장 이미지 저장
+      const el = this.$refs.printMe;
+      const options = {
+        type: 'dataURL'
+      }
+      this.outputImage = await this.$html2canvas(el, options);
+    },
     async getAllPhoto(){
       try {
         const response = await getAllPhoto()
@@ -727,6 +742,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.saveImage();
+  },
   beforeDestroy() {
     window.removeEventListener('scroll', this.showFloating);
   }
@@ -816,7 +834,7 @@ body.modal-open {
       position: relative;
       .respect-sticker {
         position: absolute;
-        left: 40.5%;
+        left: 25.5%;
         top: 36%;
         width: 19%;
         z-index: 1;

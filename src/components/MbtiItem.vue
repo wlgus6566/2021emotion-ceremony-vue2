@@ -47,7 +47,7 @@ export default {
         this.matchData = response.surveyResponseList;
         this.fact = response.fact;
 
-        console.log('getMbti', response.fact)
+        console.log('getMbti', response)
 
       } catch (e) {
         console.log('getMbti', e)
