@@ -86,7 +86,14 @@ export default {
     },
     async vote(){
       try {
-        const response = await postVotes()
+        const requestBody = this.checked.map(item => {
+          return {
+            voteMemberId: item,
+            type: 'mbti'
+          };
+        });
+
+        const response = await postVotes(requestBody);
         console.log('postVotes', response)
       } catch (e) {
         console.log('postVotes', e)

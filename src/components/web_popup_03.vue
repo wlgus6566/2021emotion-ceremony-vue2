@@ -73,7 +73,9 @@ export default {
     },
     async vote(){
       try {
-        const response = await postVotes()
+        const response = await postVotes(
+            { id: this.voteList, type: 'egle' }
+        )
         console.log('postVotes', response)
       } catch (e) {
         console.log('postVotes', e)

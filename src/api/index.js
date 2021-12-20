@@ -39,8 +39,8 @@ function getAllPhoto(params) {
 function getMbti(params) {
   return instance.get(`getMbti`,{params:params} );
 }
-function postVotes(params) {
-  return instance.get(`postVotes`, );
+function postVotes(requestBody) {
+  return instance.post(`postVotes`, requestBody);
 }
 
 export {

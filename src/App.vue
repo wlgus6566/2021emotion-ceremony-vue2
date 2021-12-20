@@ -2,13 +2,13 @@
   <div>
     <div class="floating"
          v-bind:class="{ active: showFloat }">
-      <img @mouseover= "doMouseOver($event)"
-           @mouseleave= "doMouseLeave($event)"
-           ref="ceo-img"
-           class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
+      <div class="ceo-img-wrap" @mouseover="doMouseToggle" @mouseleave="doMouseToggle">
+        <img ref="ceo-img"
+             class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
+      </div>
       <img class="message"
-           @mouseover= "doMsgMouseOver($event)"
-           @mouseleave= "doMsgMouseLeave($event)"
+           @mouseover= "doMouseToggle"
+           @mouseleave= "doMouseToggle"
            src="@/assets/images/bn-floating-hover.png"
            v-bind:click = "goToVote"
            alt="플로팅 배너">
@@ -80,7 +80,6 @@
                   <span class="name">{{item.name}}</span>
                 </span>
               </li>
-
             </ul>
             <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
           </div>
@@ -137,11 +136,14 @@
         <div class="container">
           <div ref="printMe">
             <div class="top-img-wrap">
+<!--
+              <img style="position: absolute; opacity: 0.2;" src="@/assets/images/bg_respect_top.png" alt=""/>
+-->
               <img src="@/assets/images/bg-respect-save.png" alt=""/>
               <div class="respect">
                 <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
-                <span class="photo-img">
-                  <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>
+                <span id="photo-img" class="photo-img">
+                  <img :src="this.imgUrl('img/211216/' + this.users.idImage + '.jpg')" @load="loadedImage" alt="user img"/>
                 </span>
                 <div class="user-info">
                   <p class="department">{{ this.users.department }}</p>
@@ -151,22 +153,21 @@
                   </P>
                 </div>
               </div>
-             </div>
             </div>
-            <a :href="outputImage" class="save-btn" download>
-              <img src="@/assets/images/save-btn.png" alt=""/>
-            </a>
           </div>
+          <a :href="outputImage" class="save-btn" download>
+            <img src="@/assets/images/save-btn.png" alt=""/>
+          </a>
           <img src="@/assets/images/img-respect-end.png" alt="" />
         </div>
       </div>
 
       <div>
-      <modal2 @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
-      <modal3 :allMemberList = allMemberList
-              @closeModalFc="closeThirdModalFc"
-              v-if="showModal3">
-      </modal3>
+        <modal2 @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
+        <modal3 :allMemberList = allMemberList
+                @closeModalFc="closeThirdModalFc"
+                v-if="showModal3">
+        </modal3>
       </div>
     </div>
   </div>
@@ -321,7 +322,9 @@ export default {
     async saveImage() {// 상장 이미지 저장
       const el = this.$refs.printMe;
       const options = {
-        type: 'dataURL'
+        type: 'dataURL',
+        allowTaint: false,
+        useCORS: true
       }
       this.outputImage = await this.$html2canvas(el, options);
     },
@@ -353,7 +356,7 @@ export default {
         const response = await getMemberCardImage()
         this.users = response;
         console.log('getMemberCardImage', response);
-        this.saveImage();
+        /*this.saveImage();*/
       } catch (e) {
         console.log('getMemberCardImage', e)
       } finally {
@@ -425,15 +428,22 @@ export default {
         console.log('postVotes finally')
       }
     },
+    doMouseToggle(event) {
+      console.log(event);
+      document.querySelector('.ceo-img').classList.toggle('active');
+      document.querySelector('.message').classList.toggle('active');
+    },
     doMouseOver(event) {
       console.log(event);
       console.log('호버');
-      event.target.classList.add('active');
+      document.querySelector('.ceo-img').classList.add('active');
+      /*event.target.classList.add('active');*/
     },
     doMouseLeave(event) {
       console.log(event);
       console.log('리브');
-      event.target.classList.remove('active');
+      document.querySelector('.ceo-img').classList.remove('active');
+      /*event.target.classList.remove('active');*/
     },
     doMsgMouseOver(event) {
       console.log('메세지액티브');
@@ -485,9 +495,13 @@ export default {
         this.showFloat = false;
       }
     },
+    loadedImage() {
+      console.log('LOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOAD');
+      this.saveImage();
+    }
   },
   mounted() {
-    this.saveImage();
+    /*this.saveImage();*/
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.showFloating);
@@ -576,10 +590,10 @@ body.modal-open {
   margin: 0 auto;
   .respect {
     position: absolute;
-    top: 30%;
+    top: 3%;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   .container {
     max-width: 1920px;
@@ -608,7 +622,7 @@ body.modal-open {
       }
       .user-info {
         position: absolute;
-        top: 47%;
+        top: 52%;
         left: 50%;
         transform: translateX(-50%);
         .department {
@@ -634,13 +648,13 @@ body.modal-open {
         border-radius: 50%;
         overflow: hidden;
         box-sizing: border-box;
-        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;
+/*        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;*/
         &:after {
-          content: "";
+      /*    content: "";
           display: block;
-          padding-bottom: 100%;
+          padding-bottom: 100%;*/
         }
-        img {
+        img + img {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -856,6 +870,14 @@ body.modal-open {
   transform: translateY(0%);
 }
 
+.floating .ceo-img-wrap {
+  position: absolute;
+  width: 280px;
+  height: 370px;
+  right: 0;
+  bottom: 0;
+}
+
 .floating .ceo-img {
   position: absolute;
   width: 280px;
@@ -875,7 +897,7 @@ body.modal-open {
   visibility: hidden;
 }
 
-.floating .ceo-img.active.msgActive {
+.floating .ceo-img.active {
   opacity: 0;
   transform: translateY(50%);
   transition: 0.4s;
@@ -893,7 +915,7 @@ body.modal-open {
   transition: 0.4s;
   visibility: hidden;
 }
-.floating .ceo-img.active + .message {
+.floating .message.active {
   transform: translateY(0%);
   opacity: 1;
   transition: 0.4s;
