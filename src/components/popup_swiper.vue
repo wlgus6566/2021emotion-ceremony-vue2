@@ -6,7 +6,7 @@
 
       <swiper-slide v-for="(item, i) in items" :key="i" >
         <div class="img">
-          <img :src="item.physicalFileName">
+          <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
         </div>
         <p class="user-title">
           {{item.id}}
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import {commonMethods} from "@/utils/common-methods.js";
 import { Swiper,SwiperSlide } from 'vue-awesome-swiper';
 import { mapState, mapMutations } from 'vuex';
 export default {
@@ -50,6 +51,7 @@ export default {
     checked: Array,
     items: Array,
   },
+  mixins: [commonMethods],
   computed : {
     ...mapState( ['swiperIdx']),
     swiper() {

@@ -1,12 +1,18 @@
 <template>
   <div>
-    <span v-bind:class="{ active: showFloat }" class="floating">
-      <span class="santa"
-      >
-        싼타사진</span>
-      <span class="message" v-bind:click = "goToVote" >
-        투표해주세요투표해줘어어어</span>
-    </span>
+    <div class="floating"
+         v-bind:class="{ active: showFloat }">
+      <img @mouseover= "doMouseOver($event)"
+           @mouseleave= "doMouseLeave($event)"
+           ref="ceo-img"
+           class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
+      <img class="message"
+           @mouseover= "doMsgMouseOver($event)"
+           @mouseleave= "doMsgMouseLeave($event)"
+           src="@/assets/images/bn-floating-hover.png"
+           v-bind:click = "goToVote"
+           alt="플로팅 배너">
+    </div>
 
     <div id="wrap">
       <div class="section1">
@@ -131,14 +137,25 @@
         <div class="container">
           <div ref="printMe">
             <div class="top-img-wrap">
-              <img src="@/assets/images/bg-respect.png" alt=""/>
-              <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
-              <span class="photo-img">
-                {{ this.dfdf }}
-<!--                <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>-->
-              </span>
-              <a :href="outputImage" class="save-btn" download></a>
+              <img src="@/assets/images/bg-respect-save.png" alt=""/>
+              <div class="respect">
+                <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
+                <span class="photo-img">
+                  <img :src="imgUrl('img/211216/' + this.users.idImage + '.jpg')" alt="user img"/>
+                </span>
+                <div class="user-info">
+                  <p class="department">{{ this.users.department }}</p>
+                  <P class="user-name">
+                    <span class="name">{{ this.users.name }}</span>
+                    <span class="level">{{ this.users.level }}</span>
+                  </P>
+                </div>
+              </div>
+             </div>
             </div>
+            <a :href="outputImage" class="save-btn" download>
+              <img src="@/assets/images/save-btn.png" alt=""/>
+            </a>
           </div>
           <img src="@/assets/images/img-respect-end.png" alt="" />
         </div>
@@ -199,22 +216,7 @@ export default {
   mixins: [commonMethods],
   data() {
     return {
-      users: {
-        id: 119,
-        email: "jihyeon.kim@emotion.co.kr",
-        name: "김지현",
-        department: "CT본부",
-        level: "팀원",
-        what: "인생길잡이",
-        after: "우동먹으러 일본가기",
-        hobby: "빵 냄시 폴폴 베이킹 하기",
-        want: "유럽행 비행기 티켓",
-        mbti: "ESFP",
-        idImage: "jihyeon-kim",
-        eventRank: null,
-        imagePath: null
-      },
-      dfdf:[],
+      users: [],
       outputImage: null,
       showModal: false,
       showModal3: false,
@@ -277,278 +279,7 @@ export default {
       randomPhoto : [],
       randomMember : [],
       allMember : [],
-      allMemberList: [
-        {
-          id: 13,
-          email: "minjun.jeon@emotion.co.kr",
-          name: "전민준",
-          department: "CX본부",
-          level: "리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "minjun-jeon",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 56,
-          email: "hyunsu.kim@emotion.co.kr",
-          name: "김현수",
-          department: "CM본부",
-          level: "본부장",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "hyunsu-kim",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 114,
-          email: "joohee.jeong@emotion.co.kr",
-          name: "정주희",
-          department: "CT본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "joohee-jeong",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 28,
-          email: "yunbin.kim@emotion.co.kr",
-          name: "김윤빈",
-          department: "CP1본부",
-          level: "선임리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "yunbin-kim",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 19,
-          email: "sehei.chung@emotion.co.kr",
-          name: "정세희",
-          department: "CX본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "sehei-chung",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 122,
-          email: "eunjung.lee@emotion.co.kr",
-          name: "이은정",
-          department: "재무팀",
-          level: "선임리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "eunjung-lee",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 110,
-          email: "jiyun.lim@emotion.co.kr",
-          name: "임지연",
-          department: "CT본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "jiyun-lim",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 51,
-          email: "sangui.yu@emotion.co.kr",
-          name: "유상의",
-          department: "CP2본부",
-          level: "리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "sangui-yu",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 15,
-          email: "hyemi.kim@emotion.co.kr",
-          name: "김혜미",
-          department: "CX본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "hyemi-kim",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 66,
-          email: "Jeongnyeon.Seong@emotion.co.kr",
-          name: "성정년",
-          department: "CM본부",
-          level: "리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "Jeongnyeon-Seong",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 70,
-          email: "okseok.lee@emotion.co.kr",
-          name: "이옥석",
-          department: "CM본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "okseok-lee",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 5,
-          email: "youngsun.kim@emotion.co.kr",
-          name: "김영선",
-          department: "인사총무팀",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "youngsun-kim",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 6,
-          email: "heejin.han@emotion.co.kr",
-          name: "한희진",
-          department: "인사총무팀",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "heejin-han",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 49,
-          email: "jaeeun.jung@emotion.co.kr",
-          name: "정재은",
-          department: "CP2본부",
-          level: "선임리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "jaeeun-jung",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 98,
-          email: "sunghwan.kwon@emotion.co.kr",
-          name: "권성환",
-          department: "CT본부",
-          level: "책임리더",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "sunghwan-kwon",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 82,
-          email: "daun.jeong@emotion.co.kr",
-          name: "정다운",
-          department: "CM본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "daun-jeong",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 71,
-          email: "seulki.kim@emotion.co.kr",
-          name: "김슬기",
-          department: "CM본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "seulki-kim",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-        {
-          id: 55,
-          email: "junyeol.park@emotion.co.kr",
-          name: "박준열",
-          department: "CP2본부",
-          level: "팀원",
-          what: null,
-          after: null,
-          hobby: null,
-          want: null,
-          mbti: null,
-          idImage: "junyeol-park",
-          memberId: null,
-          imagePath: "/img/211216/"
-        },
-      ],
+      allMemberList: [],
       words: {
         page: 1, // 현재페이지
         size: 10, // 한페이지에 뿌려줄 갯수
@@ -569,7 +300,7 @@ export default {
     this.startSpinner();
     this.getMemberContents();
     this.getMemberCardImage();
-    //this.getAllMemberCardImage();
+    this.getAllMemberCardImage();
     this.getSurvey();
     this.getRandomMemberTen();
     this.getMbti();
@@ -619,11 +350,14 @@ export default {
     async getMemberCardImage(){
       try {
         const response = await getMemberCardImage()
-        console.log('getMemberCardImage', response)
+        this.users = response;
+        console.log('getMemberCardImage', response);
+        this.saveImage();
       } catch (e) {
         console.log('getMemberCardImage', e)
       } finally {
         console.log('getMemberCardImage finally')
+
       }
     },
     async getAllMemberCardImage(){ //이글리안 3명투표
@@ -672,8 +406,7 @@ export default {
             }
         )
         console.log('getMbti', response);
-        this.dfdf = response;
-        this.saveImage();
+        //this.saveImage();
       } catch (e) {
         console.log('getMbti', e)
 
@@ -691,8 +424,23 @@ export default {
         console.log('postVotes finally')
       }
     },
-    timeElapsedHandler() {
-      this.timeOut = true;
+    doMouseOver(event) {
+      console.log(event);
+      console.log('호버');
+      event.target.classList.add('active');
+    },
+    doMouseLeave(event) {
+      console.log(event);
+      console.log('리브');
+      event.target.classList.remove('active');
+    },
+    doMsgMouseOver(event) {
+      console.log('메세지액티브');
+      event.target.classList.add('msgActive');
+    },
+    doMsgMouseLeave(event) {
+      console.log('메세지리브');
+      event.target.classList.remove('msgActive');
     },
     startSpinner() {
       console.log('패치');
@@ -821,17 +569,30 @@ body.modal-open {
   background: #212024;
   margin: 0 auto;
 }
+
 #wrap .section9 {
   background: #0e0d0f;
   margin: 0 auto;
+  .respect {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
   .container {
+    max-width: 1920px;
+    width: 100%;
     .top-img-wrap {
       position: relative;
+      .bg-respect-save {
+        width: 80%;
+      }
       .respect-sticker {
         position: absolute;
-        left: 25.5%;
-        top: 36%;
-        width: 19%;
+        left: 26.5%;
+        top: 32%;
+        width: 20%;
         z-index: 1;
       }
       .save-btn {
@@ -844,16 +605,35 @@ body.modal-open {
         opacity: 0;
         cursor: pointer;
       }
+      .user-info {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translateX(-50%);
+        .department {
+          font-size: 60px;
+          line-height: 1;
+          color: #dcdce5;
+        }
+        .user-name {
+          margin-top: 30px;
+          font-size: 90px;
+          line-height: 1;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
       .photo-img {
         position: absolute;
-        width: 35%;
-        top: 23.5%;
-        left: 32.5%;
+        width: 34%;
+        top: 20.5%;
+        left: 50%;
+        transform: translateX(-50%);
         opacity: 1;
         border-radius: 50%;
         overflow: hidden;
         box-sizing: border-box;
-   /*     background: url("../src/assets/images/frame.jpg") no-repeat center/cover;*/
+        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;
         &:after {
           content: "";
           display: block;
@@ -1058,53 +838,65 @@ body.modal-open {
 
 .floating {
   position: fixed;
-  bottom: 10%;
-  right: 5%;
+  right: 60px;
+  bottom: 40px;
+  width: 720px;
+  height: 520px;
   text-align: center;
-  width: 300px;
-  height: 300px;
   transform: translateY(50%);
   opacity: 0;
+  visibility: hidden;
   transition: 0.4s;
   z-index: 999;
 }
 .floating.active {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0%);
 }
 
-.floating .santa {
+.floating .ceo-img {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  border-radius: 50%;
-  background: #f40009;
+  width: 280px;
+  height: 370px;
+  right: 0;
+  bottom: 0;
   opacity: 1;
   transition: 0.4s;
+  z-index: 2000;
+  visibility: visible;
 }
 
-.floating:hover .santa {
+.floating .ceo-img.active {
   opacity: 0;
   transform: translateY(50%);
   transition: 0.4s;
+  visibility: hidden;
 }
+
+.floating .ceo-img.active.msgActive {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: 0.4s;
+  visibility: hidden;
+}
+
 .floating .message {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 720px;
+  height: 520px;
   left: 0;
   top: 0;
-  background: palevioletred;
   transform: translateY(50%);
   opacity: 0;
   transition: 0.4s;
+  visibility: hidden;
 }
-.floating:hover .message {
+.floating .ceo-img.active + .message {
   transform: translateY(0%);
   opacity: 1;
   transition: 0.4s;
+  visibility: visible;
 }
 .btn-wrap {
   margin-top: 100px;

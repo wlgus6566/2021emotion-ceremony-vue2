@@ -26,9 +26,10 @@
                  }"
               @click="clickEvt(item.id)"
             >
+<!--              http://party.emotion.co.kr/uploadFolder/202116053754_dd2792d0-b5cd-4b95-ac11-066fbf5b35d9.jpg-->
 <!--              {{item.id}}-->
               <span class="img-wrap">
-                <img :src="item.physicalFileName" :alt="item.name">
+                <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
               </span>
             </li>
           </ul>
@@ -39,6 +40,7 @@
 </template>
 
 <script>
+import {commonMethods} from "@/utils/common-methods.js";
 import popSwiper from "@/components/popup_swiper";
 import {mapMutations, mapState} from "vuex";
 import {
@@ -52,6 +54,7 @@ export default {
   props: {
     mbtiPhoto: Array
   },
+  mixins: [commonMethods],
   data () {
     return {
       btnLike: false,
@@ -197,9 +200,7 @@ export default {
     }
   }
 }
-.content-right::-webkit-scrollbar {display: none;}
 .content-right {
-  -ms-overflow-style: none;
   width: calc(50% - 19px);
   overflow-y: scroll;
   overflow-x: hidden;
@@ -207,7 +208,26 @@ export default {
     display: flex;
     flex-wrap: wrap;
     li {
+      position: relative;
       width: calc((100% - 40px) / 3);
+      background: rgba(0,0,0,.3);
+      box-sizing: border-box;
+      &.active::before{
+        background: none;
+      }
+      &.checked .img-wrap{
+        border: none;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
       .img-wrap {
         position: relative;
         display: block;
@@ -219,6 +239,7 @@ export default {
           display: block;
           padding-bottom: 100%;
         }
+
         img {
           position: absolute;
           width: 100%;
@@ -236,12 +257,11 @@ export default {
     }
   }
   .active {
-    background:blue;
+    background:none;
   }
   .checked {
     border: 10px solid #d33839;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
   }
 }
 .user-info {

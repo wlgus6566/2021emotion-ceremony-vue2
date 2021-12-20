@@ -4,12 +4,13 @@
     <div v-if="!this.countEnd">
       <img class="img-ready" src="@/assets/images/img-ready.png" alt="" />
       <flip-countdown
-          deadline="2021-12-23 17:00:00"
+          deadline="2021-12-20 11:38:00"
           :showDays="false"
           @timeElapsed="timeElapsedHandler"></flip-countdown>
     </div>
     <div v-else>
-      <img src="@/assets/images/img-onair.png" alt="카운트 다운 끝" />
+      <img src="@/assets/images/img-onair.png" style="margin-top:120px;" alt="카운트 다운 끝" />
+      <img src="@/assets/images/btn-fight.png" style="margin-top:52px;" alt="카운트 다운 끝" />
     </div>
   </div>
 </template>
