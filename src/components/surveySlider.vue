@@ -11,12 +11,12 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">안지현</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">최대16자까지</p>
+          <h3 class="question">2021년은 나에게</h3>
+          <p class="answer">나이와 잔고는 반비례</p>
         </div>
       </div>
 
@@ -29,12 +29,12 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">김하린</strong>
           </div>
         </div>
         <div class="bottom-area">
           <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <p class="answer">해외 가야지 더운나라 무조건</p>
         </div>
       </div>
 
@@ -47,12 +47,12 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">박선우</strong>
           </div>
         </div>
         <div class="bottom-area">
           <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <p class="answer">스트릿 맨 파이터 참가신청</p>
         </div>
       </div>
 
@@ -65,12 +65,12 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">서유석</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <h3 class="question">위드코로나 취미로</h3>
+          <p class="answer">강인한 리더님 놀리기</p>
         </div>
       </div>
 
@@ -83,12 +83,12 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">송현미</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <h3 class="question">2021년은 나에게</h3>
+          <p class="answer">확찐자</p>
         </div>
       </div>
 
@@ -101,12 +101,29 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">김윤혜</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <h3 class="question">이모션글로벌에게 바라는 것</h3>
+          <p class="answer">주택자금대출<br/>(1억이상/무이자)</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">이의정</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션글로벌에게 바라는 것</h3>
+          <p class="answer">IU, BTS 콘서트 보내주세요</p>
         </div>
       </div>
 
@@ -119,12 +136,13 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">안선영</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <h3 class="question">2021년은 나에게</h3>
+          <p class="answer">콜라는 펩시<br/>
+            ㄴ 사이다는 칠성</p>
         </div>
       </div>
 
@@ -137,12 +155,84 @@
         </span>
           <div class="top-area-desc">
             <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">김모션</strong>
+            <strong class="name">박래섭</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">코로나가 끝나면 하고싶은 것</h3>
-          <p class="answer">일이삼사오육칠팔일이삼사오육칠팔</p>
+          <h3 class="question">코로나가 끝나면 하고 싶은 것</h3>
+          <p class="answer">뱃살 좀 없어지게</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">변채림</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">위드코로나 취미로</h3>
+          <p class="answer">홈트로 <br/>복근만들기</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김형욱</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">위드코로나 취미로</h3>
+          <p class="answer">술 마시다 잠자기</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">안현선</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션 글로벌에게 바라는 것</h3>
+          <p class="answer">덕질비용 지원<br/>(월 100만정도)</p>
+        </div>
+      </div>
+
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://placehold.it/300x300"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">경영전략본부<br/>책임리더</span>
+            <strong class="name">김지현</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">위드코로나 취미로</h3>
+          <p class="answer">빵 냄시 폴폴 <br/>베이킹 하기 🥨</p>
         </div>
       </div>
 
@@ -342,6 +432,7 @@ export default {
     font-size: 56px;
     line-height: 70px;
     font-weight: bold;
+    word-break: keep-all;
     &::before {
       content: "“";
       position: absolute;

@@ -2,15 +2,15 @@
   <div>
     <div class="floating"
          v-bind:class="{ active: showFloat }">
-      <div class="ceo-img-wrap" @mouseover="doMouseToggle" @mouseleave="doMouseToggle">
-        <img ref="ceo-img"
+      <div class="ceo-img-wrap" @mouseenter="doMouseToggle" @mouseleave="doMouseToggle">
+        <img
              class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
       </div>
       <img class="message"
-           @mouseover= "doMouseToggle"
+           @mouseenter= "doMouseToggle"
            @mouseleave= "doMouseToggle"
+           v-on:click = "goToVote"
            src="@/assets/images/bn-floating-hover.png"
-           v-bind:click = "goToVote"
            alt="플로팅 배너">
     </div>
 
@@ -18,23 +18,45 @@
       <div class="section1">
         <img src="@/assets/images/kv.jpg" alt="">
       </div>
-      <ul class="taplist">
-        <li>
-          <a href="javascript:void(0)" data-section="section1" v-on:click="MoveScroll">섹션1</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section2" v-on:click="MoveScroll">섹션2</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section3" v-on:click="MoveScroll">섹션3</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section4" v-on:click="MoveScroll">섹션4</a>
-        </li>
-        <li>
-          <a href="javascript:void(0)" data-section="section5" v-on:click="MoveScroll">섹션5</a>
-        </li>
-      </ul>
+      <div class="tapContainer">
+        <ul class="taplist">
+          <li>
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-01.png" alt="section1">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-02.png" alt="section2">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-03.png" alt="section3">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)"  v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-04.png" alt="section4">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-05.png" alt="section5">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-06.png" alt="section6">
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
+              <img src="@/assets/images/tab-07.png" alt="section7">
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <div class="section2">
         <div class="top-container">
@@ -136,10 +158,7 @@
         <div class="container">
           <div ref="printMe">
             <div class="top-img-wrap">
-<!--
-              <img style="position: absolute; opacity: 0.2;" src="@/assets/images/bg_respect_top.png" alt=""/>
--->
-              <img src="@/assets/images/bg-respect-save.png" alt=""/>
+              <img class="respect-save" src="@/assets/images/bg-respect-save.png" alt="저장이미지"/>
               <div class="respect">
                 <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
                 <span id="photo-img" class="photo-img">
@@ -429,32 +448,10 @@ export default {
       }
     },
     doMouseToggle(event) {
-      console.log(event);
       document.querySelector('.ceo-img').classList.toggle('active');
       document.querySelector('.message').classList.toggle('active');
     },
-    doMouseOver(event) {
-      console.log(event);
-      console.log('호버');
-      document.querySelector('.ceo-img').classList.add('active');
-      /*event.target.classList.add('active');*/
-    },
-    doMouseLeave(event) {
-      console.log(event);
-      console.log('리브');
-      document.querySelector('.ceo-img').classList.remove('active');
-      /*event.target.classList.remove('active');*/
-    },
-    doMsgMouseOver(event) {
-      console.log('메세지액티브');
-      event.target.classList.add('msgActive');
-    },
-    doMsgMouseLeave(event) {
-      console.log('메세지리브');
-      event.target.classList.remove('msgActive');
-    },
     startSpinner() {
-      console.log('패치');
       this.loadingStatus = true;
     },
     endSpinner() {
@@ -478,18 +475,18 @@ export default {
       document.querySelector('body').classList.remove('modal-open');
     },
     MoveScroll(e) {
-      const locate = e.target.dataset.section;
+      const locate = e.target.alt;
       const locateSection =  document.querySelector(`.${locate}`);
       const targetBoxOffset = locateSection.offsetTop;
       window.scrollTo({top:targetBoxOffset, left:0, behavior:'smooth'});
     },
     goToVote() {
-      const voteLocation =  document.querySelector('.section3');
+      const voteLocation =  document.querySelector('.section4');
       window.scrollTo({top:voteLocation.offsetTop, left:0, behavior:'smooth'});
     },
     showFloating() {
-      const Section3Offset = document.querySelector('.section3').offsetTop;
-      if ( window.scrollY > Section3Offset) {
+      const Section4Offset = document.querySelector('.section4').offsetTop;
+      if ( window.scrollY > Section4Offset) {
         this.showFloat = true;
       } else {
         this.showFloat = false;
@@ -499,9 +496,6 @@ export default {
       console.log('LOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOAD');
       this.saveImage();
     }
-  },
-  mounted() {
-    /*this.saveImage();*/
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.showFloating);
@@ -529,6 +523,7 @@ body.modal-open {
   width: 100%;
   min-width: 1540px;
   margin: 0 auto;
+  background: #000;
 }
 #wrap > div {
   min-width: 1280px;
@@ -600,8 +595,12 @@ body.modal-open {
     width: 100%;
     .top-img-wrap {
       position: relative;
-      .bg-respect-save {
+      background: url("./assets/images/bg_respect_top.png") center/cover;
+      .respect-save {
         width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 4%;
       }
       .respect-sticker {
         position: absolute;
@@ -671,27 +670,35 @@ body.modal-open {
     }
   }
 }
-.taplist {
+.tapContainer {
   position: sticky;
   top: 0;
-  display: flex;
   width: 100%;
-  min-width: 1280px;
-  margin: 0 auto;
-  padding: 10px 0;
   background: #000;
+  margin: 0 auto;
   z-index: 1000;
+  .taplist {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    height: 80px;
+    margin: 0 auto;
+    align-items: center;
+    li {
+      color: #fff;
+      a {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        img {
+          padding: 29px 0;
+        }
+      }
+    }
+  }
 }
-.taplist li {
-  width: 25%;
-  color: #fff;
-  border-left: 1px solid #fff;
-}
-.taplist li a {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-}
+
+
 
 .wordsTab {
   display:flex;
@@ -886,22 +893,30 @@ body.modal-open {
   bottom: 0;
   opacity: 1;
   transition: 0.4s;
+  transform: translateY(0) scale(1);
   z-index: 2000;
   visibility: visible;
+/*  animation: upDown 2s infinite;
+  animation-fill-mode : both;*/
 }
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 
+}
 .floating .ceo-img.active {
   opacity: 0;
-  transform: translateY(50%);
-  transition: 0.4s;
+  transform: translateY(50%) scale(0);
+  transition: 0.4s ease-in-out;
   visibility: hidden;
-}
-
-.floating .ceo-img.active {
-  opacity: 0;
-  transform: translateY(50%);
-  transition: 0.4s;
-  visibility: hidden;
+  transform-origin: right bottom;
 }
 
 .floating .message {
@@ -910,15 +925,17 @@ body.modal-open {
   height: 520px;
   left: 0;
   top: 0;
-  transform: translateY(50%);
+  transform: translateY(50%) scale(0);
   opacity: 0;
   transition: 0.4s;
   visibility: hidden;
+  transform-origin: right bottom;
+  cursor: pointer;
 }
 .floating .message.active {
-  transform: translateY(0%);
+  transform: translateY(0%) scale(1);
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
   visibility: visible;
 }
 .btn-wrap {
