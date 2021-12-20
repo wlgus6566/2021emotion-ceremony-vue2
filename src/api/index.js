@@ -35,9 +35,7 @@ function getSurvey(params) {
 function getAllPhoto(params) {
   return instance.get(`getAllPhoto`, );
 }
-function getRanPhoto(params) {
-  return instance.get(`getRanPhoto`, );
-}
+
 function getMbti(params) {
   return instance.get(`getMbti`,{params:params} );
 }
@@ -51,7 +49,6 @@ export {
   getAllMemberCardImage,
   getSurvey,
   getAllPhoto,
-  getRanPhoto,
   getMbti,
   postVotes,
 }

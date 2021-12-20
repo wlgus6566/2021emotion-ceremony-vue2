@@ -183,7 +183,8 @@ import {
   getMbti,
   postVotes,
   getAllPhoto
-} from '@/api';
+}
+from '@/api';
 import {commonMethods} from "@/utils/common-methods";
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
