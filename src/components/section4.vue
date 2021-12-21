@@ -9,8 +9,8 @@
           :showProgress="false">
         <vue-marquee-slide v-for="i in 4" :key="i">
           <div v-for="item in photoList1" :key="item.id" @click="clickEvt(item.id)">
-            {{item.physicalFileName}}
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
+            <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
+<!--            <img class="marquee-img" src="http://placehold.it/400X400"/>-->
           </div>
         </vue-marquee-slide>
       </vue-marquee>
@@ -20,8 +20,8 @@
           :showProgress="false">
         <vue-marquee-slide v-for="i in 4" :key="i">
           <div v-for="item in photoList2" :key="item.id" @click="clickEvt(item.id)">
-            {{item.physicalFileName}}
-            <img class="marquee-img" src="http://placehold.it/400X400"/>
+            <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
+<!--            <img class="marquee-img" src="http://placehold.it/400X400"/>-->
           </div>
         </vue-marquee-slide>
       </vue-marquee>

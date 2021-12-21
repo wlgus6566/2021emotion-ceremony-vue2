@@ -21,37 +21,37 @@
         <ul class="taplist">
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-01.png" alt="section1">
+              <img src="@/assets/images/tab-01.png" alt="section3">
             </a>
           </li>
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-02.png" alt="section2">
+              <img src="@/assets/images/tab-02.png" alt="section4">
             </a>
           </li>
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-03.png" alt="section3">
+              <img src="@/assets/images/tab-03.png" alt="section5">
             </a>
           </li>
           <li>
             <a href="javascript:void(0)"  v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-04.png" alt="section4">
+              <img src="@/assets/images/tab-04.png" alt="section6">
             </a>
           </li>
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-05.png" alt="section5">
+              <img src="@/assets/images/tab-05.png" alt="section7">
             </a>
           </li>
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-06.png" alt="section6">
+              <img src="@/assets/images/tab-06.png" alt="section8">
             </a>
           </li>
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
-              <img src="@/assets/images/tab-07.png" alt="section7">
+              <img src="@/assets/images/tab-07.png" alt="section9">
             </a>
           </li>
         </ul>
@@ -409,6 +409,7 @@ export default {
   data() {
     return {
       users: [],
+      now: '',
       outputImage: null,
       showModal: false,
       showModal3: false,
@@ -489,6 +490,7 @@ export default {
     const mail = new URL(window.location).searchParams.get('mail');
     console.log(mail)
     window.addEventListener('scroll', this.showFloating);
+    this.timeOut();
     this.startSpinner();
     this.getMemberContents();
     this.getMemberCardImage();
@@ -665,6 +667,15 @@ export default {
     },
     loadedImage() {
       this.saveImage();
+    },
+    timeOut() {
+      setTimeout(function (){
+        const date = new Date();
+        this.now = date.getDay() + ":" + date.getMinutes() + ":"
+            + date.getSeconds();
+        console.log(date.getDay() + ":" + date.getMinutes() + ":"
+            + date.getSeconds())
+      },1000);
     }
   },
   beforeDestroy() {
@@ -762,6 +773,7 @@ body.modal-open {
   }
   .section9-container {
     max-width: 1920px;
+    margin: 0 auto;
     width: 100%;
     .top-img-wrap {
       position: relative;
@@ -782,7 +794,7 @@ body.modal-open {
 
       .user-info {
         position: absolute;
-        top: 52%;
+        top: 54%;
         left: 50%;
         transform: translateX(-50%);
         .department {
