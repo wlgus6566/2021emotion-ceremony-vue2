@@ -69,7 +69,7 @@ export default {
       }
     },
     imgUrl(url) {
-      return 'http://party.emotion.co.kr' + url;
+      return 'party.emotion.co.kr' + url;
     },
     async vote(){
       try {

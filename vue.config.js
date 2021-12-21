@@ -46,7 +46,7 @@ module.exports = {
       '/getRandomMemberTen': {
         target: process.env.VUE_APP_API_URL,
         changeOrigin: true,
-      }
+      },
     },
   },
 };

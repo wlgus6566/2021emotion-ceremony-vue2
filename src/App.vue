@@ -409,6 +409,12 @@ export default {
   data() {
     return {
       users: [],
+      awardList: {
+        first: [],
+        second: [],
+        third: [],
+        fourth: [],
+      },
       now: '',
       outputImage: null,
       showModal: false,
