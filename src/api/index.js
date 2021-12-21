@@ -40,7 +40,9 @@ function getMbti(params) {
   return instance.get(`getMbti`,{params:params} );
 }
 function postVotes(requestBody) {
-  return instance.post(`postVotes`, requestBody);
+  return instance.post(`postVotes`, JSON.stringify(requestBody), {
+      headers : { "Content-Type": "application/json"}
+  });
 }
 
 export {

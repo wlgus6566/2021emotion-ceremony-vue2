@@ -117,7 +117,7 @@
 
       <div class="section4">
         <img src="@/assets/images/tit-03.png" alt="tit-03" />
-        <Section4/>
+        <Section4 :randomPhoto="randomPhoto"/>
         <div class="btn-wrap">
           <button @click="showModalFc">투표하고 선물 100% 받기</button>
         </div>
@@ -125,7 +125,7 @@
 
       <div class="section5">
         <img src="@/assets/images/tit-04.png" alt="tit-04" />
-        <Section5/>
+        <Section5 :randomMember="randomMember"/>
         <div class="btn-wrap">
           <button @click="showThirdModalFc">최강자 뽑으러 가기</button>
         </div>
@@ -354,7 +354,7 @@
 
       <div>
         <modal2 @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
-        <modal3 :allMemberList = allMemberList
+        <modal3 :allMemberList="allMemberList"
                 @closeModalFc="closeThirdModalFc"
                 v-if="showModal3">
         </modal3>
@@ -370,7 +370,6 @@ import {
   getMemberCardImage,
   getAllMemberCardImage,
   getSurvey,
-  getRandomMemberTen,
   getMbti,
   postVotes,
   getAllPhoto
@@ -477,7 +476,6 @@ export default {
       mbtiPhoto : [],
       randomPhoto : [],
       randomMember : [],
-      allMember : [],
       allMemberList: [],
       words: {
         page: 1, // 현재페이지
@@ -502,7 +500,7 @@ export default {
     this.getMemberCardImage();
     this.getAllMemberCardImage();
     this.getSurvey();
-    this.getRandomMemberTen();
+    //this.getRandomMemberTen();
     this.getMbti();
     this.getAllPhoto();
   },
@@ -567,6 +565,8 @@ export default {
         const response = await getAllMemberCardImage()
         console.log('getAllMemberCardImage', response);
         this.allMemberList = response;
+        this.randomMember = this.allMemberList.filter((el, i)=>i<10);
+        console.log(this.randomMember)
       } catch (e) {
         console.log('getAllMemberCardImage', e)
       } finally {
@@ -591,7 +591,7 @@ export default {
       }
     },
 
-    async getRandomMemberTen(){
+    /*async getRandomMemberTen(){
       try {
         const response = await getRandomMemberTen()
         console.log('getRandomMemberTen', response)
@@ -600,7 +600,7 @@ export default {
       } finally {
         console.log('getRandomMemberTen finally')
       }
-    },
+    },*/
     async getMbti(){
       try {
         const response = await getMbti({

@@ -9,7 +9,7 @@
           :showProgress="false">
         <vue-marquee-slide v-for="i in 4" :key="i">
           <div v-for="item in photoList1" :key="item.id" @click="clickEvt(item.id)">
-            <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
+            <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" class="marquee-img" />
 <!--            <img class="marquee-img" src="http://placehold.it/400X400"/>-->
           </div>
         </vue-marquee-slide>
@@ -20,7 +20,7 @@
           :showProgress="false">
         <vue-marquee-slide v-for="i in 4" :key="i">
           <div v-for="item in photoList2" :key="item.id" @click="clickEvt(item.id)">
-            <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
+            <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" class="marquee-img" />
 <!--            <img class="marquee-img" src="http://placehold.it/400X400"/>-->
           </div>
         </vue-marquee-slide>
@@ -47,6 +47,9 @@ export default {
   },
   methods : {
     ...mapMutations( ['SWIPER_IDX']),
+    imgUrl(url) {
+      return 'http://party.emotion.co.kr/' + url;
+    },
     clickEvt(id){
       console.log(id)
       this.SWIPER_IDX(id)
@@ -81,6 +84,8 @@ export default {
   }
   .marquee-img {
     width: 100%;
+    height:100%;
+    border-radius: 50%;
   }
 
 </style>
