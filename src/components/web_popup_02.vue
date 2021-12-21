@@ -59,6 +59,7 @@ export default {
     return {
       btnLike: false,
       checked : [],
+      completeVote : true,
     }
   },
   created() {
@@ -96,7 +97,12 @@ export default {
         const response = await postVotes(requestBody);
         console.log('postVotes', response)
       } catch (e) {
-        console.log('postVotes', e)
+        console.log('postVotes', e);
+        if (confirm("투표 완료하시겠습니까?") == true){    //확인
+          this.$emit('closeModalFc');
+        }else{   //취소
+          return false;
+        }
       } finally {
         console.log('postVotes finally')
       }

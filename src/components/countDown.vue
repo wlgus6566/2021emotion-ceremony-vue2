@@ -4,7 +4,7 @@
     <div v-if="!this.countEnd">
       <img class="img-ready" src="@/assets/images/img-ready.png" alt="" />
       <flip-countdown
-          deadline="2021-12-20 11:38:00"
+          deadline="2021-12-23 17:00:00"
           :showDays="false"
           @timeElapsed="timeElapsedHandler"></flip-countdown>
     </div>
@@ -81,12 +81,13 @@ export default {
     left: 0;
     width: 100%;
     height: 50%;
-    //background: #1b1a1d;
     position: absolute;
     z-index: 1;
     opacity: .3;
   }
-
+  .flip-card__bottom, .flip-card__back-bottom {
+    border-top: none !important;
+  }
   .flip-card__bottom, .flip-card__back-bottom,
   .flip-card__bottom-4digits, .flip-card__back-bottom-4digits {
     color: #fff !important;

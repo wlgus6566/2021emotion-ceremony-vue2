@@ -361,7 +361,7 @@ export default {
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    background: url("../assets/images/frame.jpg") no-repeat center/cover;
+    background: url("../assets/images/frame.png") no-repeat center/cover;
     overflow: hidden;
     &:after {
       content: "";

@@ -6,22 +6,30 @@
 
     <swiper-slide>
       <div class="inner">
-        <img src="http://placehold.it/1248X702"/>
+        <span>
+           <img src="http://placehold.it/1248X702"/>
+        </span>
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
-        <img src="http://placehold.it/1248X702"/>
+        <span>
+           <img src="http://placehold.it/1248X702"/>
+        </span>
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
-        <img src="http://placehold.it/1248X702"/>
+        <span>
+           <img src="http://placehold.it/1248X702"/>
+        </span>
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
-        <img src="http://placehold.it/1248X702"/>
+        <span>
+           <img src="http://placehold.it/1248X702"/>
+        </span>
       </div>
     </swiper-slide>
 
@@ -114,5 +122,26 @@ export default {
   height: 100%;
   background: url("../assets/images/arrow-l.png") no-repeat center/cover;
   font-size: 0;
+}
+.inner > span {
+  position: relative;
+  display: inline-block;
+  width: 1280px;
+  height: 730px;
+  > img {
+    position: absolute;
+    left: 16px;
+    top: 15px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./../assets/images/frame.jpg) no-repeat top left/100% 100%;
+    z-index: -1;
+  }
 }
 </style>

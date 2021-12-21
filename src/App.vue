@@ -3,8 +3,7 @@
     <div class="floating"
          v-bind:class="{ active: showFloat }">
       <div class="ceo-img-wrap" @mouseenter="doMouseToggle" @mouseleave="doMouseToggle">
-        <img
-             class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
+        <img class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
       </div>
       <img class="message"
            @mouseenter= "doMouseToggle"
@@ -16,7 +15,7 @@
 
     <div id="wrap">
       <div class="section1">
-        <img src="@/assets/images/kv.jpg" alt="">
+        <img src="@/assets/images/kv.jpg" alt="키비주얼">
       </div>
       <div class="tapContainer">
         <ul class="taplist">
@@ -60,7 +59,7 @@
 
       <div class="section2">
         <div class="top-container">
-          <img src="@/assets/images/tit-01.png" alt="">
+          <img src="@/assets/images/tit-01.png" alt="tit-01">
           <survey-slider/>
         </div>
         <div class="container survey-container">
@@ -109,7 +108,7 @@
       </div>
       <div class="section3">
         <div class="container">
-          <img src="@/assets/images/tit-02.png" alt="">
+          <img src="@/assets/images/tit-02.png" alt="tit-02">
           <div class="flip-wrap" >
             <MbtiItem :items="mbtilist"/>
           </div>
@@ -117,7 +116,7 @@
       </div>
 
       <div class="section4">
-        <img src="@/assets/images/tit-03.png" alt="" />
+        <img src="@/assets/images/tit-03.png" alt="tit-03" />
         <Section4/>
         <div class="btn-wrap">
           <button @click="showModalFc">투표하고 선물 100% 받기</button>
@@ -125,7 +124,7 @@
       </div>
 
       <div class="section5">
-        <img src="@/assets/images/tit-04.png" alt="" />
+        <img src="@/assets/images/tit-04.png" alt="tit-04" />
         <Section5/>
         <div class="btn-wrap">
           <button @click="showThirdModalFc">최강자 뽑으러 가기</button>
@@ -134,33 +133,33 @@
 
       <div class="section6">
         <div class="container">
-          <img src="@/assets/images/tit-05.png" alt="" />
+          <img src="@/assets/images/tit-05.png" alt="tit-05" />
           <gallary-slider/>
         </div>
       </div>
 
       <div class="section7">
         <div class="container">
-          <img src="@/assets/images/tit-06.png" alt="" />
+          <img src="@/assets/images/tit-06.png" alt="tit-06" />
           <count-down />
           <div style="position: relative; margin-bottom: 200px">
-            <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="" />
+            <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="number" />
             <span class="fight-number">85</span>
           </div>
         </div>
       </div>
 
       <div class="section8">
-        <img src="@/assets/images/img-luckydraw.png" alt="" />
+        <img src="@/assets/images/img-luckydraw.png" alt="luckydraw" />
       </div>
 
       <div class="section9">
-        <div class="container">
+        <div class="section9-container">
           <div ref="printMe">
             <div class="top-img-wrap">
               <img class="respect-save" src="@/assets/images/bg-respect-save.png" alt="저장이미지"/>
               <div class="respect">
-                <img class="respect-sticker" src="@/assets/images/img-respect.png" alt=""/>
+                <img class="respect-sticker" src="@/assets/images/img-respect.png" alt="respect"/>
                 <span id="photo-img" class="photo-img">
                   <img :src="this.imgUrl('img/211216/' + this.users.idImage + '.jpg')" @load="loadedImage" alt="user img"/>
                 </span>
@@ -174,10 +173,182 @@
               </div>
             </div>
           </div>
-          <a :href="outputImage" class="save-btn" download>
-            <img src="@/assets/images/save-btn.png" alt=""/>
-          </a>
-          <img src="@/assets/images/img-respect-end.png" alt="" />
+          <div class="save-btn-area">
+            <a :href="outputImage" class="save-btn" download></a>
+            <img src="@/assets/images/save-btn.png" alt="btn"/>
+          </div>
+          <div class="container">
+            <img src="@/assets/images/img-respect-end.png" alt="respect" />
+          </div>
+        </div>
+      </div>
+
+      <div class="section10 after-air" style="position: relative; display: block">
+        <img src="@/assets/images/img-luckydraw-con-0.png" alt="luckydraw" style="position: absolute; z-index: -1;"/>
+        <div class="container">
+          <img src="@/assets/images/img-luckydraw-con-1.png" alt="luckydraw" style="margin-bottom: 60px;" />
+          <ul class="award-list first">
+            <li class="list-item">
+              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-1.png" alt="luckydraw"/>
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+          </ul>
+          <img src="@/assets/images/img-luckydraw-con-2.png" alt="luckydraw" />
+
+          <ul class="award-list second">
+            <li class="list-item">
+              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+          </ul>
+          <img src="@/assets/images/img-luckydraw-con-3.png" alt="luckydraw" />
+
+          <ul class="award-list third">
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+          </ul>
+          <img src="@/assets/images/img-luckydraw-con-4.png" alt="luckydraw" />
+
+          <ul class="award-list fourth">
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+          </ul>
+
+          <img src="@/assets/images/img-luckydraw-con-5.png" alt="luckydraw" />
+          <ul class="award-list fifth">
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://placehold.it/150X150"/>
+              <p class="department">경영전략본부</p>
+              <p class="name">최모션 책임리더</p>
+            </li>
+          </ul>
+
         </div>
       </div>
 
@@ -493,7 +664,6 @@ export default {
       }
     },
     loadedImage() {
-      console.log('LOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOADLOAD');
       this.saveImage();
     }
   },
@@ -590,7 +760,7 @@ body.modal-open {
     width: 100%;
     height: 100%;
   }
-  .container {
+  .section9-container {
     max-width: 1920px;
     width: 100%;
     .top-img-wrap {
@@ -609,16 +779,7 @@ body.modal-open {
         width: 20%;
         z-index: 1;
       }
-      .save-btn {
-        position: absolute;
-        left: 35%;
-        top: 92%;
-        background: red;
-        width: 30%;
-        height: 6%;
-        opacity: 0;
-        cursor: pointer;
-      }
+
       .user-info {
         position: absolute;
         top: 52%;
@@ -668,6 +829,17 @@ body.modal-open {
     img {
       width: 100%;
     }
+  }
+}
+.save-btn-area {
+  position: relative;
+  .save-btn {
+    position: absolute;
+    left: 36%;
+    top: 0;
+    width: 28%;
+    height: 67%;
+    opacity: 0;
   }
 }
 .tapContainer {
@@ -875,6 +1047,7 @@ body.modal-open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0%);
+
 }
 
 .floating .ceo-img-wrap {
@@ -892,14 +1065,14 @@ body.modal-open {
   right: 0;
   bottom: 0;
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.4s ease-in-out;
   transform: translateY(0) scale(1);
   z-index: 2000;
   visibility: visible;
-/*  animation: upDown 2s infinite;
+ /* animation: upDown 2s infinite;
   animation-fill-mode : both;*/
 }
-@keyframes upDown {
+/*@keyframes upDown {
   0% {
     transform: translateY(0);
   }
@@ -909,12 +1082,10 @@ body.modal-open {
   100% {
     transform: translateY(0);
   }
-
-}
+}*/
 .floating .ceo-img.active {
   opacity: 0;
   transform: translateY(50%) scale(0);
-  transition: 0.4s ease-in-out;
   visibility: hidden;
   transform-origin: right bottom;
 }
@@ -971,4 +1142,120 @@ body.modal-open {
   transform: translate(-50%, -50%);
   letter-spacing: 0.02em;
 }
+.section10 {
+  background: #18171a;
+  .award-list {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    width: 100%;
+    .list-item {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .gift-img {
+        position: absolute;
+        bottom: 9%;
+        left: -37%;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 250px;
+
+        + img {
+          width: 428px;
+          height: 428px;
+          border-radius: 50%;
+        }
+      }
+
+      .department {
+        margin-top: 60px;
+        color: #999;
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .name {
+        margin-top: 20px;
+        color: #fff;
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 1;
+      }
+    }
+    &.second {
+      .list-item {
+        margin: 0 60px;
+        .gift-img {
+          bottom: 16%;
+          left: -23%;
+          transform: translateY(-50%);
+          width: 200px;
+          height: 136px;
+
+          + img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+          }
+        }
+
+        .department {
+          margin-top: 60px;
+          font-size: 36px;
+        }
+
+        .name {
+          font-size: 50px;
+        }
+      }
+    }
+    &.third {
+      padding: 60px 0 0;
+      margin-bottom: 160px;
+      .list-item {
+        margin: 0 10px;
+        img {
+          width: 214px;
+          height: 214px;
+          border-radius: 50%;
+        }
+        .department {
+          margin-top: 30px;
+          font-size: 24px;
+        }
+        .name {
+          margin-top: 10px;
+          font-size: 30px;
+        }
+      }
+    }
+    &.fourth, &.fifth {
+      margin-bottom: 160px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      .list-item {
+        margin: 60px 10px 0;
+        img {
+          width: 214px;
+          height: 214px;
+          border-radius: 50%;
+        }
+        .department {
+          margin-top: 30px;
+          font-size: 24px;
+        }
+        .name {
+          margin-top: 10px;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
 </style>
