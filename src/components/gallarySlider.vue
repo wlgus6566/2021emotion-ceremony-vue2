@@ -93,8 +93,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.swiper-wrapper {
-}
+
 .swiper-container {
   margin-top: 100px;
 }

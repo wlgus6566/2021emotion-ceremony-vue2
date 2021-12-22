@@ -28,7 +28,7 @@
               <img
                   v-lazy="{
                     src: imgUrl(user.imagePath + user.idImage + '.jpg'),
-                    error: '/error-img.png',
+                    error: '/error.png',
                     loading: '/Spinner-1s-200px.gif'
                   }"
                   :alt="user.idImage"

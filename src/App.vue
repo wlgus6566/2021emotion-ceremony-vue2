@@ -679,6 +679,12 @@ body.modal-open {
     width: 1540px;
     min-width: 1540px;
   }
+
+  .swiper-container {
+    background: #000;
+    background: url("./assets/images/slide_bg.jpg") no-repeat center/cover;
+  }
+
 }
 #wrap .section7 {
   background: #212024;
