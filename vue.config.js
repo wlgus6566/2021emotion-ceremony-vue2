@@ -6,7 +6,7 @@ module.exports = {
     entry: ['babel-polyfill', './src/main.js'],
   },
   devServer: {
-    host: 'party-local.emotion.co.kr',
+    host: 'localhost',
     port: 8080,
     overlay: false,
     disableHostCheck: true,
@@ -44,6 +44,10 @@ module.exports = {
         changeOrigin: true,
       },
       '/getRandomMemberTen': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+      },
+      '/getVotes': {
         target: process.env.VUE_APP_API_URL,
         changeOrigin: true,
       },

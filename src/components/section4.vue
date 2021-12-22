@@ -31,12 +31,14 @@
 
 <script>
 import {mapMutations} from "vuex";
+import {commonMethods} from "@/utils/common-methods";
 
 export default {
   name: "section4",
   props: {
     randomPhoto : Array,
   },
+  mixins: [commonMethods],
   computed : {
     photoList1(){
       return this.randomPhoto.slice(0,5)
@@ -47,9 +49,6 @@ export default {
   },
   methods : {
     ...mapMutations( ['SWIPER_IDX']),
-    imgUrl(url) {
-      return 'http://party.emotion.co.kr/' + url;
-    },
     clickEvt(id){
       console.log(id)
       this.SWIPER_IDX(id)
@@ -85,7 +84,6 @@ export default {
   .marquee-img {
     width: 100%;
     height:100%;
-    border-radius: 50%;
   }
 
 </style>

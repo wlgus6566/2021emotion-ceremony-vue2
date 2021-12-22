@@ -59,7 +59,7 @@ export default {
     return {
       btnLike: false,
       checked : [],
-      completeVote : true,
+      completeVote : true
     }
   },
   created() {
@@ -87,18 +87,23 @@ export default {
     },
     async vote(){
       try {
-        const response = await postVotes({
-          voteMemberId: this.checked,
-          type: 'mbti'
-        });
-        console.log('postVotes', response)
-      } catch (e) {
-        console.log('postVotes', e);
-        if (confirm("투표 완료하시겠습니까?") == true){    //확인
+        const requestBody = this.checked.map(item => {
+          return {
+            type: 'mbti',
+            voteMemberId: item
+          };
+        })
+
+        if (confirm("투표 완료하시겠습니까?")) {    //확인
+          const response = await postVotes(requestBody);
+
+          console.log('postVotes', response)
+
+          this.$emit('voted');
           this.$emit('closeModalFc');
-        }else{   //취소
-          return false;
         }
+      } catch (e) {
+        console.error('postVotes', e);
       } finally {
         console.log('postVotes finally')
       }
@@ -123,7 +128,7 @@ export default {
   z-index: 1001;
 }
 .overlay {
-  opacity: 0.5;
+  opacity: 0.8;
   background-color: black;
   z-index: 1001;
 }
@@ -224,9 +229,6 @@ export default {
       &.active::before{
         background: none;
       }
-      &.checked .img-wrap{
-        border: none;
-      }
       &::before {
         content: "";
         position: absolute;
@@ -241,7 +243,6 @@ export default {
         position: relative;
         display: block;
         overflow: hidden;
-        border: 3px solid #eee;
         box-sizing: border-box;
         &::after {
           content: "";

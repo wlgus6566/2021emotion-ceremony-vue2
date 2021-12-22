@@ -16,10 +16,7 @@
           <div class="user-info">
             <span class="department">{{ data.department }}</span>
             <span class="name">
-              {{ data.name }}
-            </span>
-            <span class="name">
-              {{ data.level }}
+              {{ data.name }} {{ data.level }}
             </span>
             <span class="other-mbti"
                   v-if="! (data.mbti === 'INTJ' ||
@@ -86,7 +83,7 @@ export default {
   z-index: 1001;
 }
 .overlay {
-  opacity: 0.5;
+  opacity: 0.8;
   background-color: black;
   z-index: 1001;
 }

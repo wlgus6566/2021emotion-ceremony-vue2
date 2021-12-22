@@ -9,7 +9,7 @@
           <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
         </div>
         <p class="user-title">
-          {{item.id}}
+          {{item.mbti}}
           {{item.description}}
         </p>
         <div class="user-info">

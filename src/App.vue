@@ -39,7 +39,7 @@
               <img src="@/assets/images/tab-04.png" alt="section6">
             </a>
           </li>
-          <li>
+          <li v-if="this.awardList.first.length === 0">
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
               <img src="@/assets/images/tab-05.png" alt="section7">
             </a>
@@ -119,7 +119,7 @@
         <img src="@/assets/images/tit-03.png" alt="tit-03" />
         <Section4 :randomPhoto="randomPhoto"/>
         <div class="btn-wrap">
-          <button @click="showModalFc">투표하고 선물 100% 받기</button>
+          <button @click="showModalFc" :disabled="voteFlag">투표하고 선물 100% 받기</button>
         </div>
       </div>
 
@@ -127,7 +127,7 @@
         <img src="@/assets/images/tit-04.png" alt="tit-04" />
         <Section5 :randomMember="randomMember"/>
         <div class="btn-wrap">
-          <button @click="showThirdModalFc">최강자 뽑으러 가기</button>
+          <button @click="showThirdModalFc" :disabled="voteBest">최강자 뽑으러 가기</button>
         </div>
       </div>
 
@@ -138,19 +138,72 @@
         </div>
       </div>
 
-      <div class="section7">
+      <div class="section7" v-if="this.awardList.first.length === 0">
         <div class="container">
           <img src="@/assets/images/tit-06.png" alt="tit-06" />
           <count-down />
           <div style="position: relative; margin-bottom: 200px">
             <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="number" />
-            <span class="fight-number">85</span>
+            <span class="fight-number">{{ this.fightNum }}</span>
           </div>
         </div>
       </div>
 
-      <div class="section8">
+      <div class="section8" v-if="this.awardList.first.length === 0">
         <img src="@/assets/images/img-luckydraw.png" alt="luckydraw" />
+      </div>
+
+      <div v-if="this.awardList.first.length > 0" class="section8" style="position: relative;">
+        <img src="@/assets/images/img-luckydraw-con-0.png" alt="luckydraw" style="position: absolute; z-index: -1;"/>
+
+        <div class="container">
+          <img src="@/assets/images/img-luckydraw-con-1.png" alt="luckydraw" style="margin-bottom: 60px;" />
+          <ul class="award-list first">
+            <li class="list-item">
+              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-1.png" alt="luckydraw"/>
+              <img :src="imgUrl('img/211216/' + (this.awardList.first[0].idImage) + '.jpg')"/>
+              <p class="department">{{this.awardList.first[0] ? this.awardList.first[0].department : ''}}</p>
+              <p class="name">{{this.awardList.first[0] ? this.awardList.first[0].name : ''}} {{this.awardList.first[0] ? this.awardList.first[0].level : ''}}</p>
+            </li>
+          </ul>
+
+          <img src="@/assets/images/img-luckydraw-con-2.png" alt="luckydraw" />
+          <ul class="award-list second">
+            <li class="list-item" v-for="(item, index) in awardList.second" :key="index">
+              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
+              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
+              <p class="department">{{item.department}}</p>
+              <p class="name">{{item.name}} {{item.level}}</p>
+            </li>
+          </ul>
+
+          <img src="@/assets/images/img-luckydraw-con-3.png" alt="luckydraw" />
+          <ul class="award-list third">
+            <li class="list-item" v-for="(item, index) in awardList.third" :key="index">
+              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
+              <p class="department">{{item.department}}</p>
+              <p class="name">{{item.name}} {{item.level}}</p>
+            </li>
+          </ul>
+
+          <img src="@/assets/images/img-luckydraw-con-4.png" alt="luckydraw" />
+          <ul class="award-list fourth">
+            <li class="list-item" v-for="(item, index) in awardList.fourth" :key="index">
+              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
+              <p class="department">{{item.department}}</p>
+              <p class="name">{{item.name}} {{item.level}}</p>
+            </li>
+          </ul>
+
+          <img src="@/assets/images/img-luckydraw-con-5.png" alt="luckydraw" />
+          <ul class="award-list fifth">
+            <li class="list-item" v-for="(item, index) in awardList.fifth" :key="index">
+              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
+              <p class="department">{{item.department}}</p>
+              <p class="name">{{item.name}} {{item.level}}</p>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="section9">
@@ -161,9 +214,9 @@
               <div class="respect">
                 <img class="respect-sticker" src="@/assets/images/img-respect.png" alt="respect"/>
                 <span id="photo-img" class="photo-img">
-                  <img :src="this.imgUrl('img/211216/' + this.users.idImage + '.jpg')" @load="loadedImage" alt="user img"/>
+                <img :src="this.imgUrl('img/211216/' + this.users.idImage + '.jpg')" @load="loadedImage" alt="user img"/>
                 </span>
-                <div class="user-info">
+               <div class="user-info">
                   <p class="department">{{ this.users.department }}</p>
                   <P class="user-name">
                     <span class="name">{{ this.users.name }}</span>
@@ -183,179 +236,12 @@
         </div>
       </div>
 
-      <div class="section10 after-air" style="position: relative; display: block">
-        <img src="@/assets/images/img-luckydraw-con-0.png" alt="luckydraw" style="position: absolute; z-index: -1;"/>
-        <div class="container">
-          <img src="@/assets/images/img-luckydraw-con-1.png" alt="luckydraw" style="margin-bottom: 60px;" />
-          <ul class="award-list first">
-            <li class="list-item">
-              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-1.png" alt="luckydraw"/>
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-          </ul>
-          <img src="@/assets/images/img-luckydraw-con-2.png" alt="luckydraw" />
 
-          <ul class="award-list second">
-            <li class="list-item">
-              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-          </ul>
-          <img src="@/assets/images/img-luckydraw-con-3.png" alt="luckydraw" />
-
-          <ul class="award-list third">
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-          </ul>
-          <img src="@/assets/images/img-luckydraw-con-4.png" alt="luckydraw" />
-
-          <ul class="award-list fourth">
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-          </ul>
-
-          <img src="@/assets/images/img-luckydraw-con-5.png" alt="luckydraw" />
-          <ul class="award-list fifth">
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-            <li class="list-item">
-              <img src="http://placehold.it/150X150"/>
-              <p class="department">경영전략본부</p>
-              <p class="name">최모션 책임리더</p>
-            </li>
-          </ul>
-
-        </div>
-      </div>
 
       <div>
-        <modal2 @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
-        <modal3 :allMemberList="allMemberList"
-                @closeModalFc="closeThirdModalFc"
+        <modal2 @voted="voted" @closeModalFc="closeModalFc" :mbtiPhoto="mbtiPhoto" v-if="showModal"></modal2>
+        <modal3 @bestVoted="bestVoted" :allMemberList="allMemberList"
+                @closeThirdModalFc="closeThirdModalFc"
                 v-if="showModal3">
         </modal3>
       </div>
@@ -372,7 +258,8 @@ import {
   getSurvey,
   getMbti,
   postVotes,
-  getAllPhoto
+  getAllPhoto,
+  getVotes
 }
 from '@/api';
 import {commonMethods} from "@/utils/common-methods";
@@ -407,12 +294,14 @@ export default {
   mixins: [commonMethods],
   data() {
     return {
+      fightNum: '',
       users: [],
       awardList: {
         first: [],
         second: [],
         third: [],
         fourth: [],
+        fifth: [],
       },
       now: '',
       outputImage: null,
@@ -428,7 +317,7 @@ export default {
           mbti: "intp",
         },
         {
-          mbti: "enfj",
+          mbti: "entj",
         },
         {
           mbti: "entp",
@@ -440,7 +329,7 @@ export default {
           mbti: "infp",
         },
         {
-          mbti: "entj",
+          mbti: "enfj",
         },
         {
           mbti: "enfp",
@@ -488,11 +377,11 @@ export default {
           chunk: 5 // pagination 의 max 페이지 수
         },
       },
+      voteFlag: false,
+      voteBest: false
     };
   },
   created() {
-    const mail = new URL(window.location).searchParams.get('mail');
-    console.log(mail)
     window.addEventListener('scroll', this.showFloating);
     this.timeOut();
     this.startSpinner();
@@ -503,6 +392,7 @@ export default {
     //this.getRandomMemberTen();
     this.getMbti();
     this.getAllPhoto();
+    this.getVotes();
   },
   watch: {
     'words.page'(){
@@ -515,6 +405,14 @@ export default {
   },
   methods: {
     ...mapMutations( ['SWIPER_IDX']),
+    async getVotes() {
+      const response = await getVotes();
+
+      if (Array.isArray(response)) {
+        this.voteFlag = response.find(item => item.type === 'mbti');
+        this.voteBest = response.find(item => item.type === 'egle');
+      }
+    },
     async saveImage() {// 상장 이미지 저장
       const el = this.$refs.printMe;
       const options = {
@@ -540,7 +438,8 @@ export default {
     async getMemberContents(){
       try {
         const response = await getMemberContents()
-        console.log('getMemberContents', response)
+        console.log('getMemberContents', response.data )
+        this.fightNum = response.id;
       } catch (e) {
         console.log('getMemberContents', e)
       } finally {
@@ -565,6 +464,19 @@ export default {
         const response = await getAllMemberCardImage()
         console.log('getAllMemberCardImage', response);
         this.allMemberList = response;
+        const result1 = response.filter(item => item.eventRank === '1');
+        const result2 = response.filter(item => item.eventRank === '2');
+        const result3 = response.filter(item => item.eventRank === '3');
+        const result4 = response.filter(item => item.eventRank === '4');
+        const result5 = response.filter(item => item.eventRank === '5');
+        this.awardList.first = result1;
+        this.awardList.second = result2;
+        this.awardList.third = result3;
+        this.awardList.fourth = result4;
+        this.awardList.fifth = result5;
+
+        console.log(this.awardList)
+
         this.randomMember = this.allMemberList.filter((el, i)=>i<10);
         console.log(this.randomMember)
       } catch (e) {
@@ -682,6 +594,12 @@ export default {
         console.log(date.getDay() + ":" + date.getMinutes() + ":"
             + date.getSeconds())
       },1000);
+    },
+    voted() {
+      this.voteFlag = true;
+    },
+    bestVoted() {
+      this.voteBest = true;
     }
   },
   beforeDestroy() {
@@ -749,6 +667,9 @@ body.modal-open {
 #wrap .section5 {
   padding-bottom: 200px;
   background: #d7d7db;
+  .btn-wrap {
+    margin-top: 80px;
+  }
 }
 #wrap .section6 {
   margin: 0 auto;
@@ -763,7 +684,7 @@ body.modal-open {
   background: #212024;
 }
 #wrap .section8 {
-  background: #212024;
+  background:#18171A;
   margin: 0 auto;
 }
 
@@ -785,16 +706,17 @@ body.modal-open {
       position: relative;
       background: url("./assets/images/bg_respect_top.png") center/cover;
       .respect-save {
-        width: 80%;
+        width: 88%;
         margin: 0 auto;
         text-align: center;
         margin-top: 4%;
       }
       .respect-sticker {
         position: absolute;
-        left: 26.5%;
-        top: 32%;
-        width: 20%;
+        left: 22.5%;
+        top: 37.5%;
+        width: 360px;
+        height: 360px;
         z-index: 1;
       }
 
@@ -803,6 +725,8 @@ body.modal-open {
         top: 54%;
         left: 50%;
         transform: translateX(-50%);
+        top: calc(52.3% + 71px);
+        letter-spacing: -2px;
         .department {
           font-size: 60px;
           line-height: 1;
@@ -818,14 +742,19 @@ body.modal-open {
       }
       .photo-img {
         position: absolute;
-        width: 34%;
-        top: 20.5%;
+        width: 38%;
+        top: 22.7%;
         left: 50%;
         transform: translateX(-50%);
         opacity: 1;
         border-radius: 50%;
         overflow: hidden;
         box-sizing: border-box;
+        img {
+          border: 20px solid transparent;
+          box-sizing: border-box;
+          border-radius: 50%;
+        }
 /*        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;*/
         &:after {
       /*    content: "";
@@ -858,6 +787,9 @@ body.modal-open {
     width: 28%;
     height: 67%;
     opacity: 0;
+    + img {
+      margin-bottom: 151px;
+    }
   }
 }
 .tapContainer {
@@ -1038,12 +970,36 @@ body.modal-open {
   color: #999;
   font-weight: normal;
 }
+.pagination li + li {
+  margin-left: 30px !important;
+}
 .pagination li.active a{
   color: #000;
   font-weight: bold;
 }
 .VuePagination__pagination-item-prev-chunk , .VuePagination__pagination-item-next-chunk {
   display: none;
+}
+.VuePagination__pagination-item-prev-page,
+.VuePagination__pagination-item-next-page{
+  transform: translateY(-5px) !important;
+}
+
+.VuePagination__pagination-item-prev-page a {
+  font-size: 0 !important;
+  padding: 0!important;
+  display: inline-block;
+  width: 10px;
+  height: 16px;
+  background: url('./assets/images/arrow-small-l.png') no-repeat center/cover;
+}
+.VuePagination__pagination-item-next-page a {
+  font-size: 0 !important;
+  padding: 0!important;
+  display: inline-block;
+  width: 10px;
+  height: 16px;
+  background: url('./assets/images/arrow-small-r.png') no-repeat center/cover;
 }
 .pagination li + li {margin-left:10px;}
 .VuePagination__count {display:none}
@@ -1052,8 +1008,8 @@ body.modal-open {
   position: fixed;
   right: 60px;
   bottom: 40px;
-  width: 720px;
-  height: 520px;
+  width: 280px;
+  height: 370px;
   text-align: center;
   transform: translateY(50%);
   opacity: 0;
@@ -1112,8 +1068,9 @@ body.modal-open {
   position: absolute;
   width: 720px;
   height: 520px;
-  left: 0;
-  top: 0;
+  min-width: 720px !important;
+  left: -430px;
+  top: -133px;
   transform: translateY(50%) scale(0);
   opacity: 0;
   transition: 0.4s;
@@ -1141,6 +1098,10 @@ body.modal-open {
     text-indent: -9999em;
   }
   button.after {
+    background-image: url("./assets/images/txt-btn-01.png");
+    background-color: #666666;
+  }
+  :disabled {
     background-image: url("./assets/images/txt-btn-01.png");
     background-color: #666666;
   }

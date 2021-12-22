@@ -7,15 +7,15 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/jihyun-ahn.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">SP본부<br/>본부장</span>
             <strong class="name">안지현</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">2021년은 나에게</h3>
+          <h3 class="question">나에게 2021년은?</h3>
           <p class="answer">나이와 잔고는 반비례</p>
         </div>
       </div>
@@ -25,10 +25,10 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/harin-kim.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CP1본부<br/>리더</span>
             <strong class="name">김하린</strong>
           </div>
         </div>
@@ -43,10 +43,10 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/sunwoo-park.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CD1본부<br/>책임리더</span>
             <strong class="name">박선우</strong>
           </div>
         </div>
@@ -61,15 +61,15 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/yuseok-seo.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">BT1부문<br/>부문장</span>
             <strong class="name">서유석</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">위드코로나 취미로</h3>
+          <h3 class="question">위드코로나 취미로 추천!</h3>
           <p class="answer">강인한 리더님 놀리기</p>
         </div>
       </div>
@@ -79,15 +79,15 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/hyunmi-song.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CT본부<br/>리더</span>
             <strong class="name">송현미</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">2021년은 나에게</h3>
+          <h3 class="question">나에게 2021년은?</h3>
           <p class="answer">확찐자</p>
         </div>
       </div>
@@ -97,10 +97,10 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/yoonhye-kim.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">SP본부<br/>리더</span>
             <strong class="name">김윤혜</strong>
           </div>
         </div>
@@ -114,10 +114,10 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/euijeong-yi.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CP1본부<br/>리더</span>
             <strong class="name">이의정</strong>
           </div>
         </div>
@@ -132,29 +132,28 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/seonyeong-an.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CP1본부<br/>팀원</span>
             <strong class="name">안선영</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">2021년은 나에게</h3>
+          <h3 class="question">나에게 2021년은?</h3>
           <p class="answer">콜라는 펩시<br/>
             ㄴ 사이다는 칠성</p>
         </div>
       </div>
-
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/raeseob-park.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CT본부<br/>책임리더</span>
             <strong class="name">박래섭</strong>
           </div>
         </div>
@@ -163,39 +162,174 @@
           <p class="answer">뱃살 좀 없어지게</p>
         </div>
       </div>
-
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/seungjin.kang.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">사업대표</span>
+            <strong class="name">강승진</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">위드코로나 취미로 추천!</h3>
+          <p class="answer">제안 ^^ ㅋ</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/sungsoo.oh.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CX본부<br/>본부장</span>
+            <strong class="name">오성수</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션글로벌에게 바라는 점</h3>
+          <p class="answer">자부심이 되어주길</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/yonggu.kim.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CX본부<br/>PD</span>
+            <strong class="name">김용구</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">코로나가 끝나면 하고 싶은 것</h3>
+          <p class="answer">한국만 벗어나자</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/seojin.kim.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CM본부<br/>팀원</span>
+            <strong class="name">김서진</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션글로벌에게 바라는 점</h3>
+          <p class="answer">이모션 자체 사업 성공...?</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/jisun.jang.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CM본부<br/>팀원</span>
+            <strong class="name">장지선</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션글로벌에게 바라는 점</h3>
+          <p class="answer">↑↑연봉↑↑ / 주 4일 근무</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/sungmin.kim.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CD1본부<br/>팀원</span>
+            <strong class="name">김성민</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션글로벌에게 바라는 점</h3>
+          <p class="answer">그룹사 내 소개팅 주최</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/chaerim.byun.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CM본부<br/>팀원</span>
             <strong class="name">변채림</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">위드코로나 취미로</h3>
+          <h3 class="question">위드코로나 취미로 추천!</h3>
           <p class="answer">홈트로 <br/>복근만들기</p>
         </div>
       </div>
-
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/mijoo.choi.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CD1본부<br/>리더</span>
+            <strong class="name">최미주</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">나에게 2021년은?</h3>
+          <p class="answer">남편이 생긴 해</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/seungwon.jeong.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CD1본부<br/>팀원</span>
+            <strong class="name">정승원</strong>
+          </div>
+        </div>
+        <div class="bottom-area">
+          <h3 class="question">이모션글로벌에게 바라는 것</h3>
+          <p class="answer">신형맥🥺</p>
+        </div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="inner">
+        <div class="top-area">
+        <span class="top-area-img">
+          <img src="http://party.emotion.co.kr/img/211216/hyoungwook.kim.jpg"/>
+        </span>
+          <div class="top-area-desc">
+            <span class="department">CT본부<br/>책임리더</span>
             <strong class="name">김형욱</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">위드코로나 취미로</h3>
+          <h3 class="question">위드코로나 취미로 추천!</h3>
           <p class="answer">술 마시다 잠자기</p>
         </div>
       </div>
@@ -205,16 +339,16 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/seungki.min.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
-            <strong class="name">안현선</strong>
+            <span class="department">CT본부<br/>팀원</span>
+            <strong class="name">민승기</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">이모션 글로벌에게 바라는 것</h3>
-          <p class="answer">덕질비용 지원<br/>(월 100만정도)</p>
+          <h3 class="question">코로나가 끝나면</h3>
+          <p class="answer">밤새 소주먹기</p>
         </div>
       </div>
 
@@ -223,15 +357,15 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://placehold.it/300x300"/>
+          <img src="http://party.emotion.co.kr/img/211216/jihyeon-kim.jpg"/>
         </span>
           <div class="top-area-desc">
-            <span class="department">경영전략본부<br/>책임리더</span>
+            <span class="department">CT본부<br/>팀원</span>
             <strong class="name">김지현</strong>
           </div>
         </div>
         <div class="bottom-area">
-          <h3 class="question">위드코로나 취미로</h3>
+          <h3 class="question">위드코로나 취미로 추천!</h3>
           <p class="answer">빵 냄시 폴폴 <br/>베이킹 하기 🥨</p>
         </div>
       </div>
