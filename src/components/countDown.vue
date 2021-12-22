@@ -27,7 +27,13 @@ export default {
   components: {
     FlipCountdown
   },
+  mounted() {
+    this.countEnd = new Date() > new Date('2021-12-23 17:00:00')
+  },
   methods : {
+    getTime() {
+      const time = new Date();
+    },
     timeElapsedHandler() {
       console.log('끝!');
       this.countEnd = true;

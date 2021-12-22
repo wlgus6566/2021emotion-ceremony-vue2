@@ -92,8 +92,8 @@ export default {
   overflow-y: scroll;
   width: calc(100vw - 40px);
   max-width: 1280px;
-  max-height: 840px;
-  height: calc(100% - 100px);
+  height: 840px;
+  max-height: calc(100vh - 200px);
   padding: 60px 40px;
   background-color: white;
   box-sizing: border-box;
@@ -122,7 +122,7 @@ export default {
     &.entj {color: #a076b7;}
     &.entp {color: #764195;}
     &.infj {color: #b9c544;}
-    &.infp {color: #8e4065;}
+    &.infp {color: #92a008;}
     &.enfj {color: #6e9d36;}
     &.enfp {color: #477a0a;}
     &.istj {color: #72c9cb;}

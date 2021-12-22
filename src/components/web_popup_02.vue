@@ -174,8 +174,8 @@ export default {
   overflow-y: scroll;
   width: calc(100vw - 40px);
   max-width: 1280px;
-  max-height: 840px;
-  height: calc(100% - 100px);
+  height: 840px;
+  max-height: calc(100vh - 200px);
   margin-top: 20px;
   padding: 60px 50px;
   box-sizing: border-box;
@@ -187,6 +187,7 @@ export default {
 .pop3-content::-webkit-scrollbar {display: none;}
 .content-left {
   overflow: hidden;
+  overflow-y: auto;
   width: calc(50% - 18px);
   .user-title {
     margin-top: 28px;
@@ -196,11 +197,8 @@ export default {
     color: #333333;
     font-weight: bold;
     overflow: hidden;
+/*    overflow-y: auto;*/
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* 라인수 */
-    -webkit-box-orient: vertical;
-    word-wrap: break-word;
   }
   .btn-like {
     font-size: 0;

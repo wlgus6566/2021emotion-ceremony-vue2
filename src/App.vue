@@ -138,10 +138,10 @@
       </div>
 
       <div class="section7" v-if="this.awardList.first.length === 0">
-        <div class="container">
+        <div class="container" v-bind:style="!fightFlag ? 'margin-bottom: 160px' : ''">
           <img src="@/assets/images/tit-06.png" alt="tit-06" />
           <count-down />
-          <div style="position: relative; margin-bottom: 200px">
+          <div style="position: relative; margin-bottom: 200px" v-if="fightFlag">
             <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="number" />
             <span class="fight-number">{{ this.fightNum }}</span>
           </div>
@@ -217,10 +217,10 @@
                 </span>
                <div class="user-info">
                   <p class="department">{{ this.users.department }}</p>
-                  <P class="user-name">
-                    <span class="name">{{ this.users.name }}</span>
-                    <span class="level">{{ this.users.level }}</span>
-                  </P>
+                  <p class="user-name">
+                    <span class="name">{{ this.users.name }} </span>
+                    <span class="level">{{ this.users.level === "팀원" ? "" : this.users.level }}</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -377,7 +377,8 @@ export default {
         },
       },
       voteFlag: false,
-      voteBest: false
+      voteBest: false,
+      fightFlag: false
     };
   },
   created() {
@@ -437,8 +438,9 @@ export default {
     async getMemberContents(){
       try {
         const response = await getMemberContents()
-        console.log('getMemberContents', response )
-        this.fightNum = response.id;
+        console.log('getMemberContents', response)
+        this.fightNum = response.data.id;
+        this.fightFlag = response.data.fullPath && (response.data.fullPath.length > 0);
       } catch (e) {
         console.log('getMemberContents', e)
       } finally {
@@ -655,7 +657,7 @@ body.modal-open {
   padding-bottom: 200px;
 }
 #wrap .section3 .flip-wrap {
-  width: 66.6%;
+/*  width: 66.6%;*/
   margin: 0 auto;
   margin-top: 100px;
 }

@@ -7,28 +7,70 @@
     <swiper-slide>
       <div class="inner">
         <span>
-           <img src="http://placehold.it/1248X702"/>
+           <img src="@/assets/images/slide1.jpg"/>
         </span>
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
         <span>
-           <img src="http://placehold.it/1248X702"/>
+           <img src="@/assets/images/slide2.jpg"/>
         </span>
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
         <span>
-           <img src="http://placehold.it/1248X702"/>
+           <img src="@/assets/images/slide3.jpg"/>
         </span>
       </div>
     </swiper-slide>
     <swiper-slide>
       <div class="inner">
         <span>
-           <img src="http://placehold.it/1248X702"/>
+           <img src="@/assets/images/slide4.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide5.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide6.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide7.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide8.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide9.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide10.jpg"/>
         </span>
       </div>
     </swiper-slide>
@@ -127,10 +169,13 @@ export default {
   display: inline-block;
   width: 1280px;
   height: 730px;
+  overflow: hidden;
   > img {
     position: absolute;
-    left: 16px;
-    top: 15px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
   &::after {
     content: '';
@@ -139,7 +184,7 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(./../assets/images/frame.jpg) no-repeat top left/100% 100%;
+/*    background: url(./../assets/images/frame.jpg) no-repeat top left/100% 100%;*/
     z-index: -1;
   }
 }
