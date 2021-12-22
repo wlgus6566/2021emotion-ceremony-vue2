@@ -166,8 +166,8 @@ export default {
   overflow-y: scroll;
   width: calc(100vw - 40px);
   max-width: 1280px;
-  max-height: 840px;
-  height: calc(100% - 100px);
+  height: 840px;
+  max-height: calc(100vh - 200px);
   margin-top: 20px;
   padding: 0 40px 60px;
   box-sizing: border-box;

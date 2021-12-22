@@ -175,7 +175,7 @@ export default {
   width: calc(100vw - 40px);
   max-width: 1280px;
   height: 840px;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 100px);
   margin-top: 20px;
   padding: 60px 50px;
   box-sizing: border-box;
@@ -190,9 +190,9 @@ export default {
   overflow-y: auto;
   width: calc(50% - 18px);
   .user-title {
-    margin-top: 28px;
+    margin-top: 20px;
     font-size: 28px;
-    line-height: 36px;
+    line-height: 35px;
     letter-spacing: -2px;
     color: #333333;
     font-weight: bold;
@@ -273,7 +273,7 @@ export default {
   }
 }
 .user-info {
-  margin-top: 12px;
+  margin-top: 9px;
   display: flex;
   justify-content: space-between;
   align-items: center;

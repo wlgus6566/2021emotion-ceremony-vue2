@@ -8,29 +8,29 @@
         <div class="img">
           <img :src="imgUrl(`uploadFolder/${item.physicalFileName}`)" />
         </div>
-        <p class="user-title">
-          {{item.mbti}}
-          {{item.description}}
-        </p>
-        <div class="user-info">
-          <div>
-            <span class="department">{{ item.department }} </span>
-            <span class="name">{{item.name}} </span>
-            <span class="position">{{ item.level }}</span>
-          </div>
-          <button
-              :class="{
+        <div class="info-wrap">
+          <p class="user-title">
+            {{item.mbti}} {{item.description}}
+          </p>
+          <div class="user-info">
+            <div>
+              <span class="department">{{ item.department }} </span>
+              <span class="name">{{item.name}} </span>
+              <span class="position">{{ item.level }}</span>
+            </div>
+            <button
+                :class="{
                 'btn-like':true,
                  active: checked.some(el=>el===item.id)
               }"
-              :disabled="!checked.some(el=>el===item.id) && checked.length >= 5"
-              @click="$emit('voteCheck', item.id)"
-          >
-            투표하기
-          </button>
+                :disabled="!checked.some(el=>el===item.id) && checked.length >= 5"
+                @click="$emit('voteCheck', item.id)"
+            >
+              투표하기
+            </button>
+          </div>
         </div>
       </swiper-slide>
-
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
@@ -120,20 +120,21 @@ export default {
     background: url("../assets/images/pop_like_on.png") no-repeat center/cover;
   }
 }
+
 .user-title {
-  margin-top: 28px;
+  margin-top: 24px;
   font-size: 28px;
-  line-height: 36px;
+  line-height: 35px;
   letter-spacing: -2px;
   color: #333333;
   font-weight: bold;
   text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: auto;
+/*  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  word-wrap: break-word;
+  word-wrap: break-word;*/
   height: 72px;
 }
 .user-info {
@@ -142,7 +143,7 @@ export default {
   align-items: center;
   font-size: 24px;
   font-weight: 500;
-  margin-top: 12px;
+  margin-top: 10px;
   line-height: 1;
   color: #999;
 }
