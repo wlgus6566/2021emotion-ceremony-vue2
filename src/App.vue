@@ -12,7 +12,6 @@
            src="@/assets/images/bn-floating-hover.png"
            alt="플로팅 배너">
     </div>
-
     <div id="wrap">
       <div class="section1">
         <img src="@/assets/images/kv.jpg" alt="키비주얼">
@@ -438,7 +437,7 @@ export default {
     async getMemberContents(){
       try {
         const response = await getMemberContents()
-        console.log('getMemberContents', response.data )
+        console.log('getMemberContents', response )
         this.fightNum = response.id;
       } catch (e) {
         console.log('getMemberContents', e)
@@ -681,8 +680,8 @@ body.modal-open {
   }
 
   .swiper-container {
-    background: #000;
-    background: url("./assets/images/slide_bg.jpg") no-repeat center/cover;
+/*    background: #000;
+    background: url("./assets/images/slide_bg.jpg") no-repeat center/cover;*/
   }
 
 }

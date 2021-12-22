@@ -167,7 +167,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/seungjin.kang.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/seungjin-kang.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">사업대표</span>
@@ -184,7 +184,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/sungsoo.oh.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/sungsoo-oh.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CX본부<br/>본부장</span>
@@ -201,7 +201,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/yonggu.kim.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/yonggu-kim.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CX본부<br/>PD</span>
@@ -218,7 +218,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/seojin.kim.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/seojin-kim.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CM본부<br/>팀원</span>
@@ -235,7 +235,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/jisun.jang.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/jisun-jang.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CM본부<br/>팀원</span>
@@ -252,7 +252,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/sungmin.kim.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/sungmin-kim.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CD1본부<br/>팀원</span>
@@ -269,7 +269,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/chaerim.byun.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/chaerim-byun.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CM본부<br/>팀원</span>
@@ -286,7 +286,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/mijoo.choi.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/mijoo-choi.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CD1본부<br/>리더</span>
@@ -303,7 +303,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/seungwon.jeong.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/seungwon-jeong.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CD1본부<br/>팀원</span>
@@ -321,7 +321,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/hyoungwook.kim.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/hyoungwook-kim.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CT본부<br/>책임리더</span>
@@ -339,7 +339,7 @@
       <div class="inner">
         <div class="top-area">
         <span class="top-area-img">
-          <img src="http://party.emotion.co.kr/img/211216/seungki.min.jpg"/>
+          <img src="http://party.emotion.co.kr/img/211216/seungki-min.jpg"/>
         </span>
           <div class="top-area-desc">
             <span class="department">CT본부<br/>팀원</span>
