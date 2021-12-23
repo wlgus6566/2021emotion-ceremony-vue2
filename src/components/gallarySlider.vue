@@ -88,6 +88,13 @@
         </span>
       </div>
     </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide13.png"/>
+        </span>
+      </div>
+    </swiper-slide>
 
     <!-- navigation -->
     <div class="swiper-button-prev swiper-btn-prev" slot="button-prev"></div>

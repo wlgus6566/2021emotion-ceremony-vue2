@@ -367,7 +367,7 @@ export default {
       allMemberList: [],
       words: {
         page: 1, // 현재페이지
-        size: 10, // 한페이지에 뿌려줄 갯수
+        size: 5, // 한페이지에 뿌려줄 갯수
         sort: 'what', // 유저가 고른 탭의 value
         list: [], // 백엔드에서 받은 글 목록
         total: 2000, // 백엔드에서 받은 전체 글의 갯수
