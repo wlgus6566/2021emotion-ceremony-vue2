@@ -18,16 +18,16 @@
               <span class="name">{{item.name}} </span>
               <span class="position">{{ item.level }}</span>
             </div>
-            <button
-                :class="{
-                'btn-like':true,
-                 active: checked.some(el=>el===item.id)
-              }"
-                :disabled="!checked.some(el=>el===item.id) && checked.length >= 5"
-                @click="$emit('voteCheck', item.id)"
-            >
-              투표하기
-            </button>
+<!--            <button-->
+<!--                :class="{-->
+<!--                'btn-like':true,-->
+<!--                 active: checked.some(el=>el===item.id)-->
+<!--              }"-->
+<!--                :disabled="!checked.some(el=>el===item.id) && checked.length >= 5"-->
+<!--                @click="$emit('voteCheck', item.id)"-->
+<!--            >-->
+<!--              투표하기-->
+<!--            </button>-->
           </div>
         </div>
       </swiper-slide>

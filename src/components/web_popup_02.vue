@@ -7,9 +7,9 @@
     <div class="modal-card">
       <div class="modal-header">
         <p><strong>5장</strong>을 투표해주세요</p>
-        <button :disabled="!voteDisabled" :class="{'vote-btn':true, active : voteDisabled}" @click="vote">
+<!--        <button :disabled="!voteDisabled" :class="{'vote-btn':true, active : voteDisabled}" @click="vote">
           투표하기<span>(<em>{{checked.length}}</em>/<em>5</em>)</span>
-        </button>
+        </button>-->
       </div>
       <div class="pop3-content">
         <div class="content-left">
@@ -85,7 +85,7 @@ export default {
         this.checked.push(id);
       }
     },
-    async vote(){
+/*    async vote(){
       try {
         const requestBody = this.checked.map(item => {
           return {
@@ -107,7 +107,7 @@ export default {
       } finally {
         console.log('postVotes finally')
       }
-    },
+    },*/
 
   },
 }

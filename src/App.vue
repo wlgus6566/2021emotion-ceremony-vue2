@@ -6,9 +6,9 @@
         <img class="ceo-img" src="@/assets/images/bn-floating-nor@2x.png" alt="플로팅 배너">
       </div>
       <img class="message"
-           @mouseenter= "doMouseToggle"
-           @mouseleave= "doMouseToggle"
-           v-on:click = "goToVote"
+           @mouseenter="doMouseToggle"
+           @mouseleave="doMouseToggle"
+           v-on:click="goToVote"
            src="@/assets/images/bn-floating-hover.png"
            alt="플로팅 배너">
     </div>
@@ -34,15 +34,15 @@
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)"  v-on:click="MoveScroll($event)">
+            <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
               <img src="@/assets/images/tab-04.png" alt="section6">
             </a>
           </li>
-          <li v-if="this.awardList.first.length === 0">
+<!--          <li v-if="this.awardList.first.length === 0">
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
               <img src="@/assets/images/tab-05.png" alt="section7">
             </a>
-          </li>
+          </li>-->
           <li>
             <a href="javascript:void(0)" v-on:click="MoveScroll($event)">
               <img src="@/assets/images/tab-06.png" alt="section8">
@@ -89,121 +89,321 @@
                   <span v-else-if="item['after']">코로나가 끝나면 </span>
                   <span v-else-if="item['hobby']">위드코로나 추천 취미로 </span>
                   <span v-else-if="item['want']">이모션글로벌에게 </span>
-                  <strong class="answer">{{item[words.sort]}}</strong>
+                  <strong class="answer">{{ item[words.sort] }}</strong>
                   <span v-if="item['what']"> 였다</span>
                   <span v-else-if="item['after']"> 하고 싶다</span>
                   <span v-else-if="item['hobby']"> 추천한다</span>
                   <span v-else-if="item['want']"> 바란다</span>
                 </p>
                 <span class="desc">
-                  <span class="department">{{item.department}}</span>
-                  <span class="name">{{item.name}}</span>
+                  <span class="department">{{ item.department }}</span>
+                  <span class="name">{{ item.name }}</span>
                 </span>
               </li>
             </ul>
-            <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options" /><!-- @paginate="myCallback" -->
+            <pagination v-model="words.page" :per-page="words.size" :records="words.total" :options="words.options"/>
+            <!-- @paginate="myCallback" -->
           </div>
         </div>
       </div>
       <div class="section3">
         <div class="container">
           <img src="@/assets/images/tit-02.png" alt="tit-02">
-          <div class="flip-wrap" >
+          <div class="flip-wrap">
             <MbtiItem :items="mbtilist"/>
           </div>
         </div>
       </div>
 
       <div class="section4">
-        <img src="@/assets/images/tit-03.png" alt="tit-03" />
-        <Section4 :randomPhoto="randomPhoto"/>
+        <img src="@/assets/images/tit-03-end.png" alt="tit-03"/>
+        <ul class="end-mbti-list container">
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/junhan-lee.jpg"/>
+            <span class="department">CP1본부</span>
+            <span class="name">이준한 본부장</span>
+            <span class="mbti">GOLD</span>
+            <p>GOLD 오직 금한돈만을 노리는 댄디한 성격</p>
+          </li>
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/doeun-kim.jpg"/>
+            <span class="department">CT본부</span>
+            <span class="name">김도은 팀원</span>
+            <span class="mbti">INTP</span>
+            <p>대체로 남 일에 관심이 없음</p>
+          </li>
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/yeji-shin.jpg"/>
+            <span class="department">CP1본부</span>
+            <span class="name">신예지 팀원</span>
+            <span class="mbti">ISFP</span>
+            <p>조용한 관종</p>
+          </li>
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/harin-kim.jpg"/>
+            <span class="department">CP1본부</span>
+            <span class="name">김하린 리더</span>
+            <span class="mbti">ENFP</span>
+            <p>대가리꽃밭 하이텐션</p>
+          </li>
+
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/junhyung-kim.jpg"/>
+            <span class="department">CM본부</span>
+            <span class="name">김준형 책임리더</span>
+            <span class="mbti">ENFJ</span>
+            <p>모든 것을 자기 자신과 연결시키려고 한다.</p>
+          </li>
+        </ul>
+        <!--        <Section4 :randomPhhoto="randomPhoto"/>-->
         <div class="btn-wrap">
-          <button @click="showModalFc" :disabled="voteFlag">투표하고 선물 100% 받기</button>
+          <button class="end-btn" @click="showModalFc">사진 다시보기</button>
         </div>
       </div>
 
       <div class="section5">
-        <img src="@/assets/images/tit-04.png" alt="tit-04" />
-        <Section5 :randomMember="randomMember"/>
-        <div class="btn-wrap">
-          <button @click="showThirdModalFc" :disabled="voteBest">최강자 뽑으러 가기</button>
-        </div>
+        <img src="@/assets/images/tit-04-end.png" alt="tit-04"/>
+        <ul class="end-mbti-list container">
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/yoonhye-kim.jpg"/>
+            <span class="department">SP본부</span>
+            <span class="name">김윤혜 리더</span>
+          </li>
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/hyunsu-kim.jpg"/>
+            <span class="department">CM본부</span>
+            <span class="name">김현수 본부장</span>
+          </li>
+          <li>
+            <img src="http://party.emotion.co.kr/img/211216/kiyoung-lee.jpg"/>
+            <span class="department">CT본부</span>
+            <span class="name">이기영 본부장</span>
+          </li>
+        </ul>
+
+        <!--        <Section5 :randomMember="randomMember"/>
+                <div class="btn-wrap">
+                  <button @click="showThirdModalFc" :disabled="voteBest">최강자 뽑으러 가기</button>
+                </div>-->
       </div>
 
       <div class="section6">
         <div class="container">
-          <img src="@/assets/images/tit-05.png" alt="tit-05" />
+          <img src="@/assets/images/tit-05.png" alt="tit-05"/>
           <gallary-slider/>
         </div>
       </div>
 
-      <div class="section7" v-if="this.awardList.first.length === 0">
+<!--      <div class="section7" v-if="this.awardList.first.length === 0">
         <div class="container" v-bind:style="!fightFlag ? 'margin-bottom: 200px' : ''">
-          <img src="@/assets/images/tit-06.png" alt="tit-06" />
-          <count-down />
+          <img src="@/assets/images/tit-06.png" alt="tit-06"/>
+          <count-down/>
           <div style="position: relative; margin-bottom: 200px" v-if="fightFlag">
-            <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="number" />
+            <img style="margin-top: 120px;" src="@/assets/images/img-number.png" alt="number"/>
             <span class="fight-number">{{ this.fightNum }}</span>
           </div>
         </div>
-      </div>
+      </div>-->
 
-      <div class="section8" v-if="this.awardList.first.length === 0">
-        <img src="@/assets/images/img-luckydraw.png" alt="luckydraw" />
-      </div>
+      <!--      <div class="section8" v-if="this.awardList.first.length === 0">
+              <img src="@/assets/images/img-luckydraw.png" alt="luckydraw" />
+            </div>-->
 
-      <div v-if="this.awardList.first.length > 0" class="section8" style="position: relative;">
+      <section class="section8 section10" style="position: relative;">
         <img src="@/assets/images/img-luckydraw-con-0.png" alt="luckydraw" style="position: absolute; z-index: -1;"/>
 
         <div class="container">
-          <img src="@/assets/images/img-luckydraw-con-1.png" alt="luckydraw" style="margin-bottom: 60px;" />
+          <img src="@/assets/images/img-luckydraw-con-1.png" alt="luckydraw" style="margin-bottom: 60px;"/>
           <ul class="award-list first">
             <li class="list-item">
               <img class="gift-img" src="@/assets/images/img-luckydraw-goods-1.png" alt="luckydraw"/>
-              <img :src="imgUrl('img/211216/' + (this.awardList.first[0].idImage) + '.jpg')"/>
-              <p class="department">{{this.awardList.first[0] ? this.awardList.first[0].department : ''}}</p>
-              <p class="name">{{this.awardList.first[0] ? this.awardList.first[0].name : ''}} {{this.awardList.first[0] ? this.awardList.first[0].level : ''}}</p>
+              <img src="http://party.emotion.co.kr/img/211216/hanbyeol-kim.jpg"/>
+              <p class="department">CP2본부</p>
+              <p class="name">김한별 팀원</p>
             </li>
           </ul>
 
-          <img src="@/assets/images/img-luckydraw-con-2.png" alt="luckydraw" />
+          <img src="@/assets/images/img-luckydraw-con-2.png" alt="luckydraw"/>
           <ul class="award-list second">
-            <li class="list-item" v-for="(item, index) in awardList.second" :key="index">
+            <li class="list-item">
               <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
-              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
-              <p class="department">{{item.department}}</p>
-              <p class="name">{{item.name}} {{item.level}}</p>
+              <img src="http://party.emotion.co.kr/img/211216/heejin-han.jpg"/>
+
+              <p class="department">인사총무팀</p>
+              <p class="name">한희진 팀원</p>
+            </li>
+            <li class="list-item">
+              <img class="gift-img" src="@/assets/images/img-luckydraw-goods-2.png" alt="luckydraw"/>
+              <img src="http://party.emotion.co.kr/img/211216/yeji-shin.jpg"/>
+
+              <p class="department">CP1본부</p>
+              <p class="name">신예지 팀원</p>
             </li>
           </ul>
 
-          <img src="@/assets/images/img-luckydraw-con-3.png" alt="luckydraw" />
+          <img src="@/assets/images/img-luckydraw-con-3.png" alt="luckydraw"/>
           <ul class="award-list third">
-            <li class="list-item" v-for="(item, index) in awardList.third" :key="index">
-              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
-              <p class="department">{{item.department}}</p>
-              <p class="name">{{item.name}} {{item.level}}</p>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/hyunsu-kim.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">김현수 본부장</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/jungeun-kim.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">김정은 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/jimin-lee.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">이지민 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/hyeonsoo-jang.jpg"/>
+
+              <p class="department">CX본부</p>
+              <p class="name">장현수 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/seongjae-ryu.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">류성재 팀원</p>
             </li>
           </ul>
 
-          <img src="@/assets/images/img-luckydraw-con-4.png" alt="luckydraw" />
+          <img src="@/assets/images/img-luckydraw-con-4.png" alt="luckydraw"/>
           <ul class="award-list fourth">
-            <li class="list-item" v-for="(item, index) in awardList.fourth" :key="index">
-              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
-              <p class="department">{{item.department}}</p>
-              <p class="name">{{item.name}} {{item.level}}</p>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/hansin-cho.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">조한신 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/suji-lee.jpg"/>
+
+              <p class="department">CD1본부</p>
+              <p class="name">이수지 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/raeseob-park.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">박래섭 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/hyunmi-song.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">송현미 리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/youngsun-kim.jpg"/>
+
+              <p class="department">인사총무팀</p>
+              <p class="name">김영선 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/jieun-kim.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">김지은 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/jinah-yun.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">윤진아 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/haeeun-jung.jpg"/>
+
+              <p class="department">재무팀</p>
+              <p class="name">정해은 리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/junhyung-kim.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">김준형 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/hyuneui-lee.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">이현의 선임리더</p>
             </li>
           </ul>
 
-          <img src="@/assets/images/img-luckydraw-con-5.png" alt="luckydraw" />
+          <img src="@/assets/images/img-luckydraw-con-5.png" alt="luckydraw"/>
           <ul class="award-list fifth">
-            <li class="list-item" v-for="(item, index) in awardList.fifth" :key="index">
-              <img :src="imgUrl('img/211216/' + item.idImage + '.jpg')"/>
-              <p class="department">{{item.department}}</p>
-              <p class="name">{{item.name}} {{item.level}}</p>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/yunbin-kim.jpg"/>
+
+              <p class="department">CP1본부</p>
+              <p class="name">김윤빈 선임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/wonsuk-suk.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">석원석 책임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/suji-jeong.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">정수지 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/soohyeon-lee.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">이수현 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/hyuneui-lee.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">이현의 선임리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/Yuhyun-Park.jpg"/>
+
+              <p class="department">CD1본부</p>
+              <p class="name">박유현 리더</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/minju-kim.jpg"/>
+
+              <p class="department">CM본부</p>
+              <p class="name">김민주 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/sungmin-kim.jpg"/>
+
+              <p class="department">CD1본부</p>
+              <p class="name">김성민 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/junyeol-park.jpg"/>
+
+              <p class="department">CP2본부</p>
+              <p class="name">박준열 팀원</p>
+            </li>
+            <li class="list-item">
+              <img src="http://party.emotion.co.kr/img/211216/doha-kim.jpg"/>
+
+              <p class="department">CT본부</p>
+              <p class="name">김도하 리더</p>
             </li>
           </ul>
         </div>
-      </div>
+      </section>
 
       <div class="section9">
         <div class="section9-container">
@@ -213,9 +413,10 @@
               <div class="respect">
                 <img class="respect-sticker" src="@/assets/images/img-respect.png" alt="respect"/>
                 <span id="photo-img" class="photo-img">
-                <img :src="this.imgUrl('img/211216/' + this.users.idImage + '.jpg')" @load="loadedImage" alt="user img"/>
+                <img :src="this.imgUrl('img/211216/' + this.users.idImage + '.jpg')" @load="loadedImage"
+                     alt="user img"/>
                 </span>
-               <div class="user-info">
+                <div class="user-info">
                   <p class="department">{{ this.users.department }}</p>
                   <p class="user-name">
                     <span class="name">{{ this.users.name }} </span>
@@ -230,11 +431,10 @@
             <img src="@/assets/images/save-btn.png" alt="btn"/>
           </div>
           <div class="container">
-            <img src="@/assets/images/img-respect-end.png" alt="respect" />
+            <img src="@/assets/images/img-respect-end.png" alt="respect"/>
           </div>
         </div>
       </div>
-
 
 
       <div>
@@ -260,7 +460,7 @@ import {
   getAllPhoto,
   getVotes
 }
-from '@/api';
+  from '@/api';
 import {commonMethods} from "@/utils/common-methods";
 import MbtiItem from '@/components/MbtiItem'
 import Loading from "@/components/Loading";
@@ -361,9 +561,9 @@ export default {
           mbti: "other",
         }
       ],
-      mbtiPhoto : [],
-      randomPhoto : [],
-      randomMember : [],
+      mbtiPhoto: [],
+      randomPhoto: [],
+      randomMember: [],
       allMemberList: [],
       words: {
         page: 1, // 현재페이지
@@ -372,7 +572,7 @@ export default {
         list: [], // 백엔드에서 받은 글 목록
         total: 2000, // 백엔드에서 받은 전체 글의 갯수
         options: {
-          texts: { count: '' },
+          texts: {count: ''},
           chunk: 5 // pagination 의 max 페이지 수
         },
       },
@@ -395,16 +595,16 @@ export default {
     this.getVotes();
   },
   watch: {
-    'words.page'(){
+    'words.page'() {
       this.getSurvey()
     },
-    'words.sort'(){
+    'words.sort'() {
       this.words.page = 1;
       this.getSurvey()
     },
   },
   methods: {
-    ...mapMutations( ['SWIPER_IDX']),
+    ...mapMutations(['SWIPER_IDX']),
     async getVotes() {
       const response = await getVotes();
 
@@ -422,20 +622,20 @@ export default {
       }
       this.outputImage = await this.$html2canvas(el, options);
     },
-    async getAllPhoto(){
+    async getAllPhoto() {
       try {
         const response = await getAllPhoto()
-        this.mbtiPhoto = response.filter(el=>el.physicalFileName);
+        this.mbtiPhoto = response.filter(el => el.physicalFileName);
         console.log(this.mbtiPhoto);
         this.SWIPER_IDX(this.mbtiPhoto[0].id)
-        this.randomPhoto = this.mbtiPhoto.filter((el, i)=>i<10);
+        this.randomPhoto = this.mbtiPhoto.filter((el, i) => i < 10);
       } catch (e) {
         console.log('getAllPhoto', e)
       } finally {
         console.log('getAllPhoto finally')
       }
     },
-    async getMemberContents(){
+    async getMemberContents() {
       try {
         const response = await getMemberContents()
         console.log('getMemberContents', response)
@@ -447,7 +647,7 @@ export default {
         console.log('getMemberContents finally')
       }
     },
-    async getMemberCardImage(){
+    async getMemberCardImage() {
       try {
         const response = await getMemberCardImage()
         this.users = response;
@@ -460,7 +660,7 @@ export default {
 
       }
     },
-    async getAllMemberCardImage(){ //이글리안 3명투표
+    async getAllMemberCardImage() { //이글리안 3명투표
       try {
         const response = await getAllMemberCardImage()
         console.log('getAllMemberCardImage', response);
@@ -478,7 +678,7 @@ export default {
 
         console.log(this.awardList)
 
-        this.randomMember = this.allMemberList.filter((el, i)=>i<10);
+        this.randomMember = this.allMemberList.filter((el, i) => i < 10);
         console.log(this.randomMember)
       } catch (e) {
         console.log('getAllMemberCardImage', e)
@@ -486,12 +686,12 @@ export default {
         console.log('getAllMemberCardImage finally')
       }
     },
-    async getSurvey(){
+    async getSurvey() {
       try {
         this.startSpinner();
         const response = await getSurvey({
-          page : this.words.page,
-          sort : this.words.sort,
+          page: this.words.page,
+          sort: this.words.sort,
         })
         console.log('getSurvey', response);
         this.words.list = response.surveyResponseList;
@@ -503,10 +703,10 @@ export default {
         this.endSpinner();
       }
     },
-    async getMbti(){
+    async getMbti() {
       try {
         const response = await getMbti({
-               mbti : "esfp"
+              mbti: "esfp"
             }
         )
         console.log('getMbti', response);
@@ -518,7 +718,7 @@ export default {
         console.log('getMbti finally')
       }
     },
-    async postVotes(){
+    async postVotes() {
       try {
         const response = await postVotes()
         console.log('postVotes', response)
@@ -557,17 +757,17 @@ export default {
     },
     MoveScroll(e) {
       const locate = e.target.alt;
-      const locateSection =  document.querySelector(`.${locate}`);
+      const locateSection = document.querySelector(`.${locate}`);
       const targetBoxOffset = locateSection.offsetTop;
-      window.scrollTo({top:targetBoxOffset, left:0, behavior:'smooth'});
+      window.scrollTo({top: targetBoxOffset, left: 0, behavior: 'smooth'});
     },
     goToVote() {
-      const voteLocation =  document.querySelector('.section4');
-      window.scrollTo({top:voteLocation.offsetTop, left:0, behavior:'smooth'});
+      const voteLocation = document.querySelector('.section4');
+      window.scrollTo({top: voteLocation.offsetTop, left: 0, behavior: 'smooth'});
     },
     showFloating() {
       const Section4Offset = document.querySelector('.section4').offsetTop;
-      if ( window.scrollY > Section4Offset) {
+      if (window.scrollY > Section4Offset) {
         this.showFloat = true;
       } else {
         this.showFloat = false;
@@ -577,13 +777,13 @@ export default {
       this.saveImage();
     },
     timeOut() {
-      setTimeout(function (){
+      setTimeout(function () {
         const date = new Date();
         this.now = date.getDay() + ":" + date.getMinutes() + ":"
             + date.getSeconds();
         console.log(date.getDay() + ":" + date.getMinutes() + ":"
             + date.getSeconds())
-      },1000);
+      }, 1000);
     },
     voted() {
       this.voteFlag = true;
@@ -605,111 +805,134 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0 auto;
 }
+
 body.modal-open {
   overflow: hidden;
 }
+
 .container {
   width: 1280px;
   min-width: 1280px;
   margin: 0 auto;
   box-sizing: border-box;
 }
+
 #wrap {
   width: 100%;
   min-width: 1540px;
   margin: 0 auto;
   background: #000;
 }
+
 #wrap > div {
   min-width: 1280px;
   overflow: hidden;
   text-align: center;
 }
+
 #wrap .section1 {
   background: #0e0e10;
 }
+
 #wrap .section2 {
   background: #e3e1e6;
   padding-bottom: 200px;
 }
+
 #wrap .section2 .top-container {
   width: 1540px;
   overflow: hidden;
   margin: 0 auto;
 }
+
 #wrap .section2 .survey-container {
   background: #fff;
   margin: 0 auto;
 }
+
 #wrap .section3 {
   background: #d7d7db;
   padding-bottom: 200px;
 }
+
 #wrap .section3 .flip-wrap {
-/*  width: 66.6%;*/
+  /*  width: 66.6%;*/
   margin: 0 auto;
   margin-top: 100px;
 }
+
 #wrap .section4 {
   padding-bottom: 100px;
   background: #e3e1e6;
 }
+
 #wrap .section5 {
   padding-bottom: 200px;
   background: #d7d7db;
+
   .btn-wrap {
     margin-top: 80px;
   }
 }
+
 #wrap .section6 {
   margin: 0 auto;
   padding-bottom: 214px;
   background: #e3e1e6;
+
   .container {
     width: 1540px;
     min-width: 1540px;
   }
 
   .swiper-container {
-/*    background: #000;
-    background: url("./assets/images/slide_bg.jpg") no-repeat center/cover;*/
+    /*    background: #000;
+        background: url("./assets/images/slide_bg.jpg") no-repeat center/cover;*/
   }
 
 }
+
 #wrap .section7 {
   background: #212024;
 }
+
 #wrap .section8 {
-  background:#18171A;
+  background: #18171A;
   margin: 0 auto;
 }
 
 #wrap .section9 {
   background: #0e0d0f;
   margin: 0 auto;
+
   .respect {
     position: absolute;
     top: 3%;
     left: 0;
     width: 100%;
     height: 100%;
+
     .container {
       margin-bottom: 0;
     }
   }
+
   .section9-container {
     max-width: 1920px;
     margin: 0 auto;
     width: 100%;
+
     .top-img-wrap {
       position: relative;
       background: url("./assets/images/bg_respect_top.png") center/cover;
+
       .respect-save {
         width: 88%;
         margin: 0 auto;
         text-align: center;
         margin-top: 4%;
       }
+
       .respect-sticker {
         position: absolute;
         left: 22.5%;
@@ -726,11 +949,13 @@ body.modal-open {
         transform: translateX(-50%);
         top: calc(52.3% + 71px);
         letter-spacing: -2px;
+
         .department {
           font-size: 60px;
           line-height: 1;
           color: #dcdce5;
         }
+
         .user-name {
           margin-top: 30px;
           font-size: 90px;
@@ -739,6 +964,7 @@ body.modal-open {
           font-weight: bold;
         }
       }
+
       .photo-img {
         position: absolute;
         width: 38%;
@@ -749,17 +975,20 @@ body.modal-open {
         border-radius: 50%;
         overflow: hidden;
         box-sizing: border-box;
+
         img {
           border: 20px solid transparent;
           box-sizing: border-box;
           border-radius: 50%;
         }
-/*        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;*/
+
+        /*        background: url("../src/assets/images/frame.jpg") no-repeat center/cover;*/
         &:after {
-      /*    content: "";
-          display: block;
-          padding-bottom: 100%;*/
+          /*    content: "";
+              display: block;
+              padding-bottom: 100%;*/
         }
+
         img + img {
           position: absolute;
           top: 50%;
@@ -772,13 +1001,16 @@ body.modal-open {
       }
 
     }
+
     img {
       width: 100%;
     }
   }
 }
+
 .save-btn-area {
   position: relative;
+
   .save-btn {
     position: absolute;
     left: 36%;
@@ -786,11 +1018,13 @@ body.modal-open {
     width: 28%;
     height: 40%;
     opacity: 0;
+
     + img {
       margin-bottom: 151px;
     }
   }
 }
+
 .tapContainer {
   position: sticky;
   top: 0;
@@ -798,6 +1032,7 @@ body.modal-open {
   background: #000;
   margin: 0 auto;
   z-index: 1000;
+
   .taplist {
     display: flex;
     justify-content: space-between;
@@ -805,12 +1040,15 @@ body.modal-open {
     height: 80px;
     margin: 0 auto;
     align-items: center;
+
     li {
       color: #fff;
+
       a {
         display: inline-block;
         width: 100%;
         text-align: center;
+
         img {
           padding: 29px 0;
         }
@@ -820,18 +1058,19 @@ body.modal-open {
 }
 
 
-
 .wordsTab {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   width: 100%;
-  background:#7e7d80;
+  background: #7e7d80;
   padding: 0 59px;
   margin-top: 100px;
   box-sizing: border-box;
+
   li {
     input:checked + label {
       background: url("../src/assets/images/txt-tab-prs-01.png") no-repeat center center;
+
       &:before {
         content: "";
         position: absolute;
@@ -844,51 +1083,60 @@ body.modal-open {
         transform: translateX(-50%);
       }
     }
+
     position: relative;
     padding: 0 44px;
+
     label {
       position: relative;
       display: block;
       width: 185px;
       height: 28px;
       padding: 46px 0;
-      text-indent:-9999px;
+      text-indent: -9999px;
       background: url("../src/assets/images/txt-tab-nor-01.png") no-repeat center center;
     }
+
     input {
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      border:0;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
       text-indent: -9999em;
     }
+
     &:nth-child(2) {
       label {
         width: 183px;
         background: url("../src/assets/images/txt-tab-nor-02.png") no-repeat center center;
       }
+
       input:checked + label {
         background: url("../src/assets/images/txt-tab-prs-02.png") no-repeat center center;
       }
     }
+
     &:nth-child(3) {
       label {
         width: 240px;
         background: url("../src/assets/images/txt-tab-nor-03.png") no-repeat center center;
       }
+
       input:checked + label {
         background: url("../src/assets/images/txt-tab-prs-03.png") no-repeat center center;
       }
     }
+
     &:nth-child(4) {
       label {
         width: 284px;
         background: url("../src/assets/images/txt-tab-nor-04.png") no-repeat center center;
       }
+
       input:checked + label {
         background: url("../src/assets/images/txt-tab-prs-04.png") no-repeat center center;
       }
@@ -896,10 +1144,12 @@ body.modal-open {
   }
 
 }
+
 .wordsContainer {
   position: relative;
   padding: 51px 40px 61px;
   box-sizing: border-box;
+
   .wordsList {
     li {
       display: flex;
@@ -908,11 +1158,13 @@ body.modal-open {
       padding: 0 20px 0 30px;
       font-size: 26px;
       border-bottom: 1px solid #ccc;
+
       p {
         display: flex;
         justify-content: flex-start;
         flex: 1;
         text-align: left;
+
         .answer {
           max-width: 642px;
           text-align: left;
@@ -921,22 +1173,26 @@ body.modal-open {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+
           + span {
             margin-left: 5px;
           }
         }
+
         span {
           margin-right: 5px;
           text-align: left;
           color: #333;
         }
       }
+
       .desc {
         .department {
           display: inline-block;
           margin-left: 50px;
           color: #666;
         }
+
         .name {
           display: inline-block;
           margin-left: 50px;
@@ -959,49 +1215,61 @@ body.modal-open {
 }
 
 .pagination {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   margin-top: 22px;
 }
+
 .pagination li a {
-  padding:0 10px;
+  padding: 0 10px;
   font-size: 28px;
   color: #999;
   font-weight: normal;
 }
+
 .pagination li + li {
   margin-left: 30px !important;
 }
-.pagination li.active a{
+
+.pagination li.active a {
   color: #000;
   font-weight: bold;
 }
-.VuePagination__pagination-item-prev-chunk , .VuePagination__pagination-item-next-chunk {
+
+.VuePagination__pagination-item-prev-chunk, .VuePagination__pagination-item-next-chunk {
   display: none;
 }
+
 .VuePagination__pagination-item-prev-page,
-.VuePagination__pagination-item-next-page{
+.VuePagination__pagination-item-next-page {
   transform: translateY(-5px) !important;
 }
 
 .VuePagination__pagination-item-prev-page a {
   font-size: 0 !important;
-  padding: 0!important;
+  padding: 0 !important;
   display: inline-block;
   width: 10px;
   height: 16px;
   background: url('./assets/images/arrow-small-l.png') no-repeat center/cover;
 }
+
 .VuePagination__pagination-item-next-page a {
   font-size: 0 !important;
-  padding: 0!important;
+  padding: 0 !important;
   display: inline-block;
   width: 10px;
   height: 16px;
   background: url('./assets/images/arrow-small-r.png') no-repeat center/cover;
 }
-.pagination li + li {margin-left:10px;}
-.VuePagination__count {display:none}
+
+.pagination li + li {
+  margin-left: 10px;
+}
+
+.VuePagination__count {
+  display: none
+}
 
 .floating {
   position: fixed;
@@ -1016,6 +1284,7 @@ body.modal-open {
   transition: 0.4s;
   z-index: 999;
 }
+
 .floating.active {
   opacity: 1;
   visibility: visible;
@@ -1042,9 +1311,10 @@ body.modal-open {
   transform: translateY(0) scale(1);
   z-index: 2000;
   visibility: visible;
- /* animation: upDown 2s infinite;
-  animation-fill-mode : both;*/
+  /* animation: upDown 2s infinite;
+   animation-fill-mode : both;*/
 }
+
 /*@keyframes upDown {
   0% {
     transform: translateY(0);
@@ -1077,14 +1347,17 @@ body.modal-open {
   transform-origin: right bottom;
   cursor: pointer;
 }
+
 .floating .message.active {
   transform: translateY(0%) scale(1);
   opacity: 1;
   transition: 0.4s ease-in-out;
   visibility: visible;
 }
+
 .btn-wrap {
   margin-top: 100px;
+
   button {
     width: 640px;
     height: 120px;
@@ -1096,21 +1369,30 @@ body.modal-open {
     font-size: 0;
     text-indent: -9999em;
   }
+
   button.after {
     background-image: url("./assets/images/txt-btn-01.png");
     background-color: #666666;
   }
+
   :disabled {
+    margin-top: 20px;
     background-image: url("./assets/images/txt-btn-01.png");
     background-color: #666666;
   }
+
+  button.end-btn {
+    background-image: url("./assets/images/txt-btn-02-end.png");
+  }
 }
+
 .section4 {
   button {
     background-image: url("./assets/images/txt-btn-02.png");
   }
 }
-.fight-number  {
+
+.fight-number {
   position: absolute;
   font-size: 160px;
   font-weight: 900;
@@ -1120,13 +1402,17 @@ body.modal-open {
   transform: translate(-50%, -50%);
   letter-spacing: 0.02em;
 }
+
 .section10 {
   background: #18171a;
+
   .award-list {
     display: flex;
     justify-content: center;
+    text-align: center;
     padding: 60px 0;
     width: 100%;
+
     .list-item {
       position: relative;
       display: flex;
@@ -1164,9 +1450,11 @@ body.modal-open {
         line-height: 1;
       }
     }
+
     &.second {
       .list-item {
         margin: 0 60px;
+
         .gift-img {
           bottom: 16%;
           left: -23%;
@@ -1191,42 +1479,53 @@ body.modal-open {
         }
       }
     }
+
     &.third {
-      padding: 60px 0 0;
+      padding: 60px 0px;
       margin-bottom: 160px;
+
       .list-item {
         margin: 0 10px;
+
         img {
           width: 214px;
           height: 214px;
           border-radius: 50%;
         }
+
         .department {
           margin-top: 30px;
           font-size: 24px;
         }
+
         .name {
           margin-top: 10px;
           font-size: 30px;
         }
       }
     }
+
     &.fourth, &.fifth {
-      margin-bottom: 160px;
       flex-wrap: wrap;
       justify-content: center;
       padding: 0;
+      padding-bottom: 160px;
+
+
       .list-item {
         margin: 60px 10px 0;
+
         img {
           width: 214px;
           height: 214px;
           border-radius: 50%;
         }
+
         .department {
           margin-top: 30px;
           font-size: 24px;
         }
+
         .name {
           margin-top: 10px;
           font-size: 30px;
@@ -1236,4 +1535,54 @@ body.modal-open {
   }
 }
 
+.end-mbti-list {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 120px;
+  padding: 0 30px;
+
+  li {
+    width: 214px;
+  }
+
+  img {
+    width: 214px;
+    height: 214px;
+    border-radius: 50%;
+  }
+
+  .department {
+    display: block;
+    font-size: 24px;
+    line-height: 1;
+    color: #999;
+    font-weight: 500;
+    margin-top: 33px;
+  }
+
+  .name {
+    display: block;
+    font-size: 30px;
+    line-height: 1;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .mbti {
+    display: block;
+    font-size: 30px;
+    line-height: 1;
+    color: #e51f2f;
+    font-weight: 900;
+    margin-top: 10px;
+  }
+
+  p {
+    margin-top: 5px;
+    color: #999;
+    line-height: 34px;
+    font-size: 24px;
+  }
+}
 </style>
