@@ -74,6 +74,20 @@
         </span>
       </div>
     </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide11.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="inner">
+        <span>
+           <img src="@/assets/images/slide12.jpg"/>
+        </span>
+      </div>
+    </swiper-slide>
 
     <!-- navigation -->
     <div class="swiper-button-prev swiper-btn-prev" slot="button-prev"></div>
@@ -139,9 +153,7 @@ export default {
 .swiper-container {
   margin-top: 100px;
 }
-.swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
-  opacity: 1;
-}
+
 .swiper-button-prev, .swiper-button-next {
   width: 50px;
   height: 86px;

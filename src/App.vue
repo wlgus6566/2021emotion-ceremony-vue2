@@ -138,7 +138,7 @@
       </div>
 
       <div class="section7" v-if="this.awardList.first.length === 0">
-        <div class="container" v-bind:style="!fightFlag ? 'margin-bottom: 160px' : ''">
+        <div class="container" v-bind:style="!fightFlag ? 'margin-bottom: 200px' : ''">
           <img src="@/assets/images/tit-06.png" alt="tit-06" />
           <count-down />
           <div style="position: relative; margin-bottom: 200px" v-if="fightFlag">
@@ -503,17 +503,6 @@ export default {
         this.endSpinner();
       }
     },
-
-    /*async getRandomMemberTen(){
-      try {
-        const response = await getRandomMemberTen()
-        console.log('getRandomMemberTen', response)
-      } catch (e) {
-        console.log('getRandomMemberTen', e)
-      } finally {
-        console.log('getRandomMemberTen finally')
-      }
-    },*/
     async getMbti(){
       try {
         const response = await getMbti({
@@ -704,6 +693,9 @@ body.modal-open {
     left: 0;
     width: 100%;
     height: 100%;
+    .container {
+      margin-bottom: 0;
+    }
   }
   .section9-container {
     max-width: 1920px;
@@ -792,7 +784,7 @@ body.modal-open {
     left: 36%;
     top: 0;
     width: 28%;
-    height: 67%;
+    height: 40%;
     opacity: 0;
     + img {
       margin-bottom: 151px;
@@ -1074,7 +1066,7 @@ body.modal-open {
 .floating .message {
   position: absolute;
   width: 720px;
-  height: 520px;
+  height: 540px;
   min-width: 720px !important;
   left: -430px;
   top: -133px;

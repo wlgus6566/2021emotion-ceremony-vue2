@@ -8,9 +8,10 @@
           :showDays="false"
           @timeElapsed="timeElapsedHandler"></flip-countdown>
     </div>
-    <div v-else>
+    <div v-else style="position: relative">
       <img src="@/assets/images/img-onair.png" style="margin-top:120px;" alt="카운트 다운 끝" />
       <img src="@/assets/images/btn-fight.png" style="margin-top:52px;" alt="카운트 다운 끝" />
+      <a href="https://us06web.zoom.us/j/84714722589?pwd=aVlsMC9aaEdEUXlMcVhJWFBuU21KZz09" target="_blank" style="position: absolute; top:78%; left:30%; width: 40%; height: 24%; text-indent: -9999em; font-size: 0;">라이브 보러가기 FIGHT!</a>
     </div>
   </div>
 </template>
