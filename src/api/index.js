@@ -45,10 +45,6 @@ function postVotes(requestBody) {
   });
 }
 
-function getVotes() {
-    return instance.get('getVotes');
-}
-
 export {
   getMemberContents,
   getMemberCardImage,
@@ -57,6 +53,5 @@ export {
   getAllPhoto,
   getMbti,
   postVotes,
-    getVotes
 }
 
